@@ -398,16 +398,7 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-succesfully-synthesised-an-oleophobic-micrstructure-through-plasma-sputtering",
-          title: 'Succesfully synthesised an oleophobic micrstructure through plasma sputtering.',
-          description: "",
-          section: "News",},{id: "news-offered-a-phd-position-at-2d-quantum-materials-group-nims",
-          title: 'Offered a PhD position at 2D Quantum Materials Group, NIMS!',
-          description: "",
-          section: "News",},{id: "news-the-fluid-structure-interaction-project-has-been-green-lit",
-          title: 'The fluid-structure interaction project has been green-lit!',
-          description: "",
-          section: "News",},{id: "projects-project-1",
+            },},{id: "projects-project-1",
           title: 'project 1',
           description: "with background image",
           section: "Projects",handler: () => {
