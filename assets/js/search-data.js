@@ -17,7 +17,7 @@ ninja.data = [{
             window.location.href = "/blog/";
           },
         },{id: "nav-projects",
-          title: "Projects",
+          title: "projects",
           description: "Excuse the incompleteness of almost all of these. The files could not be uploaded to GitHub. These are the skeletal versions.",
           section: "Navigation",
           handler: () => {
