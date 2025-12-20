@@ -403,8 +403,8 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+            },},{id: "news-offered-a-phd-position-at-2d-quantum-materials-group-nims",
+          title: 'Offered a PhD position at 2D Quantum Materials Group, NIMS!',
           description: "",
           section: "News",},{id: "news-the-fluid-structure-interaction-project-has-been-green-lit",
           title: 'The fluid-structure interaction project has been green-lit!',
