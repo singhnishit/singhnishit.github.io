@@ -1,97 +1,88 @@
 - title: General Information
   type: map
   contents:
-    - name: Nishit Singh
-      value: NISHIT SINGH
+    - name: Name
+      value: Nishit Singh
     - name: Date of Birth
-      value: 14th March 1879
+      value: 27th October, 2004
     - name: Languages
-      value: English, German
+      value: English, Hindi
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: MSc, Department of Physics
+      institution: Birla Institute of Technology and Science, Pilani
+      year: 2027
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - Coursework - Quantum Mechanics (I and II), Quantum Optics, Solid State Physics, Electromagnetism (I and II)
+        - Activities - Physics Association, Student Researcher
+        
+    - title: B.E., Department of Mechanical Engineering
+      institution: Birla Institute of Technology and Science, Pilani
+      year: 2027
       description:
-        - Description 1.
-        - Description 2.
+        - Coursework - Material Science, Mechanics of Solids, Operations Management
+        - Activities - Student Researcher
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Student Research Intern
+      institution: Council of Scientific and Industrial Research
+      year: Jun 2024 - Aug 2024
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Synthesis of temperature resistant oleophobic surfaces
+        - Perfect score on term thesis, ranked #1 out of 104 student interns
+  
+    - title: Undergraduate Researcher
+      institution: Department of Mechanical Engineering, BITS Pilani
+      year: Aug 2025
       description:
-        - Description 1.
-        - Description 2.
+        - Novel energy harvesting methods through energised solenoids
+        - FEA solver for transient forces on 2D structures
+        - Analysis of strength of composite materials
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+    - title: Research Associate, Leadership Committee
+      institution: Postman Innovation Lab
+      year: 2023-2025
       description:
+        - Physical simulations on transient thermodynamic systems
+        - Modelling of complex systems (Agent Based Modelling)
+        - Organisation of a nationwide API Day, in collaboration with SF and Bangalore offices
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
+    - title: Student Research Associate
+      institution: Kalipatnapu Extended Reality Labs
+      year: 2023-2024
+      description:
+        - Procedural rendering of 3D environments
+        - Generative models for the generation of 3D assets using LGM
 
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
-
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
+    - title: Student Founder
+      institution: Pilani Innovation and Entrepreneurship Development Society (PIEDS)
+      year: Jan 2024 - July 2024
+      description:
+        - Decentralised resource accumulation models
+        - Supply chain establishment for international import/export markets
 
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Quantum Information
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - Cryogenic housing systems
+        - Cryogenic electronics
+        - Fault tolerant quantum computers
+    - title: Quantum Computing
       items:
-        - Description 1.
-        - Description 2.
+        - Quantum machine learning
+        - Post quantum encryption
+    - title: Engineering
+      items:
+        - FEA solvers with quantum speed-ups
+        - Energy harvesting methods
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <u>Hobbies:</u> Lawn tennis, Reading.
