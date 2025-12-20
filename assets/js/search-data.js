@@ -398,12 +398,10 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
-          description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2/";
             },},{id: "news-offered-a-phd-position-at-2d-quantum-materials-group-nims",
+          title: 'Offered a PhD position at 2D Quantum Materials Group, NIMS!',
+          description: "",
+          section: "News",},{id: "news-offered-a-phd-position-at-2d-quantum-materials-group-nims",
           title: 'Offered a PhD position at 2D Quantum Materials Group, NIMS!',
           description: "",
           section: "News",},{id: "news-the-fluid-structure-interaction-project-has-been-green-lit",
