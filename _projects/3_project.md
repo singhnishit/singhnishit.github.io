@@ -2,7 +2,7 @@
 layout: page
 title: Simulating lightly interacting particles
 description: An implementation of the Ising Model in Python. 
-img: assets/img/7.jpg
+img: assets/img/Frame 7.jpg
 redirect: https://github.com/singhnishit/ising-model
 importance: 1
 category: work
