@@ -1,10 +1,11 @@
 ---
 layout: page
-title: project 4
-description: another without an image
-img:
-importance: 3
-category: fun
+title: Agent based modelling of crowds
+description: Modelling evacuation strategies for crowds. 
+img: assets/img/Frame 3.jpg
+redirect: https://github.com/singhnishit/abm-evacuation-simulation
+importance: 4
+category: work
 ---
 
 Every project has a beautiful feature showcase page.
