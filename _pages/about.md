@@ -9,9 +9,9 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>f20221317[at]pilani[dot]bits-pilani[dot]ac[dot]in</p>
-    <p>+91 (70429-00[six, five, seven]</p>
-    <p>New Delhi / Pilani</p>
+    <p>(Taken shortly after "Picture Day" at my college)</p>
+    <p></p>
+    <p></p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
@@ -33,6 +33,6 @@ I have previously worked at the [Council of Scientific and Industrial Research, 
 
 I have had stints at the [Postman Innovation Laboratory]() and [Kalipatnapu Extended Reality Labs]() where I worked on quantum mechanical and complex system simulations and procedural and generative 3D model creation respectively. A more exhaustive list of projects can be found on my [GitHub](https://github.com/singhnishit) as well as my CV.
 
-I like to read a lot, with Infinite Jest (David Foster Wallace) being my current favourite book, with Catch-22 (Joseph Heller) and the Dune saga (Frank Herbert) being close runner ups. I take great joy in reading science fiction. I am proud of my half marathon time, and the fact that I can run a half marathon at all. I enjoy tennis and cooking with my mother. I enjoy feasting with my friends. 
+I like to read a lot, with Infinite Jest (David Foster Wallace) being my current favourite book, with Catch-22 (Joseph Heller) and the Dune saga (Frank Herbert) being close runner ups. I take great joy in reading science fiction. I also like to run.
 
 If you would like to say hi, I am most responsive on [email](f20221317@pilani.bits-pilani.ac.in). 
