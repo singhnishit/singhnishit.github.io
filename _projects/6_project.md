@@ -1,10 +1,11 @@
 ---
 layout: page
-title: project 6
-description: a project with no image
-img:
-importance: 4
-category: fun
+title: Counterfeiter and Curator AI?
+description: Implementing a CycleGAN 
+img: assets/img/Frame 2.jpg
+redirect: https://github.com/singhnishit/cycleGAN-implementation
+importance: 6
+category: work
 ---
 
 Every project has a beautiful feature showcase page.
