@@ -1,10 +1,11 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
-img: assets/img/1.jpg
-importance: 3
-category: fun
+title: Transient heat flow
+description: Modelling temperature gradients on 2D structures 
+img: assets/img/Frame 4.jpg
+redirect: https://github.com/singhnishit/2d-heat-distribution
+importance: 5
+category: work
 ---
 
 Every project has a beautiful feature showcase page.
