@@ -398,8 +398,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-offered-a-phd-position-at-2d-quantum-materials-group-nims",
-          title: 'Offered a PhD position at 2D Quantum Materials Group, NIMS!',
+            },},{id: "news-succesfully-synthesised-an-oleophobic-micrstructure-through-plasma-sputtering",
+          title: 'Succesfully synthesised an oleophobic micrstructure through plasma sputtering.',
           description: "",
           section: "News",},{id: "news-offered-a-phd-position-at-2d-quantum-materials-group-nims",
           title: 'Offered a PhD position at 2D Quantum Materials Group, NIMS!',
