@@ -407,9 +407,9 @@ ninja.data = [{
           section: "News",},{id: "news-the-fluid-structure-interaction-project-has-been-green-lit",
           title: 'The fluid-structure interaction project has been green-lit!',
           description: "",
-          section: "News",},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
+          section: "News",},{id: "projects-predicting-faulty-cnc-machining-processes",
+          title: 'Predicting faulty CNC machining processes',
+          description: "Utilising regression models to prevent bad jobs.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
             },},{id: "projects-project-2",
