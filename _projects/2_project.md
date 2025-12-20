@@ -1,11 +1,11 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image and giscus comments
-img: assets/img/3.jpg
+title: Implementing an LGM
+description: Generating 3D models from 2D images 
+img: assets/img/Frame 5.jpg
+redirect: https://github.com/singhnishit/3d-generative
 importance: 2
 category: work
-giscus_comments: true
 ---
 
 Every project has a beautiful feature showcase page.
