@@ -412,9 +412,9 @@ ninja.data = [{
           description: "Utilising regression models to prevent bad jobs.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
-            },},{id: "projects-project-2",
-          title: 'project 2',
-          description: "a project with a background image and giscus comments",
+            },},{id: "projects-implementing-an-lgm",
+          title: 'Implementing an LGM',
+          description: "Generating 3D models from 2D images",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project/";
             },},{id: "projects-simulating-lightly-interacting-particles",
