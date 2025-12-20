@@ -427,9 +427,9 @@ ninja.data = [{
           description: "Modelling evacuation strategies for crowds.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_project/";
-            },},{id: "projects-project-5",
-          title: 'project 5',
-          description: "a project with a background image",
+            },},{id: "projects-transient-heat-flow",
+          title: 'Transient heat flow',
+          description: "Modelling temperature gradients on 2D structures",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_project/";
             },},{id: "projects-project-6",
