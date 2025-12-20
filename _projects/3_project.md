@@ -1,10 +1,10 @@
 ---
 layout: page
-title: project 3 with very long name
-description: a project that redirects to another website
+title: Simulating lightly interacting particles
+description: An implementation of the Ising Model in Python. 
 img: assets/img/7.jpg
-redirect: https://unsplash.com
-importance: 3
+redirect: https://github.com/singhnishit/ising-model
+importance: 1
 category: work
 ---
 
