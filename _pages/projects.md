@@ -1,11 +1,11 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Excuse the incompleteness of almost all of these. The files could not be uploaded to GitHub. These are the skeletal versions.
 nav: true
 nav_order: 3
-display_categories: [work, fun]
+display_categories: [GitHub]
 horizontal: false
 ---
 
