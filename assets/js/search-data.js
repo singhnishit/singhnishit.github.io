@@ -432,9 +432,9 @@ ninja.data = [{
           description: "Modelling temperature gradients on 2D structures",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_project/";
-            },},{id: "projects-project-6",
-          title: 'project 6',
-          description: "a project with no image",
+            },},{id: "projects-counterfeiter-and-curator-ai",
+          title: 'Counterfeiter and Curator AI?',
+          description: "Implementing a CycleGAN",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_project/";
             },},{id: "projects-project-7",
