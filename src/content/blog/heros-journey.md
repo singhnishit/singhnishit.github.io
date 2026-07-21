@@ -36,6 +36,8 @@ Recently, I've been pulled into media which discusses language; call it an adole
 
 -imaginal disk, magdalena bay
 
+-the meyerowitz stories, noah baumbach 
+
 [^1]: [1] Linguistic relativity (or the Sapir-Whorf hypothesis) asserts that language influences worldview or cognition. 
 
 [^2]: [2] And unnlearning.
