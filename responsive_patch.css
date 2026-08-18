@@ -2,8 +2,8 @@
 @media (max-width: 768px) {
     .container {
         width: 100%;
-        max-width: 771px;
-        padding: 20px;
+        max-width: 100%;
+        padding: 12px;
         border-width: 2px;
         min-height: auto;
     }
@@ -42,7 +42,7 @@
         width: 100%;
         height: auto;
         aspect-ratio: 16/9;
-        object-fit: cover;
+        object-fit: contain;
     }
     
     /* Blog responsiveness */
