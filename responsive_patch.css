@@ -83,7 +83,6 @@ a {
     margin-right: -10px;
 }
 .list-item:hover {
-    background-color: #ffffff;
     transform: translateY(-2px);
 }
 .item-image img {
