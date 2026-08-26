@@ -15,6 +15,7 @@ const { title, subtitle, pageTitle } = Astro.props;
     <title>{pageTitle ?? title} — Nishit Singh</title>
     <link rel="stylesheet" href={import.meta.env.BASE_URL + "style.css"}>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="icon" type="image/x-icon" href={import.meta.env.BASE_URL + "favicon.gif"} />
     <ViewTransitions />
 </head>
 <body>
