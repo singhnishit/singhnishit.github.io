@@ -613,6 +613,13 @@ h2 {
     max-width: 600px;
 }
 
+.blog-post-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    box-sizing: border-box;
+}
+
 .blog-post-body h1,
 .blog-post-body h2,
 .blog-post-body h3 {
