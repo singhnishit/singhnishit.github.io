@@ -8,7 +8,7 @@ thumbnail: "/assets/Home,-Land-4.jpg"
 ---
 
 ![Homeland, by Nilima Sheikh](/assets/Home,-Land-4.jpg)
-"Fractured Skies", Nilima Shah. Exhibited at MoMA from September 27th. This exhibition will have her ruminations on Kashmir - an Indian state riddled with violence, displacement, loss, and the enduring power of human connection.
+***"Fractured Skies", Nilima Shah. Exhibited at MoMA from September 27th. This exhibition will have her ruminations on Kashmir - an Indian state riddled with violence, displacement, loss, and the enduring power of human connection.***
 
 My motivations have been weathering a storm this past year, owing to the general post-teenage-tradeoff of "what I am good at" versus "what I believe to be important". I began this year, with a gallant quantum-computer-shaped puff in my chest, ready to work on quantum algorithms and complexity theory. I realised later my universe was not written by [Frank Herbert](https://en.wikipedia.org/wiki/Frank_Herbert), and we were understanding "intelligence" before interstellar travel. I decided to work on human-AI interactions, how they could disturb the social structures we have grown. Quickly after, my close friend urged me to publish in machine learning after discussing with me his work. A few raggedy papers and a research fellowship later, METR released findings from an investigation into "rogue" AI behaviour, urging me to reconsider my work. I write this post after a weeklong delirium induced by rationalist thought experiments, OpenAI's twitter handle, and papers from 2017. 
 
