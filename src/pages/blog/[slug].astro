@@ -1,0 +1,97 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog');
+    return posts.map(post => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+<Layout title={post.data.title} pageTitle={post.data.title}>
+    <!-- Dots divider -->
+    <div class="dots-divider">
+        .........................................................................................................<br>
+        .........................................................................................................<br>
+        .........................................................................................................<br>
+        .........................................................................................................
+    </div>
+
+    <div class="blog-post">
+        <div class="blog-post-header">
+            <h2 class="blog-post-title">{post.data.title}</h2>
+            <p class="blog-post-meta">
+                {post.data.date}
+                {post.data.readTime && <span> | {post.data.readTime} read</span>}
+                {post.data.pinned && <span class="blog-pinned-tag"> | PINNED</span>}
+            </p>
+        </div>
+
+        <div class="blog-post-body">
+            <Content />
+        </div>
+
+        <div class="color-blocks" style="margin-top: 40px;">
+            <span class="block red"></span>
+            <span class="block blue long"></span>
+            <span class="block cyan"></span>
+            <span class="block yellow"></span>
+            <span class="block magenta"></span>
+            <span class="block green"></span>
+        </div>
+
+        <p class="blog-back-link"><a href={import.meta.env.BASE_URL + "blog"}>← back to blog</a></p>
+    </div>
+
+    <script>
+        document.addEventListener("astro:page-load", () => {
+            const refs = document.querySelectorAll("sup a[data-footnote-ref]");
+            let sidenoteCount = 0;
+            refs.forEach(ref => {
+                const fnId = ref.getAttribute("href")?.substring(1);
+                if (!fnId) return;
+                
+                const fnElement = document.getElementById(fnId);
+                if (fnElement) {
+                    const sidenote = document.createElement("div");
+                    sidenote.className = "sidenote";
+                    if (sidenoteCount % 2 === 0) sidenote.classList.add("right");
+                    else sidenote.classList.add("left");
+                    sidenoteCount++;
+                    
+                    // Copy contents
+                    sidenote.innerHTML = fnElement.innerHTML;
+                    
+                    // Remove the backref link (↩)
+                    const backref = sidenote.querySelector("[data-footnote-backref]");
+                    if (backref) backref.remove();
+
+                    // Prefix with asterisk inside the p tag so it stays inline
+                    const pInside = sidenote.querySelector("p");
+                    if (pInside) {
+                        pInside.innerHTML = "* " + pInside.innerHTML;
+                    } else {
+                        sidenote.innerHTML = "* " + sidenote.innerHTML;
+                    }
+
+                    // Find the parent paragraph and make it relative to anchor the absolute sidenote
+                    const p = ref.closest("p, blockquote, li") as HTMLElement;
+                    if (p) {
+                        p.style.position = "relative";
+                        p.appendChild(sidenote);
+
+                        // Align vertically with the footnote reference
+                        const pRect = p.getBoundingClientRect();
+                        const refRect = ref.getBoundingClientRect();
+                        sidenote.style.top = (refRect.top - pRect.top) + "px";
+                    }
+                }
+            });
+        });
+    </script>
+</Layout>

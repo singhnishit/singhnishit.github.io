@@ -1,0 +1,233 @@
+---
+import { getCollection } from 'astro:content';
+import { ViewTransitions } from 'astro:transitions';
+const projects = await getCollection('projects');
+projects.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const research = await getCollection('research');
+const misc = await getCollection('misc');
+const blog = await getCollection('blog');
+blog.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const resolveImage = (path) => {
+    if (path.startsWith('http')) return path;
+    let cleanPath = path.replace(/^\/?public\//, '').replace(/^\//, '').replace(/\/$/, '');
+    return import.meta.env.BASE_URL + cleanPath;
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishit Singh</title>
+    <link rel="stylesheet" href={import.meta.env.BASE_URL + "style.css"}>
+    <link rel="icon" type="image/x-icon" href={import.meta.env.BASE_URL + "favicon.gif"} />
+    <!-- KaTeX CSS for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <ViewTransitions />
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Header Section -->
+        <header>
+            <div class="header-left">
+                <h1>Nishit Singh <span class="pronouns">(he / they)</span></h1>
+            </div>
+            <div class="header-right">
+                <a href="https://www.image2url.com/r2/default/documents/1783075729781-20525c4c-b6ed-4f39-9e4a-4c8c6fe0a125.pdf">cv</a> / <a href={import.meta.env.BASE_URL + "blog"}>blog</a> / <a href="https://github.com/singhnishit">github</a>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="dots-divider">
+            .........................................................................................................<br>.........................................................................................................<br>.........................................................................................................<br>.........................................................................................................
+        </div>
+
+        <!-- Introduction Section -->
+        <section class="intro">
+            <div class="intro-text">
+                <div class="intro-main-text">
+                    <p>hey, i'm nishit. i study physics and engineering at the <a href="https://en.wikipedia.org/wiki/BITS_Pilani">birla institute of technology
+                            and science (bits), pilani</a>. currently, i'm interested in the unconventional ways physics
+                        interacts with ai, specifically world models, interpretability, and the likes.</p>
+
+                    <p>i am currently a research fellow under <a href="https://x.com/paraschopra?lang=en">paras chopra</a>, studying transformers. through my recent involvment with <a href="https://www.smolproject.com">dr. kokil jaidka</a> at nus,
+                        singapore, i have been interested in trustworthy machine learning frameworks. i've also previously been associated with the <a href="https://en.wikipedia.org/wiki/Council_of_Scientific_and_Industrial_Research">csir national thin film
+                            laboratory</a> (summer research intern), <a href="https://www.linkedin.com/company/bits-pilani-postman-lab/?originalSubdomain=in">postman</a> and the <a
+                            href="https://www.linkedin.com/company/kalipatnapu-arvr-lab/?originalSubdomain=in">kalipatnapu extended reality lab</a>, and have had the privilege to be guided by the mechanical engineering department, bits pilani, 
+                            in my exploits studying finite element methods. in what seems
+                        like another life, i worked with <a href="https://pieds-bitspilani.org">pieds, bits pilani</a> as a student founder.</p>
+
+                    <p>ive also found joy working with the film-making club (fmac) and the cinema and literature club
+                        (matrix) at bits.</p>
+                </div>
+
+                <div class="intro-bottom-text">
+                    <div class="color-blocks">
+                        <span class="block red long"></span>
+                        <span class="block green"></span>
+                        <span class="block blue"></span>
+                        <span class="block cyan"></span>
+                        <span class="block yellow"></span>
+                        <span class="block magenta"></span>
+                    </div>
+
+                    <p class="small-text">i (hopefully will) try to write about what i find interesting on my blog. read <a href="https://singhnishit.github.io/singhnishit/blog/">here</a>.</p>
+                </div>
+            </div>
+
+            <div class="intro-image">
+                <div class="intro-main-image">
+                    <img src={import.meta.env.BASE_URL + "assets/bojack.png"} class="bojack" alt="bojack">
+                    <div class="color-blocks-top">
+                        <span class="block red"></span>
+                        <span class="block magenta"></span>
+                        <span class="block yellow"></span>
+                        <span class="block cyan"></span>
+                        <span class="block green"></span>
+                        <span class="block blue long"></span>
+                    </div>
+                    <div class="image-placeholder">
+                        <img src={import.meta.env.BASE_URL + "assets/pfp2.png"} alt="Nishit Singh">
+                    </div>
+                </div>
+
+                <div class="intro-caption">
+                    <p class="caption">picture from downtown seoul, taken promptly before inhaling an entire hot-pot after a long conference.</p>
+                    <div class="contact-info">
+                        <p>27/02/2004</p>
+                        <p>new delhi, india</p>
+                        <p>f20221317[at]pilani.bits-pilani.ac.in</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section class="list-section">
+            <h2>research</h2>
+
+            {research.map((paper) => (
+                <div class="list-item">
+                    <div class="item-image">
+                        {paper.data.thumbnail
+                            ? <img src={resolveImage(paper.data.thumbnail)} alt={paper.data.title} />
+                            : <img src="https://via.placeholder.com/160x100/e0e0e0/888888?text=Thumbnail" alt="Research thumbnail" />
+                        }
+                    </div>
+                    <div class="item-content">
+                        <h3>{paper.data.title}</h3>
+                        <p class="author">{paper.data.authors}</p>
+                        <p class="date">{paper.data.venue}</p>
+                        {paper.data.link && <a href={paper.data.link}>{paper.data.linkLabel}</a>}
+                    </div>
+                </div>
+            ))}
+
+            <div class="color-blocks">
+                <span class="block blue"></span>
+                <span class="block yellow"></span>
+                <span class="block red long"></span>
+                <span class="block magenta"></span>
+                <span class="block green"></span>
+                <span class="block cyan"></span>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="list-section">
+            <h2>projects</h2>
+
+            {projects.map((project) => (
+                <div class="list-item">
+                    <div class="item-image">
+                        {project.data.thumbnail
+                            ? <img src={resolveImage(project.data.thumbnail)} alt={project.data.title} />
+                            : <img src="https://via.placeholder.com/160x100/e0e0e0/888888?text=Thumbnail" alt="Project thumbnail" />
+                        }
+                    </div>
+                    <div class="item-content">
+                        <h3>{project.data.title}</h3>
+                        <p class="author">{project.data.authors}</p>
+                        <p class="date">{project.data.date}</p>
+                        {project.data.link && <a href={project.data.link}>{project.data.linkLabel}</a>}
+                    </div>
+                </div>
+            ))}
+
+            <div class="color-blocks">
+                <span class="block red"></span>
+                <span class="block green"></span>
+                <span class="block blue"></span>
+                <span class="block cyan long"></span>
+                <span class="block yellow"></span>
+                <span class="block magenta"></span>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="list-section">
+            <h2>blog</h2>
+
+            {blog.length > 0 ? blog.map((post) => (
+                <div class="list-item">
+                    <div class="item-image">
+                        {post.data.thumbnail
+                            ? <img src={resolveImage(post.data.thumbnail)} alt={post.data.title} />
+                            : <img src="https://via.placeholder.com/160x100/e0e0e0/888888?text=Thumbnail" alt="Blog thumbnail" />
+                        }
+                    </div>
+                    <div class="item-content">
+                        <h3><a href={`${import.meta.env.BASE_URL}blog/${post.slug}`}>{post.data.title}</a></h3>
+                        <p class="date">{post.data.date}</p>
+                    </div>
+                </div>
+            )) : <p style="font-size: 12px; color: #767877;">no posts yet.</p>}
+
+            <div class="color-blocks">
+                <span class="block red"></span>
+                <span class="block magenta"></span>
+                <span class="block yellow"></span>
+                <span class="block cyan"></span>
+                <span class="block green"></span>
+                <span class="block blue long"></span>
+            </div>
+        </section>
+ <!-- Miscellaneous Section -->
+        <section class="list-section">
+            <h2>miscellaneous</h2>
+
+            {misc.map((item) => (
+                <div class="list-item">
+                    <div class="item-image">
+                        {item.data.thumbnail
+                            ? <img src={resolveImage(item.data.thumbnail)} alt={item.data.title} />
+                            : <img src="https://via.placeholder.com/160x100/e0e0e0/888888?text=Thumbnail" alt="Misc thumbnail" />
+                        }
+                    </div>
+                    <div class="item-content">
+                        <h3>{item.data.title}</h3>
+                        <p class="author">{item.data.authors}</p>
+                        <p class="date">{item.data.description}</p>
+                        {item.data.link && <a href={item.data.link}>{item.data.linkLabel}</a>}
+                    </div>
+                </div>
+            ))}
+
+            <div class="color-blocks">
+                <span class="block red long"></span>
+                <span class="block green"></span>
+                <span class="block blue"></span>
+                <span class="block cyan"></span>
+                <span class="block yellow"></span>
+                <span class="block magenta"></span>
+            </div>
+        </section>
+
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gallery — Nishit Singh</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400&display=swap');
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #EEEEEE;
+        }
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            container-type: inline-size;
+        }
+        .gallery-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* Header overlay to cover SVG text and provide interactive links */
+        .header-overlay {
+            position: absolute;
+            right: 20.7%; 
+            top: 3.93%;
+            background-color: #EEEEEE;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 300;
+            z-index: 10;
+            white-space: nowrap;
+            font-size: 1.45cqw;
+            padding: 0 0.5cqw;
+            margin-right: -0.5cqw;
+        }
+        .header-overlay a {
+            color: black;
+            text-decoration: underline;
+        }
+        .header-overlay a:hover {
+            text-decoration: none;
+        }
+        @media (min-width: 1280px) {
+            .header-overlay {
+                font-size: 18px;
+                padding: 0 6px;
+                margin-right: -6px;
+            }
+        }
+    </style>
+    <ViewTransitions />
+</head>
+<body>
+    <div class="gallery-container">
+        <!-- Interactive header overlay over the static SVG header -->
+        <div class="header-overlay">
+            <a href={import.meta.env.BASE_URL}>home</a> / <a href={import.meta.env.BASE_URL + "blog"}>blog</a> / <a href="#">cv</a> / <a href="#">github</a>
+        </div>
+        
+        <!-- The exact PDF rendered as a high-quality SVG vector graphic -->
+        <img src={import.meta.env.BASE_URL + "assets/gallery_full.svg"} class="gallery-svg" alt="Gallery Canvas" />
+    </div>
+</body>
+</html>
