@@ -4,14 +4,14 @@ date: "September, 2026"
 readTime: "5 min"
 pinned: false
 teaser: "got"
-thumbnail: "assets/Home,-Land-4.jpg"
+thumbnail: "/assets/Home,-Land-4.jpg"
 ---
 
 My motivations have been weathering a storm this past year, owing to the general post-teenage-tradeoff of "what I am good at" versus "what I believe to be important". I began this year, with a gallant quantum-computer-shaped puff in my chest, ready to work on quantum algorithms and complexity theory. I realised later my universe was not written by [Frank Herbert](https://en.wikipedia.org/wiki/Frank_Herbert), and we were understanding "intelligence" before interstellar travel. I decided to work on human-AI interactions, how they could disturb the social structures we have grown. Quickly after, my close friend urged me to publish in machine learning after discussing with me his work. A few raggedy papers and a research fellowship later, METR released findings from an investigation into "rogue" AI behaviour, urging me to reconsider my work. I write this post after a weeklong delirium induced by rationalist thought experiments, OpenAI's twitter handle, and papers from 2017. 
 
 *This blogpost was not written by, proofread by, ideated via, or polished through LLMs. As a result, it may contain typos, expletives, and perhaps unsavoury references to internet culture. I urge the reader(s) to think of these artifacts as features, not bugs* :D
 
-![Homeland, by Nilima Sheikh](assets/Home,-Land-4.jpg)
+![Homeland, by Nilima Sheikh](/assets/Home,-Land-4.jpg)
 
 ### Am I a crackpot?
 
