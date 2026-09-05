@@ -30,18 +30,15 @@ This is **bold**, *italic*, ~~strikethrough~~, and `inline code`.
 
 https://www.google.com
 
-![A beautiful image](public/assets/beam_animation-ezgif.com-crop.gif)
+![A beautiful image](/assets/beam_animation-ezgif.com-crop.gif)
 ![External image](https://commons.wikimedia.org/wiki/File:Tallinna_vanalinn_p%C3%A4ikeset%C3%B5usu_ajal.jpg)
 
-![Funny GIF](/images/test.gif)
-<a href="public/assets/beam_animation-ezgif.com-crop.gif" target="_blank">
-    <img src="public/assets/beam_animation-ezgif.com-crop.gif" alt="Huge equation">
-</a>
-<a href="/images/animation.gif" target="_blank">
-    <img src="/images/animation.gif" alt="Animation">
+<a href="/assets/beam_animation-ezgif.com-crop.gif" target="_blank">
+    <img src="/assets/beam_animation-ezgif.com-crop.gif" alt="Huge equation">
 </a>
 
-[^1]: [1] Linguistic relativity (or the Sapir-Whorf hypothesis) asserts that language influences worldview or cognition. ![A beautiful image](public/assets/beam_animation-ezgif.com-crop.gif)
+
+[^1]: [1] Linguistic relativity (or the Sapir-Whorf hypothesis) asserts that language influences worldview or cognition. ![A beautiful image](/assets/beam_animation-ezgif.com-crop.gif)
 
 [^2]: [2] And unnlearning.
 
