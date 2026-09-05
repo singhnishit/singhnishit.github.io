@@ -2,7 +2,7 @@
 title: "i am slightly scared :/"
 date: "September, 2026"
 readTime: "10 min"
-pinned: true
+pinned: false
 teaser: "got"
 thumbnail: "public/assets/chart-5-2.png"
 ---
