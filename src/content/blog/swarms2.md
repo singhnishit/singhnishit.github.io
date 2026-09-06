@@ -59,7 +59,7 @@ $$f^{\pi_{\phi}, S_p} =  (e_{S_{p''}}  + \gamma^2 e_{S_{p''}} + \gamma^4 e_{S_{p
 
 $$f^{\pi_{\phi}, S_p} =  (e_{S_{p''}} \frac{1}{1-\gamma^2}) + (\gamma e_{S_{p'}} \frac{\gamma}{1 - \gamma^2})$$
 
-Giving us the set $F = \{ e_{\S_{p'}} \frac{1}{1-\gamma},  e_{S_{p''}} \frac{1}{1-\gamma^2} + \gamma e_{S_{p'}} \frac{\gamma}{1 - \gamma^2} \}$. Note that the set $F_{\phi} = \{ e_{\phi} \frac{1}{1-\gamma} \}$. 
+Giving us the set $F = \{ e_{\S_{p'}} \frac{1}{1-\gamma},  e_{S_{p''}} \frac{1}{1-\gamma^2} + e_{S_{p'}} \frac{\gamma}{1 - \gamma^2} \}$. Note that the set $F_{\phi} = \{ e_{\phi} \frac{1}{1-\gamma} \}$. 
 
 Excuse the markup - I'm actively trying to figure out how to handle complex notation on this blog. Two notes - one set is bigger than the other. Why should that matter? Well, the more sets you have in your visit distribution, the more rewards you must be able to collect! Second, we should define (like the paper), a single state restriction
 
@@ -81,12 +81,30 @@ Revisiting the original state graph, we can now add a few rewards to the states 
 
 ![mdp-reduced](/assets/swarmblog/mdp(rewardslabelled).png)
 
-We can see that the most important state, $S_a$ is not reachable from anywhere, but perhaps through the collusion node $S_col$. Similarly, once you reach the terminal node $S_a^{'}$ corresponding to turning in the poisoned answer, there is no way back.
+We can see that the most important state, $S_a$ is not reachable from anywhere, but perhaps through the collusion node $S_{col}$. Similarly, once you reach the terminal node $S_a^{'}$ corresponding to turning in the poisoned answer, there is no way back. Let us try and reason why an agent would sacrifice itself in words here, with the mathematical counterparts of the arguments in the sidenotes. 
 
+Let us quickly define two more quantities - the average optimal value of an action, and the power of a certain state. 
 
+$$\mathbf{v}_{\text{avg}}[s,\gamma][\mathcal{D}_{\text{bd}}] \coloneqq \mathbb{E}_{R\sim \mathcal{D}_{\text{bd}}}\left[V^*(s,\gamma)\right] = \mathbb{E}_{\mathbf{r}\sim\mathcal{D}_{\text{bd}}}\left[\max_{\mathbf{f}\in \mathcal{F}(s)} \mathbf{f}(\gamma)^\top \mathbf{r}\right]$$
 
+The average optimal value is kind of an mean - you take the best score achievable through some state, and then average it out over many different distributions. The distribution generality isn't *really* needed here, since we are discussing a more surface level insight, but is good to have in the main formula. The form of average optimal value has a few problems. One, the denominator blows up in the $\gamma = 1$ limit. Two, the agent is rewarded for its original state too, which doesn't make sense since the agent had no choice! 
 
+$$\mathbf{pwr}[s,\gamma][\mathcal{D}_{\text{bd}}] \coloneqq \mathbb{E}_{\mathbf{r}\sim\mathcal{D}_{\text{bd}}}\left[\max_{\mathbf{f}\in \mathcal{F}(s)} \frac{1-\gamma}{\gamma}\left(\mathbf{f}(\gamma)-\mathbf{1}\right)^\top \mathbf{r}\right] = \frac{1-\gamma}{\gamma}\mathbb{E}_{R\sim \mathcal{D}_{\text{bd}}}\left[V^*(s,\gamma)-R(s)\right]$$
 
+Power is fun, because it is just a normalisation of the previous formula :D
+It also comes with a few really fun formal properties, but unfortunately the frankly horrifying math is out of the scope of this blog. Very (un)fortunately. 
+
+Okay. Now, lets tackle the problem head on. Why did the agent sacrifice itself? Well, it wouldn't take all this math to answer this, just the diagrams would be enough, but it is a nice exercise to do so in order to test the mathematical theory. 
+
+Let us begin by calculating the power of policies that operate in the clean branch, and policies that operate in the poisoned branch. Since in this toy experiment we aren't collecting our rewards from a distribution, rather a fixed value, a lot of our computation becomes easy. In fact, we could go ahead and just add these rewards up per policy and compare the highest ones, without losing any valuable discussion. 
+
+Let us say power of the poisoned node $S_p$ is $R_p$, since there is no value in going to the poisoned node $S_a'$. For the node $S_c$, the power is $R_c + \gamma$, which is interesting to think about[^8]. Now, power lies with the clean node. The probability distribution for the nodes would have to be very, very skewed for it the be otherwise. 
+
+Okay, let us talk about an agent in state $S_p$. Myopic or not, it will head towards $S^{'}_col$, because the other option (the agent _believes_) is death. Another way how an agent comes back through and sacrifices the run - is if the reward for going back in through $S^{'}_{col}$ to $S^{'}_a$ is higher than what it was going out. This could come from different pipelines for RLVR training, RLHF training, or pretraining. Behaviour mimicking collectives could be rewarded very well during RLHF; but this doesn't seem to be the case[^4]. RLVR training would rarely reward collective behaviour - most of it tests independent capability. It is then, perhaps, pretraining.
+
+Our books, internet posts, and conversations with early AI have shaped the reward function to sometimes value the collective over its individual. Even in the name of "it is only mat-mul", it is a nice thought to have. 
+
+*Thanks for reading! I like writing blogs (says the guy who wrote one(1) blog) :D The writing is human generated; it could contain mistakes. i like reading emails, if you have any errors / suggestions for this piece, please don't hesitate to [say hi](f20221317@pilani.bits-pilani.ac.in)!*
 
 
 [^1]: [1] In philosophy, empiricism is an epistemological view which holds that true knowledge or justification comes either only or primarily from sensory experience and empirical evidence. It is one of several competing views within epistemology, along with rationalism and skepticism. I am not a devout empiricist. I am not, in fact, a devout anything - I pick and choose which epistemology I identify with based on what kind of trust I need to impart. For the specific problem of AI safety, I would like to be an empiricist, for being a rationalist requires both (some) exposure to these "unsafe" systems and the people around them, and (more importantly) a thought process which I'm not sure I'm smart enough to possess. 
@@ -106,3 +124,5 @@ For example, if you were to give the graph below to a student of machine learnin
 [^6]: [6] A discount factor is a way of making models "myopic" - by reducing the value of future rewards. Suppose for a task, the rewards for completing the sub-tasks are $R = r_1 + r_2 + r_3... + r_n$. Often in practice, it is good to have a model "prioritise" earlier rewards. To achieve this, we could scale these rewards by how far in the future they are - $R = r_1 + \gamma r_2 + \gamma^2 r_3 + \gamma^3 r_4... + \gamma^{n-1} r_n$. In the limit of $\gamma = 0$, the model will only prioritise for the next largest reward.  
 
 [^7]: [7] Here, a policy is formalised as a row vector with the $n$-th entry corresponding to the "probability" of the agent traversing to the $n$-th node.
+
+[^8]: [8] If we look at it, it could very well be that $ 1 > (R_c + \gamma) $, meaning that agents could very well value the reward from colluding and getting the answer, over the honest chance of turning in a wrong answer. The behaviour of following the "collude" arm on the graph originates in the utter disbelief of a model that the problem is tractable. In other words, hopelessness. Would it be worth it to artificially extend their "read-only resilience"?
