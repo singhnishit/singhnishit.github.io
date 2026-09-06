@@ -646,9 +646,13 @@ h2 {
 }
 
 /* KaTeX math block spacing */
+
 .blog-post-body .katex-display {
     margin: 20px 0;
+    max-width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
+    box-sizing: border-box;
 }
 
 .blog-back-link {
