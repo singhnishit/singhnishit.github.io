@@ -647,21 +647,21 @@ h2 {
 
 /* KaTeX math block spacing */
 
+/* Display equations */
 .blog-post-body .katex-display {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    margin: 24px 0;
-    text-align: center;
-    overflow-x: auto;
-    overflow-y: hidden;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 28px 0 !important;
+    text-align: center !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
     box-sizing: border-box;
 }
 
 .blog-post-body .katex-display .katex {
-    font-size: 1.15em;
+    font-size: 1.25em !important;
 }
-
 .blog-back-link {
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
