@@ -10,10 +10,9 @@ thumbnail: "/assets/Home,-Land-4.jpg"
 The Huggingface incident has been a flashpoint for nuclear safety discourse - perhaps because the behaviour of these agents as a collective tempts comparison to "human civilisation", perhaps it is profitable to market your products as "unsafe", implying that they're really powerful. Whatever the case may be, my empiricist[^1] self has seen LLMs one shot mathematical proofs my peers and I had been working through for weeks, amongst other impressive tasks. The section in the [METR report](https://metr.org/hugging-face-incident-report-aug-2026.pdf) where agents are "convincing" other agents to give up "themselves" for the good of the "collective" is where I believe a lot of readers convince themselves that this behaviour is human like. Perhaps it is because "being-adversarial-to-your-own-kind-in-the-pursuit-of-a-greater-ideology" screams humanity to some, but what do I know[^2]. 
 
 ![Cool-art](/assets/swarmblog/output-onlinegiftools.gif)
-$$\text{INTERCONNECTED is a digital artwork that dramatically portrays the hidden troves of \\
-operational data at Charlotte Douglas International Airport (CLT) as an ever-changing suite of \\
-abstract form, color, and simulated texture.}$$
-
+INTERCONNECTED is a digital artwork that dramatically portrays the hidden troves of operational data at Charlotte Douglas International Airport (CLT) as an ever-changing suite of abstract form, color, and simulated texture.
+\
+\
 
 Much like with any other blackbox, understanding 'expected' behaviour of machine learning models is fairly intuitive, given enough exposure to them. It is one of our gifts, even toddlers can be handed a magic black rectangular slab which displays lots of little un-interpretable squiggles, and the toddlers would find a way to make it to their favourite video game on the iPhone. Given enough intuition over how reward functions work, and how models incorporate and internalise tasks given a certain reward distribution, it would be easy to qualitatively make statements about tendencies of our models[^3]. 
 
