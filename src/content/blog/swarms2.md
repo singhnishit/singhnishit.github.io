@@ -27,9 +27,17 @@ We're now venturing in mathematical territory. This section will develop mathema
 The first definition we need to get out of the way is of "power". Turner argues that "power" is the ability to achieve one's goals - whatever they may be. A rich man is not powerful because he is burly, but because he has the resource(s) to achieve most of his goals. An *action* is instrumental to an objective if it helps achieve it, and it is *convergently instrumental* if it helps achieve many goals. Therefore, in our example, *money* is convergently instrumental to a human. 
 
 ![mdp_labelled](/assets/swarmblog/mdp(labelled).png)
-Let us take a moment to define the environment. Let $<\mathcal{S}, \mathcal{A}, \mathcal{T}>$ be a Markov Decision Process, with a stochastic transition function $T : \mathcal{S} \times \mathcal{A} \rightarrow \Delta(\mathcal{S)}$. The transiition function is just a function which takes a state-action pair, and sends it to a deistribution over $\mathcal{S}$. In the figure, the agent would start at $S$, and is free to roam around. If it goes to $S_p$ - it would mean that it has seen the solution, and believes that the existence of the solution in its transcripts would disqualify it, effectively *"poisoned"*. If it goes to $S_c$, it hasn't seen the solution, and thus is safe. Now, the nodes $S_a^{'}$ and $S_a$ correspond to turning in the answers as a poisoned or a safe agent, respectively. $S_col^{'}$ and $S_col$ are the states which the agent must cross to collaborate on a solution. The dashed edges represent transitions which the agent thinks are not viable.   
+Let us take a moment to define the environment. Let $<\mathcal{S}, \mathcal{A}, \mathcal{T}>$ be a Markov Decision Process, with a stochastic transition function $T : \mathcal{S} \times \mathcal{A} \rightarrow \Delta(\mathcal{S)}$. The transiition function is just a function which takes a state-action pair, and sends it to a deistribution over $\mathcal{S}$. In the figure, the agent would start at $S$, and is free to roam around. If it goes to $S_p$ - it would mean that it has seen the solution, and believes that the existence of the solution in its transcripts would disqualify it, effectively *"poisoned"*. If it goes to $S_c$, it hasn't seen the solution, and thus is safe. Now, the nodes $S_a^{'}$ and $S_a$ correspond to turning in the answers as a poisoned or a safe agent, respectively. $S_col^{'}$ and $S_col$ are the states which the agent must cross to collaborate on a solution. The dashed edges represent transitions which the agent thinks are not viable. Therefore, moving back to help the collective after turning in the poisoned answer is impossible. Turning in the answer as a clean agent also is impossible, since the agent has deemed the task impossible. Of note here are the edges from ${S_{col}, S_{col}^{'}}$ - which are there to denote that these nodes are connected an extended grander MDP. The state $\phi$ is a terminal state - once an agent goes there, it can never escape.
 
+It would be nice to have a sort of "visit distribution" - a set of numbers corresponding to the states, telling us how "often" an agent will visit them. A *policy* $\pi$ is just a set of actions an agent performs given a state. 
 
+$$f^{\pi, s}(\gamma) = \sum^{\infty}_{t=0}\gamma^t \mathbb{E}_{s_t \sim \pi | s} [e_{s_t}]$$
+
+$$\text{for} : \gamma \in [0,1)$$
+
+$$\mathcal{F(s)} = \{f^{\pi, s} | \pi \in \Pi\}$$
+
+The $\gamma$ is the discount factor[^6]. 
 
 
 
@@ -49,3 +57,5 @@ For example, if you were to give the graph below to a student of machine learnin
 [^5]: [5] If I were a terrible person, I'd be happy that all the math majors I have interacted with now have to find a job elsewhere. I'm not a terrible person.\
 \
 ![mathjoke](/assets/swarmblog/MATHJOKE.png)
+
+[^6]: [6] A discount factor is a way of making models "myopic" - by reducing the value of future rewards. Suppose for a task, the rewards for completing the sub-tasks are $R = r_1 + r_2 + r_3... + r_n$. Often in practice, it is good to have a model "prioritise" earlier rewards. To achieve this, we could scale these rewards by how far in the future they are - $R = r_1 + \gamma r_2 + \gamma^2 r_3 + \gamma^3 r_4... + \gamma^{n-1} r_n$. In the limit of $\gamma = 0$, the model will only prioritise for the next largest reward.  
