@@ -648,11 +648,18 @@ h2 {
 /* KaTeX math block spacing */
 
 .blog-post-body .katex-display {
-    margin: 20px 0;
+    display: block;
+    width: 100%;
     max-width: 100%;
+    margin: 24px 0;
+    text-align: center;
     overflow-x: auto;
     overflow-y: hidden;
     box-sizing: border-box;
+}
+
+.blog-post-body .katex-display .katex {
+    font-size: 1.15em;
 }
 
 .blog-back-link {
