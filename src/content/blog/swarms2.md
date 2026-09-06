@@ -59,7 +59,7 @@ $$f^{\pi_{\phi}, S_p} =  (e_{S_{p''}}  + \gamma^2 e_{S_{p''}} + \gamma^4 e_{S_{p
 
 $$f^{\pi_{\phi}, S_p} =  (e_{S_{p''}} \frac{1}{1-\gamma^2}) + (\gamma e_{S_{p'}} \frac{\gamma}{1 - \gamma^2})$$
 
-Giving us the set $F = \{ e_{\S_{p'}} \frac{1}/{1-\gamma,  (e_{S_{p''}} \frac{1}{1-\gamma^2}) + (\gamma e_{S_{p'}} \frac{\gamma}{\1 - \gamma^2})$. Note that the set $F_{\phi} = \{ e_{\phi} \frac{1}{1-\gamma} \}$. 
+Giving us the set $F = \{ e_{\S_{p'}} \frac{1}{1-\gamma},  e_{S_{p''}} \frac{1}{1-\gamma^2} + \gamma e_{S_{p'}} \frac{\gamma}{1 - \gamma^2} \}$. Note that the set $F_{\phi} = \{ e_{\phi} \frac{1}{1-\gamma} \}$. 
 
 Excuse the markup - I'm actively trying to figure out how to handle complex notation on this blog. Two notes - one set is bigger than the other. Why should that matter? Well, the more sets you have in your visit distribution, the more rewards you must be able to collect! Second, we should define (like the paper), a single state restriction
 
