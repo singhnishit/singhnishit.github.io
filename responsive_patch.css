@@ -1,0 +1,99 @@
+/* Responsive overrides and Reactive animations */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 12px;
+        border-width: 2px;
+        min-height: auto;
+    }
+    .page-wrapper {
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    .dots-divider {
+        width: 100%;
+        overflow: hidden;
+    }
+    .intro {
+        flex-direction: column;
+    }
+    .intro-main-text, .small-text, .intro-image, .caption, .contact-info {
+        width: 100%;
+        max-width: 100%;
+    }
+    .bojack {
+        display: none;
+    }
+    .image-placeholder img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 239 / 328.667;
+    }
+    .list-item {
+        flex-direction: column;
+    }
+    .item-image {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+    .item-image img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        object-fit: contain;
+    }
+    
+    /* Blog responsiveness */
+    .blog-intro {
+        flex-direction: column;
+    }
+    .blog-intro-left, .blog-quote, .blog-intro-text {
+        width: 100%;
+        max-width: 100%;
+    }
+    .blog-intro-right {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .sidenote {
+        position: relative !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 100%;
+        margin: 10px 0;
+        border-left: 2px solid #ccc;
+        padding-left: 10px;
+    }
+}
+
+/* Reactive / Interactive Hover Effects */
+a {
+    transition: color 0.2s ease;
+}
+.list-item {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    padding: 10px;
+    border-radius: 4px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.list-item:hover {
+    transform: translateY(-2px);
+}
+.item-image img {
+    transition: transform 0.3s ease;
+}
+.list-item:hover .item-image img {
+    transform: scale(1.03);
+}
+.blog-pinned-title a {
+    transition: color 0.2s ease;
+}
+.header-right a {
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}

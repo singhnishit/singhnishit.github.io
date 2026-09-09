@@ -1,0 +1,180 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const pinnedPost = allPosts.find(p => p.data.pinned);
+const latestDate = allPosts[0]?.data.date ?? null;
+
+let PinnedContent = null;
+if (pinnedPost) {
+    const { Content } = await pinnedPost.render();
+    PinnedContent = Content;
+}
+
+// Format "latest entry in mar 2026"
+function formatLatest(dateStr: string) {
+    const d = new Date(dateStr);
+    return `latest entry in ${d.toLocaleString('en-US', { month: 'short' }).toLowerCase()} ${d.getFullYear()}`;
+}
+
+const resolveImage = (path) => {
+    if (path.startsWith('http')) return path;
+    let cleanPath = path.replace(/^\/?public\//, '').replace(/^\//, '').replace(/\/$/, '');
+    return import.meta.env.BASE_URL + cleanPath;
+};
+---
+<Layout
+    title="blog"
+    subtitle={latestDate ? `(${formatLatest(latestDate)})` : ''}
+    pageTitle="blog"
+>
+    <!-- Dots divider -->
+    <div class="dots-divider">
+        .........................................................................................................<br>
+        .........................................................................................................<br>
+        .........................................................................................................<br>
+        .........................................................................................................
+    </div>
+
+    <!-- Blog intro: 2-col layout -->
+    <div class="blog-intro">
+        <div class="blog-intro-left">
+            <div class="blog-quote">
+                <p>
+                    <span class="q-arrow">&gt;</span>
+                    <span class="q-text-italic"> Mario, what do you get when you cross an insomniac, an unwilling agnostic and a dyslexic?</span>
+                </p>
+                <p>
+                    <span class="q-arrow">&gt;</span>
+                    <span class="q-green"> "I give."</span>
+                </p>
+                <p>
+                    <span class="q-arrow">&gt;</span>
+                    <span class="q-text-regular"> "You get someone who stays up all night torturing himself mentally over the question of whether or not there's a dog."</span>
+                </p>
+                <p class="quote-attribution">
+                    &#8213; <span class="q-author">David Foster Wallace, </span><a class="q-book" href="#">Infinite Jest</a>
+                </p>
+            </div>
+
+            <p class="blog-intro-text">
+                similarly, i've found myself staying up at nights trying to answer questions (or quench my (sometimes morbid) curiosities). this blog is (hopefully) a conduit to archive<sup>*</sup> my efforts to answer these questions. you can find the complete list of things at the bottom. <a href="#archive">jump to complete list</a>.
+            </p>
+
+            <div class="color-blocks">
+                <span class="block red long"></span>
+                <span class="block blue"></span>
+                <span class="block cyan"></span>
+                <span class="block yellow"></span>
+                <span class="block magenta"></span>
+                <span class="block green"></span>
+            </div>
+
+            {pinnedPost ? (
+                <div class="blog-pinned">
+                    <h2 class="blog-pinned-title">
+                        <a href={`${import.meta.env.BASE_URL}blog/${pinnedPost.slug}`}>{pinnedPost.data.title}</a>
+                    </h2>
+                    <p class="blog-pinned-meta">
+                        {pinnedPost.data.date}
+                    </p>
+                    <p class="blog-pinned-tag">PINNED{pinnedPost.data.readTime ? ` | ${pinnedPost.data.readTime.toUpperCase()} READ` : ''}</p>
+                    <div class="blog-pinned-content blog-post-body" style="margin-top: 15px;">
+                        {PinnedContent && <PinnedContent />}
+                    </div>
+                </div>
+            ) : (
+                <p class="blog-no-pinned">no posts yet.</p>
+            )}
+        </div>
+
+        <aside class="blog-intro-right">
+            <p class="blog-sidebar-quote">
+                <span class="sidebar-prefix">*as discussed with a close friend at 3am in a cab going 120kph on a foggy barren highway, </span><span class="sidebar-bold">'if we had archived all our thoughts we wouldn't be this scared of dying right now.'</span>
+            </p>
+        </aside>
+    </div>
+
+    <!-- Full post list -->
+    <section id = "archive" class="list-section">
+        <h2>complete<sup>**</sup> list of things i've done/written</h2>
+
+        {allPosts.length > 0 ? allPosts.map((post) => (
+            <div class="list-item">
+                <div class="item-image">
+                    {post.data.thumbnail
+                        ? <img src={resolveImage(post.data.thumbnail)} alt={post.data.title} />
+                        : <img src="https://via.placeholder.com/160x100/e0e0e0/888888?text=Thumbnail" alt="Blog thumbnail" />
+                    }
+                </div>
+                <div class="item-content">
+                    <h3><a href={`${import.meta.env.BASE_URL}blog/${post.slug}`}>{post.data.title}</a></h3>
+                    <p class="author">Nishit Singh</p>
+                    {post.data.readTime && <p class="date">{post.data.readTime} read</p>}
+                    <a href={`${import.meta.env.BASE_URL}blog/${post.slug}`}>read</a>
+                </div>
+            </div>
+        )) : (
+            <p style="font-size: 12px; color: #767877; margin: 20px 0;">no posts yet.</p>
+        )}
+
+        <div class="color-blocks">
+            <span class="block red"></span>
+            <span class="block blue"></span>
+            <span class="block green long"></span>
+            <span class="block cyan"></span>
+            <span class="block yellow"></span>
+            <span class="block magenta"></span>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("astro:page-load", () => {
+            const refs = document.querySelectorAll("sup a[data-footnote-ref]");
+            let sidenoteCount = 0;
+            refs.forEach(ref => {
+                const fnId = ref.getAttribute("href")?.substring(1);
+                if (!fnId) return;
+                
+                const fnElement = document.getElementById(fnId);
+                if (fnElement) {
+                    const sidenote = document.createElement("div");
+                    sidenote.className = "sidenote";
+                    if (sidenoteCount % 2 === 0) sidenote.classList.add("right");
+                    else sidenote.classList.add("left");
+                    sidenoteCount++;
+                    
+                    // Copy contents
+                    sidenote.innerHTML = fnElement.innerHTML;
+                    
+                    // Remove the backref link (↩)
+                    const backref = sidenote.querySelector("[data-footnote-backref]");
+                    if (backref) backref.remove();
+
+                    // Prefix with asterisk inside the p tag so it stays inline
+                    const pInside = sidenote.querySelector("p");
+                    if (pInside) {
+                        pInside.innerHTML = "* " + pInside.innerHTML;
+                    } else {
+                        sidenote.innerHTML = "* " + sidenote.innerHTML;
+                    }
+
+                    // Find the parent paragraph and make it relative to anchor the absolute sidenote
+                    const p = ref.closest("p, blockquote, li") as HTMLElement;
+                    if (p) {
+                        p.style.position = "relative";
+                        p.appendChild(sidenote);
+
+                        // Align vertically with the footnote reference
+                        const pRect = p.getBoundingClientRect();
+                        const refRect = ref.getBoundingClientRect();
+                        sidenote.style.top = (refRect.top - pRect.top) + "px";
+                    }
+                }
+            });
+        });
+    </script>
+</Layout>
