@@ -4,5 +4,5 @@ authors: "Nishit Singh"
 venue: "In Proceedings, ACM (Collective Intelligence) 2026"
 link: "https://arxiv.org/abs/2606.21202"
 linkLabel: "arxiv"
-thumbnail: "public/assets/cconsensus.png"
+thumbnail: "public/assets/thumbnails/cconsensus.png"
 ---
