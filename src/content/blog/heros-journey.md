@@ -4,7 +4,7 @@ date: "Last updated in September 2026"
 readTime: "2 min"
 pinned: true
 teaser: "got"
-thumbnail: " public/assets/thumbnails/topster.png"
+thumbnail: "public/assets/thumbnails/topster.png"
 ---
 
 -catcher in the rye, j.d. salinger
