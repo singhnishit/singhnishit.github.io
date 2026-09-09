@@ -1,7 +1,7 @@
 ---
 title: "why would an agent favour the collective over itself?"
 date: "September, 2026"
-readTime: "5 min"
+readTime: "15 min"
 pinned: false
 teaser: "got"
 thumbnail: "/assets/thumbnails/suicide.png"
