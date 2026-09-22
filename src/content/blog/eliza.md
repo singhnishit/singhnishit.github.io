@@ -17,7 +17,6 @@ Below is an implementation of the ELIZA source code[^1]. This is an archaic lang
 
 
 >The fundamental technical problems with which ELIZA must be preoccupied are the following:
-
 >The identification of the "most important" keyword occurring in the input message.
 >The identification of some minimal context within which the chosen keyword appears; e.g., if the keyword is "you", is it followed by the word "are" (in which case an >assertion is probably being made).
 >The choice of an appropriate transformation rule, and, of course, the making of the transformation itself.
