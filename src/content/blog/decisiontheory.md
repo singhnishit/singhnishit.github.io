@@ -23,6 +23,7 @@ Abusing my freedoms granted by the sidenote above, I will describe this experime
 <p style="color: #789922; margin: 0;">&gt; what do you do?</p>
 </div>
 
+
 One way to think about this is causally. When the predictor made the prediction - the content of the box was locked in. It does not matter what you choose to do now, since the opaque box already either has or does not have the million dollars. To minimise your regret - you take both boxes. This minimises your regret because if the box had a million dollars, you would be \$1,001,000 richer, and if not, you would be \$1,000 richer. On the other hand, if you chose only the opaque box, you would lose out on the \$1,000. So you **two-box**.
 
 One way to think about this is causally. When the predictor made the prediction - the content of the box was locked in. It does not matter what you choose to do now, since the opaque box already either has or does not have the million dollars. To minimise your regret - you take both boxes. This minimises your regret because if the box had a million dollars, you would be \$1,001,000 richer, and if not, you would be \$1,000 richer. On the other hand, if you chose only the opaque box, you would lose out on the \$1,000. So you **two-box**. 
