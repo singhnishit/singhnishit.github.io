@@ -48,6 +48,16 @@ import { ViewTransitions } from 'astro:transitions';
         .header-overlay a:hover {
             text-decoration: none;
         }
+        @media (max-width: 768px) {
+            .header-overlay {
+                position: static;
+                font-size: 14px;
+                line-height: 2;
+                padding: 12px 16px;
+                margin: 0;
+                white-space: normal;
+            }
+        }
         @media (min-width: 1280px) {
             .header-overlay {
                 font-size: 18px;
