@@ -13,25 +13,28 @@ I am writing this blog to induce in myself some sort of mental flux - I am to su
 
 Abusing my freedoms granted by the sidenote above, I will describe this experiment in the format of a [greentext](https://en.wiktionary.org/wiki/greentext). This liberty is taken in part due to my ability to understand complex things better in greentext form. 
 
->a predictor offers you two boxes, one transparent (with cash worth $1,000 on display), one opaque.
->you can either decide to take the opaque box, or both boxes.
->yesterday, the predictor predicted what you would do today.
->if the predictor predicted that you would go for only the opaque box, they put $1 million in it.
->if the predictor predicted that you would go for both the boxes, they put nothing in it.
->the predictor is *very* accurate.
->what do you do?
+> a predictor offers you two boxes, one transparent (with cash worth $\$$1,000 on display), one opaque.
+> you can either decide to take the opaque box, or both boxes.
+> yesterday, the predictor predicted what you would do today.
+> if the predictor predicted that you would go for only the opaque box, they put $\$$1 million in it.
+> if the predictor predicted that you would go for both the boxes, they put nothing in it.
+> the predictor is *very* accurate.
+> what do you do?
 
 One way to think about this is causally. When the predictor made the prediction - the content of the box was locked in. It does not matter what you choose to do now, since the opaque box already either has or does not have the million dollars. To minimise your regret - you take both boxes. This minimises your regret because if the box had a million dollars, you would be $1,001,000 richer, and if not, you would be $1,000 richer. On the other hand, if you chose only the opaque box, you would lose out on the $1,000. So you **two-box**. 
 
 Another way to think about this is to think about probabilities. Even though we haven't been given exactly *how* accurate a predictor is, we could assume a it to be $p$. Now, if we were to model the action of **one-boxing** (take only the opaque box), we get the following expected payout(s) (1 corresponds to **one-box** and 2 corresponds to **two-box**) - 
 
 $$\mathbb{E}_{p}[U | 1] = \$1,000,000p + \$0(1-p) = \$1,000,000p $$
+
 $$\mathbb{E}_{p}[U | 2] = \$1,000p + \$1,001,000(1-p)$$
 
 We can equate these expressions to find the tolerance limit for $p$ (the accuracy of the predictor below which, it is smarter to **two-box**). 
 
 $$\mathbb{E}_{p}[U | 1] \geq \mathbb{E}_{p}[U | 2]$$
+
 $$ \$1,000,000p \geq \$1,000p + \$1,001,000(1-p)$$
+
 $$ p \geq 0.5005 $$
 
 And since we've been told that the predictor is highly accurate, $p >> 0.505$, and we can convince ourselves that **one-boxing** is the answer. 
