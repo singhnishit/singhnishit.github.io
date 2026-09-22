@@ -13,19 +13,15 @@ I am writing this blog to induce in myself some sort of mental flux - I am to su
 
 Abusing my freedoms granted by the sidenote above, I will describe this experiment in the format of a [greentext](https://en.wiktionary.org/wiki/greentext). This liberty is taken in part due to my ability to understand complex things better in greentext form. 
 
- > a predictor offers you two boxes, one transparent (with cash worth \$1,000 on display), one opaque.
- >
- > you can either decide to take the opaque box, or both boxes.
- >
- > yesterday, the predictor predicted what you would do today.
- >
- > if the predictor predicted that you would go for only the opaque box, they put \$1 million in it.
- >
- > if the predictor predicted that you would go for both the boxes, they put nothing in it.
- >
- > the predictor is *very* accurate.
- >
- > what do you do?
+<div style="font-family: monospace;">
+<p style="color: #789922; margin: 0;">&gt; a predictor offers you two boxes, one transparent (with cash worth \$1,000 on display), one opaque.</p>
+<p style="color: #789922; margin: 0;">&gt; you can either decide to take the opaque box, or both boxes.</p>
+<p style="color: #789922; margin: 0;">&gt; yesterday, the predictor predicted what you would do today.</p>
+<p style="color: #789922; margin: 0;">&gt; if the predictor predicted that you would go for only the opaque box, they put \$1 million in it.</p>
+<p style="color: #789922; margin: 0;">&gt; if the predictor predicted that you would go for both the boxes, they put nothing in it.</p>
+<p style="color: #789922; margin: 0;">&gt; the predictor is <em>very</em> accurate.</p>
+<p style="color: #789922; margin: 0;">&gt; what do you do?</p>
+</div>
 
 One way to think about this is causally. When the predictor made the prediction - the content of the box was locked in. It does not matter what you choose to do now, since the opaque box already either has or does not have the million dollars. To minimise your regret - you take both boxes. This minimises your regret because if the box had a million dollars, you would be \$1,001,000 richer, and if not, you would be \$1,000 richer. On the other hand, if you chose only the opaque box, you would lose out on the \$1,000. So you **two-box**.
 
