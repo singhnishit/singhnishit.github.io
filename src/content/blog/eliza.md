@@ -4,7 +4,7 @@ date: "September 22, 2026"
 readTime: "3 min"
 pinned: false
 teaser: "a small experiment in being heard by a machine."
-thumbnail: "/assets/thumbnails/eliza.svg"
+thumbnail: "/assets/thumbnails/parroting-ezgif.com-optimize.gif"
 ---
 
 Below is an implementation of the ELIZA source code[^1]. This is an archaic language model, which functions on deliberate pattern matching. While being developed in the lab, the developer's secretary allegedly asked the developer to close the door before she could talk to ELIZA. Transcripts from interactions with humans point toward an eagerness to open up[^2]. 
