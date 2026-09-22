@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Eliza from '../../components/Eliza.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -34,6 +35,7 @@ const { Content } = await post.render();
 
         <div class="blog-post-body">
             <Content />
+            {post.slug === 'eliza' && <Eliza />}
         </div>
 
         <div class="color-blocks" style="margin-top: 40px;">
