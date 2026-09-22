@@ -7,13 +7,7 @@ teaser: "a small experiment in being heard by a machine."
 thumbnail: "/assets/thumbnails/eliza.svg"
 ---
 
-There is something interesting about a question that gives your own words back to you. Say “I feel uncertain”, and a machine asks what makes you feel uncertain. It has offered very little. Still, there is an invitation to keep talking.
-
-Joseph Weizenbaum described ELIZA in 1966: a program that used rules to turn written input into replies. Its famous DOCTOR script borrowed the conversational style of a nondirective psychotherapist, often responding with a question.[^1]
-
-## try it
-
-This is a small ELIZA-style implementation. Try “I feel nervous about my work”, or talk about a dream, a memory, or your family. There is no language model behind the box; just patterns and responses.[^2]
+Below is an implementation of the ELIZA source code[^1]. This is an archaic language model, which functions on deliberate pattern matching. While being developed in the lab, the developer's secretary allegedly asked the developer to close the door before she could talk to ELIZA. Transcripts from interactions with humans point toward an eagerness to open up[^2]. 
 
 <eliza-chat>
 <div role="log" aria-label="Conversation with ELIZA" aria-live="polite" aria-relevant="additions" tabindex="0"><p>&gt;HELLO. WHAT IS ON YOUR MIND?</p></div>
@@ -21,24 +15,76 @@ This is a small ELIZA-style implementation. Try “I feel nervous about my work�
 <noscript>Enable JavaScript to talk to ELIZA.</noscript>
 </eliza-chat>
 
-The conversation stays in this page. Nothing you type is sent to a server or saved; leaving the page starts a new conversation. This is a conversational experiment, not a therapist.
 
-## a few rules, and a little reflection
+>The fundamental technical problems with which ELIZA must be preoccupied are the following:
 
-The script looks for a matching pattern, extracts part of the sentence, and places it inside a response. For example, “I feel nervous about my work” matches `I feel …`. The captured phrase becomes “nervous about your work”, and the reply asks: “What makes you feel nervous about your work?”
+>The identification of the "most important" keyword occurring in the input message.
+>The identification of some minimal context within which the chosen keyword appears; e.g., if the keyword is "you", is it followed by the word "are" (in which case an >assertion is probably being made).
+>The choice of an appropriate transformation rule, and, of course, the making of the transformation itself.
+>The provision of a mechanism that will permit ELIZA to respond "intelligently" when the input text contained no keywords.
+>The provision of machinery that facilitates editing, particularly extension, of the script on the script writing level
 
-The small change from *my* to *your* helps the sentence sound like a response from someone else. Repeating a pattern cycles through different replies. A few mentions of “my …” are held in memory and can be brought back when no rule matches. Otherwise, the program uses a general prompt to keep the conversation moving.[^3]
+[^1]: [1] Weizenbaum's [original paper](https://courses.cs.umbc.edu/331/papers/eliza.html), published in *Communications of the ACM*, January 1966, describes the program and includes an example conversation.
 
-Try repeating yourself. Try changing just one word. Try giving it a sentence with two different topics. Its limits become visible quite quickly: the script follows its rules even when the resulting question makes very little sense.
+[^2]: [2] Below is an excerpt from the Weizenbaum paper. 
+>Men are all alike.
 
-## who is doing the understanding?
+IN WHAT WAY?
 
-The interesting part of this little box is how much work the reader can do on its behalf. A vague question leaves room for an interpretation; a repeated phrase can feel like attention. Knowing the mechanism does not necessarily remove that feeling.
+They're always bugging us about something or other.
 
-You can inspect that gap directly here. Have a conversation, then look for the rule behind the response. At what point does a question feel like someone is listening?
+CAN YOU THINK OF A SPECIFIC EXAMPLE?
 
-[^1]: Weizenbaum's [original paper](https://courses.cs.umbc.edu/331/papers/eliza.html), published in *Communications of the ACM*, January 1966, describes the program and includes an example conversation.
+Well, my boyfriend made me come here.
 
-[^2]: This is a compact adaptation of the idea, not an exact recreation of the original DOCTOR script. Everything runs locally in your browser.
+YOUR BOYFRIEND MADE YOU COME HERE
 
-[^3]: Here, “memory” is a short list of phrases kept while the page is open. It does not learn from the conversation or remember you on another visit.
+He says I'm depressed much of the time.
+
+I AM SORRY TO HEAR YOU ARE DEPRESSED
+
+It's true. I am unhappy
+
+DO YOU THINK COMING HERE WILL HELP YOU NOT TO BE UNHAPPY
+
+I need some help, that much seems certain.
+
+WHAT WOULD IT MEAN TO YOU IF YOU GOT SOME HELP
+
+Perhaps I could learn to get along with my mother.
+
+TELL ME MORE ABOUT YOUR FAMILY
+
+My mother takes care of me.
+
+WHO ELSE IN YOUR FAMILY TAKES CARE OF YOU
+
+My father.
+
+YOUR FATHER
+
+You are like my father in some ways.
+
+WHAT RESEMBLANCE DO YOU SEE
+
+You are not very aggressive but I think you don't want me to notice that.
+
+WHAT MAKES YOU THINK I AM NOT VERY AGGRESSIVE
+
+You don't argue with me.
+
+WHY DO YOU THINK I DON'T ARGUE WITH YOU
+
+You are afraid of me.
+
+DOES IT PLEASE YOU TO BELIEVE I AM AFRAID OF YOU
+
+My father is afraid of everybody.
+
+WHAT ELSE COMES TO YOUR MIND WHEN YOU THINK OF YOUR FATHER
+
+Bullies.
+
+DOES THAT HAVE ANYTHING TO DO WITH THE FACT THAT YOUR BOYFRIEND MADE YOU COME HERE
+
+
