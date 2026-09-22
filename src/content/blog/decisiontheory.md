@@ -56,11 +56,6 @@ Another idea I had early on, is to flip the role of the player to be the predict
 Hmm. These options are close, but no cookie yet. Maybe using graphs could help - arrows help a lot, usually. Reading Yudowsky's paper on TDT
 
 
-
-
-
-One school of thought, perhaps the most intuitive to understand is [Bayesianism](https://en.wikipedia.org/wiki/Bayesian_epistemology), where one makes predictions about the world, and based on whether the predictions were right or wrong, update ones beliefs about the world. This (fairly philosophical) concept has given rise to concepts like (Solomonoff Induction)[https://en.wikipedia.org/wiki/Solomonoff%27s_theory_of_inductive_inference][^1], which are some fundamental ways of thinking that enable us to create neural networks. 
-
 [^1]:[1] Excuse the puns. I haven't had any good sleep, and I have not read anything candid or humorous in the last few hours. I need to get my kitschy-ness out of the way here. 
 
 [^2]:[2] I went down a rabbit-hole after writing this sentence. More precisely, I read about [Garrabrant Induction](https://www.lesswrong.com/posts/y5GftLezdozEHdXkL/an-intuitive-guide-to-garrabrant-induction). Are the agents (traders) in this model also Garrabrant inductors? Or are they any kind of computable program? It would be perhaps fun to see how an inductor goes against an inductor, especially in the context of the task. If anyone has the answer to this, please feel free to email me :D
