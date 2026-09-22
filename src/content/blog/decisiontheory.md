@@ -4,7 +4,7 @@ date: "September, 2026"
 readTime: "🤷‍♂️ min"
 pinned: false
 teaser: "got"
-thumbnail: "/assets/thumbnails/scared.png"
+thumbnail: "/assets/thumbnails/1527273302792.jpeg"
 ---
 
 I am writing this blog to induce in myself some sort of mental flux - I am to submit a work task during the applicant process for the [MATS Fellowship](https://www.matsprogram.org). There is no point in trying to deceive anyone by donning the mask of nonchalant-ness, it is a pretty big deal. The task is centered around the idea of *decision theories*, and more explicitly, when and how they break. The linked resources are dense and extensive readings, and very aligned with rational discourse. Perhaps me mentioning the latter in the first part of the sentence would ease me of the effort to mention the former. Anyways, yes, the literature is mind bending, yes, I have to leave for the USA in less than a week to present for a conference for which I haven't even designed the poster yet, and yes, there are multiple streams that would require tasks and I should ideally focus on the ones which are easier. It is in fact a shame that I am mentally rendered unable to work on any other stream but this, perhaps due to the "newness" of this kind of science; they don't teach this stuff in physics / engineering / cs classes. This post is supposed to act as a conduit between thought and text - the unentangling of the mental yarn into a thought-full sweater[^1].
