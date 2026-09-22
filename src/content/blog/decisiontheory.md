@@ -7,7 +7,7 @@ teaser: "got"
 thumbnail: "/assets/thumbnails/1527273302792.jpeg"
 ---
 
-I am writing this blog to induce in myself some sort of mental flux - I am to submit a work task during the applicant process for the [MATS Fellowship](https://www.matsprogram.org). There is no point in trying to deceive anyone by donning the mask of nonchalant-ness, it is a pretty big deal. The task is centered around the idea of *decision theories*, and more explicitly, when and how they break. The linked resources are dense and extensive readings, and very aligned with rational discourse. Perhaps me mentioning the latter in the first part of the sentence would ease me of the effort to mention the former. Anyways, yes, the literature is mind bending, yes, I have to leave for the USA in less than a week to present for a conference for which I haven't even designed the poster yet, and yes, there are multiple streams that would require tasks and I should ideally focus on the ones which are easier. It is in fact a shame that I am mentally rendered unable to work on any other stream but this, perhaps due to the "newness" of this kind of science; they don't teach this stuff in physics / engineering / cs classes. This post is supposed to act as a conduit between thought and text - the unentangling of the mental yarn into a thought-full sweater[^1].
+I am writing this blog to induce in myself some sort of mental flux - I am to submit a work task during the applicant process for the [MATS Fellowship](https://www.matsprogram.org). There is no point in trying to deceive anyone by act insouciantly, it is a pretty big deal. The task is centered around the idea of *decision theories*, and more explicitly, when and how they break. The linked resources are dense and extensive readings, and very aligned with rational discourse. Perhaps me mentioning the latter in the first part of the sentence would ease me of the effort to mention the former. This week is completely jam packed with a million different things to do, I have to design a poster for a conference I am presenting at in the USA (which is at best, two oceans away from me in both directions), amongst other things. It is in fact a shame that I am mentally rendered unable to work on any other stream but this, perhaps due to the "newness" of this kind of science; they don't teach this stuff in physics / engineering / cs classes. This post is supposed to act as a conduit between thought and text - the unentangling of the mental yarn into a thought-full sweater[^1].
 
 ## Newcomb-like problems
 
@@ -21,14 +21,11 @@ Abusing my freedoms granted by the sidenote above, I will describe this experime
 <p style="color: #789922; margin: 0;">&gt; if the predictor predicted that you would go for both the boxes, they put nothing in it.</p>
 <p style="color: #789922; margin: 0;">&gt; the predictor is <em>very</em> accurate.</p>
 <p style="color: #789922; margin: 0;">&gt; what do you do?</p>
-</div>
+</div>\
 
+Causally, when the predictor made the prediction - the content of the box was locked in. It does not matter what you choose to do now, since the opaque box already either has or does not have the million dollars. To minimise your regret - you take both boxes. This minimises your regret because if the box had a million dollars, you would be \$1,001,000 richer, and if not, you would be \$1,000 richer. On the other hand, if you chose only the opaque box, you would lose out on the \$1,000. So you **two-box**.
 
-One way to think about this is causally. When the predictor made the prediction - the content of the box was locked in. It does not matter what you choose to do now, since the opaque box already either has or does not have the million dollars. To minimise your regret - you take both boxes. This minimises your regret because if the box had a million dollars, you would be \$1,001,000 richer, and if not, you would be \$1,000 richer. On the other hand, if you chose only the opaque box, you would lose out on the \$1,000. So you **two-box**.
-
-One way to think about this is causally. When the predictor made the prediction - the content of the box was locked in. It does not matter what you choose to do now, since the opaque box already either has or does not have the million dollars. To minimise your regret - you take both boxes. This minimises your regret because if the box had a million dollars, you would be \$1,001,000 richer, and if not, you would be \$1,000 richer. On the other hand, if you chose only the opaque box, you would lose out on the \$1,000. So you **two-box**. 
-
-Another way to think about this is to think about probabilities. Even though we haven't been given exactly *how* accurate a predictor is, we could assume a it to be $p$. Now, if we were to model the action of **one-boxing** (take only the opaque box), we get the following expected payout(s) (1 corresponds to **one-box** and 2 corresponds to **two-box**) - 
+Another way to think about this is to think about probabilities. Even though we haven't been given exactly *how* accurate a predictor is, we could assume a it to be $p$. If we were to model the action of **one-boxing** (take only the opaque box), we get the following expected payout(s) (1 corresponds to **one-box** and 2 corresponds to **two-box**) - 
 
 $$\mathbb{E}_{p}[U | 1] = \$1,000,000p + \$0(1-p) = \$1,000,000p $$
 
@@ -58,7 +55,7 @@ The one concept I keep coming across is **improvisational jazz** lol. I play a b
 
 Another idea I had early on, is to flip the role of the player to be the predictor. Now, with this new framing, we could perhaps frame the question like "As a predictor, you are about 90% sure that the player will two-box. If the player does an action that you could not predict, you will lose a million dollars. The player knows about you, and can model you with about 60% accuracy. Knowing this, what would you guess?". Scratch that actually, this could just mean the player assuming the probability of the predictor being correct is $P(\text{Predictor will be correct | I am modelling the predictor})$ which is $0.9 \times 0.6$ (assuming perfect epistemic intelligence...?), which then reduces to the algebra above, I think.
 
-Hmm. These options are close, but no cookie yet. Maybe using graphs could help - arrows help a lot, usually. Reading Yudowsky's paper on TDT
+Hmm. These options are close, but no cookie yet. Maybe using graphs could help - arrows help a lot, usually. Reading [Yudowsky's paper]( on Timeless Decision Theory to further my understanding of points of tension between these two theories. 
 
 
 [^1]:[1] Excuse the puns. I haven't had any good sleep, and I have not read anything candid or humorous in the last few hours. I need to get my kitschy-ness out of the way here. 
