@@ -72,7 +72,6 @@
         next();
       });
       show.addEventListener('click', finish);
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) finish();
     }
     disconnectedCallback() {
       clearTimeout(this.timer);
