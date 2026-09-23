@@ -22,7 +22,7 @@
       while (walker.nextNode()) nodes.push(walker.currentNode as Text);
       const words: { element: HTMLSpanElement; delay: number }[] = [];
       for (const node of nodes) {
-        const delay = node.parentElement?.closest('[data-slow]') ? 150 : 50;
+        const delay = node.parentElement?.closest('[data-slow]') ? 370 : 100;
         const fragment = document.createDocumentFragment();
         for (const token of node.data.match(/\s+|\S+/g) || []) {
           if (/^\s+$/.test(token)) fragment.append(token);
