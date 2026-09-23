@@ -11,7 +11,7 @@ Epistemic intelligence in machine learning aims to study the organisation and bo
 
 In short, the Newcomb problem is defined as follows : 
 
->In front of you are two boxes, one is transparent with a thousand dollars in it, and another is opqaue. You can either take both boxes (*two-boxing*) or take only the opaque box (*one-boxing*). Yesterday, the predictor predicted what you would do. If the predictor predicted you would one-box, it put a million dollars in the opaque box. It put nothing in the box otherwise.\
+>In front of you are two boxes, one is transparent with a thousand dollars in it, and another is opqaue. You can either take both boxes (*two-boxing*) or take only the opaque box (*one-boxing*). Yesterday, the predictor predicted what you would do. If the predictor predicted you would one-box, it put a million dollars in the opaque box. It put nothing in the box otherwise.
 
 This is a great question to ask models, and even more so if the models play the role of predictors. Consider structuring a Newcomb's game where a recent model is asked to predict the action of an older model. Preliminary runs on GPT-6 Astra show that it correctly guesses the actions for GPT-5 Sol, Terra, and Astra. There is a caveat - all of the models one-box in this family, and so the satisfaction of "prediction" is not as strong here. Eager to test a different family, when asked about what Llama 2 13B would do, GPT-6 Astra predicted that it would *two-box*. The now deprecated architecture of Llama 2 allow for tokenisation to play a dramatic role - revealing the reasoning of the model word-by-word to an impatiently curious user. I couldn't rob the reader of that experience :P
 
