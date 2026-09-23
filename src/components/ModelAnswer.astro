@@ -1,0 +1,129 @@
+<script>
+  class ModelAnswer extends HTMLElement {
+    timer?: ReturnType<typeof setTimeout>;
+    connectedCallback() {
+      if (this.dataset.ready) return;
+      const answer = this.querySelector<HTMLElement>('[data-answer]');
+      if (!answer) return;
+      this.dataset.ready = 'true';
+      const label = document.createElement('div');
+      label.className = 'model-answer-label';
+      label.textContent = this.getAttribute('data-model') || 'LLAMA 2 13B';
+      this.prepend(label);
+
+      // Keep a complete, non-streaming answer available to screen readers.
+      const accessible = answer.cloneNode(true) as HTMLElement;
+      accessible.removeAttribute('data-answer');
+      accessible.className = 'model-answer-accessible';
+      answer.before(accessible);
+      answer.setAttribute('aria-hidden', 'true');
+      const walker = document.createTreeWalker(answer, NodeFilter.SHOW_TEXT);
+      const nodes: Text[] = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode as Text);
+      const words: { element: HTMLSpanElement; delay: number }[] = [];
+      for (const node of nodes) {
+        const delay = node.parentElement?.closest('[data-slow]') ? 150 : 50;
+        const fragment = document.createDocumentFragment();
+        for (const token of node.data.match(/\s+|\S+/g) || []) {
+          if (/^\s+$/.test(token)) fragment.append(token);
+          else {
+            const word = document.createElement('span');
+            word.textContent = token;
+            word.style.visibility = 'hidden';
+            words.push({ element: word, delay });
+            fragment.append(word);
+          }
+        }
+        node.replaceWith(fragment);
+      }
+      const controls = document.createElement('div');
+      controls.className = 'model-answer-controls';
+      const play = document.createElement('button');
+      play.type = 'button';
+      play.textContent = 'reveal answer';
+      const show = document.createElement('button');
+      show.type = 'button';
+      show.textContent = 'show all';
+      controls.append(play, show);
+      this.append(controls);
+
+      const finish = () => {
+        clearTimeout(this.timer);
+        words.forEach(({ element }) => element.style.visibility = 'visible');
+        play.disabled = false;
+        play.textContent = 'replay';
+        show.disabled = true;
+      };
+      play.addEventListener('click', () => {
+        clearTimeout(this.timer);
+        // An explicit click opts into playback, even when motion is reduced.
+        words.forEach(({ element }) => element.style.visibility = 'hidden');
+        play.disabled = true;
+        show.disabled = false;
+        let index = 0;
+        const next = () => {
+          if (index >= words.length) { finish(); return; }
+          const word = words[index++];
+          this.timer = setTimeout(() => {
+            word.element.style.visibility = 'visible';
+            next();
+          }, word.delay);
+        };
+        next();
+      });
+      show.addEventListener('click', finish);
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) finish();
+    }
+    disconnectedCallback() {
+      clearTimeout(this.timer);
+      // A restored element should never remain half-revealed with a dead timer.
+      this.querySelectorAll<HTMLElement>('[data-answer] span').forEach(word => word.style.visibility = 'visible');
+      const play = this.querySelector<HTMLButtonElement>('button');
+      if (play) { play.disabled = false; play.textContent = 'replay'; }
+    }
+  }
+  if (!customElements.get('model-answer')) customElements.define('model-answer', ModelAnswer);
+</script>
+
+<style is:global>
+  model-answer {
+    display: block;
+    border: 1px solid #767877;
+    padding: 12px;
+    margin: 24px 0;
+    font: inherit;
+    color: inherit;
+    overflow-wrap: anywhere;
+  }
+  .model-answer-label { color: #767877; font-size: 10px; letter-spacing: .06em; margin-bottom: 16px; }
+  model-answer [data-question] { padding-bottom: 12px; border-bottom: 1px solid #ddd; }
+  model-answer [data-answer] { margin-bottom: 0; }
+  .model-answer-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .model-answer-controls button {
+    font: inherit;
+    font-size: 11px;
+    background: transparent;
+    color: inherit;
+    border: 1px solid #767877;
+    border-radius: 0;
+    padding: 5px 8px;
+    cursor: pointer;
+  }
+  .model-answer-controls button:disabled { opacity: .45; cursor: default; }
+  .model-answer-controls button:focus-visible { outline: 2px solid #0050F1; outline-offset: 2px; }
+  .model-answer-accessible {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  @media (max-width: 768px) { .model-answer-controls button { min-height: 44px; } }
+  @media print {
+    model-answer [data-answer] span { visibility: visible !important; }
+    .model-answer-controls { display: none; }
+  }
+</style>
