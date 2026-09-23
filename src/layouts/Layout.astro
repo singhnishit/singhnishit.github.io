@@ -1,11 +1,13 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import ModelAnswer from '../components/ModelAnswer.astro';
 interface Props {
   title: string;
   subtitle?: string;
   pageTitle?: string;
+  fitContent?: boolean;
 }
-const { title, subtitle, pageTitle } = Astro.props;
+const { title, subtitle, pageTitle, fitContent = false } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +21,7 @@ const { title, subtitle, pageTitle } = Astro.props;
     <ViewTransitions />
 </head>
 <body>
+    <ModelAnswer />
     <div class="page-wrapper">
         <header>
             <div class="header-left">
@@ -29,7 +32,7 @@ const { title, subtitle, pageTitle } = Astro.props;
             </div>
         </header>
 
-        <div class="container">
+        <div class:list={["container", { "container-fit-content": fitContent }]}>
             <slot />
         </div>
     </div>
