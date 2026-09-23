@@ -7,6 +7,8 @@ teaser: "got"
 thumbnail: "public/assets/thumbnails/topster.png"
 ---
 
+-white tiger, noah baumbach (current favourite)
+
 -catcher in the rye, j.d. salinger
 
 -silicon valley, season 6
