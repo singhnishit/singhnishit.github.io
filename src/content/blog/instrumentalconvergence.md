@@ -7,4 +7,4 @@ teaser: "a small experiment in being heard by a machine."
 thumbnail: "/assets/thumbnails/parroting-ezgif.com-optimize.gif"
 ---
 
-The following text argues that intelligent agent 
+under construction.
