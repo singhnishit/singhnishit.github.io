@@ -9,5 +9,5 @@ order: 2
 draft: false
 links:
   - label: "slides"
-    url: "https://tdasth.staticfast.com"
+    url: "/assets/talks/slides/social-dynamics-nus.pdf"
 ---

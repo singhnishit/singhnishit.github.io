@@ -9,5 +9,5 @@ order: 5
 draft: false
 links:
   - label: "slides"
-    url: "https://irtj4r.staticfast.com"
+    url: "/assets/talks/slides/kdco-pitch-deck.pdf"
 ---

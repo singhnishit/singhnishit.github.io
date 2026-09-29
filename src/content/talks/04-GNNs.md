@@ -9,6 +9,6 @@ order: 4
 draft: false
 links:
   - label: "slides"
-    url: "https://sjjlp5.staticfast.com"
+    url: "/assets/talks/slides/gnns-tool-wear.pdf"
 
 ---

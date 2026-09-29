@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 
 const entryLinks = z.array(z.object({
   label: z.string().min(1),
-  url: z.string().url(),
+  url: z.union([z.string().url(), z.string().regex(/^\/(?!\/)\S*$/, 'Use an absolute URL or a site-relative path starting with /')]),
 })).default([]);
 
 const projectsCollection = defineCollection({

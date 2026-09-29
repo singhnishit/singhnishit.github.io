@@ -9,5 +9,5 @@ order: 3
 draft: false
 links:
   - label: "slides"
-    url: "https://ktvike.staticfast.com"
+    url: "/assets/talks/slides/analogy.pdf"
 ---

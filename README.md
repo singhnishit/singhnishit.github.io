@@ -47,6 +47,8 @@ Replace the example URLs with the actual destinations. Existing `link` and `link
 
 ## Adding talks
 
+PDF slides live in `public/assets/talks/slides/`. To link one, use its site-relative path, for example `url: "/assets/talks/slides/analogy.pdf"`. The same link works in the local preview and on the published site. Replace the PDF file to update a deck without changing its link.
+
 Copy `src/content/talks/01-example.md` to a new `.md` file for each talk. Fill in the title, venue, and optional author, date, description, thumbnail, and links. Set `draft: false` to show the entry; drafts are hidden from both the preview and published site. Talks appear between research and projects. Until you add one, the section says “talks coming soon.”
 
 ```yaml
@@ -66,8 +68,7 @@ links:
 ---
 ```
 
-- All talks use a uniform three-column grid with compact 16:9 landscape thumbnails and text beneath them. Thumbnails are capped at 180px wide (about 101px tall), similar in size to Research images. Images are cropped to fill the frame; there is no per-entry layout setting.
-- The grid uses two columns on small screens and one on very narrow screens, keeping the 16:9 image ratio and 180px width cap.
+- Talks use the same row layout as Research: a 180 × 100px thumbnail on the left and the title, venue, description, and links on the right. Images fit within the frame without cropping. On mobile, the image and text stack using the same responsive styling as Research.
 - Smaller `order` values appear first; ties follow filename order. Dates are display text, so you can use a month, year, or full date.
 - Talks use the same `links` list as research. A missing thumbnail gets a neutral placeholder. The Markdown body is not displayed on the homepage; use `description` for the short summary.
 

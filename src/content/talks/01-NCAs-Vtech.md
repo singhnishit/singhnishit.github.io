@@ -9,7 +9,7 @@ order: 1
 draft: false
 links:
   - label: "slides"
-    url: "https://4ap0d1.staticfast.com"
+    url: "/assets/talks/slides/nca-collective-intelligence.pdf"
   - label: "paper"
     url: "https://arxiv.org/abs/2606.21202"
 ---
