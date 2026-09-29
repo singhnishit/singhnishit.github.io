@@ -7,7 +7,7 @@ teaser: "a small experiment in being heard by a machine."
 thumbnail: "/assets/thumbnails/parroting-ezgif.com-optimize.gif"
 ---
 
-Below is an implementation of the ELIZA source code[^1]. This is an archaic language model, which functions on deliberate pattern matching. While being developed in the lab, the developer's secretary allegedly asked the developer to close the door before she could talk to ELIZA. Transcripts from interactions with humans point toward an eagerness to open up[^2]. 
+Below is an implementation of ELIZA[^1], an early conversational program built on pattern matching. During its development, its creator's secretary allegedly asked for privacy before talking to ELIZA. Transcripts of conversations with the program suggest how readily people open up[^2].
 
 <eliza-chat>
 <div role="log" aria-label="Conversation with ELIZA" aria-live="polite" aria-relevant="additions" tabindex="0"><p>&gt;HELLO. WHAT IS ON YOUR MIND?</p></div>
@@ -18,7 +18,7 @@ Below is an implementation of the ELIZA source code[^1]. This is an archaic lang
 
 >The fundamental technical problems with which ELIZA must be preoccupied are the following:
 >The identification of the "most important" keyword occurring in the input message.
->The identification of some minimal context within which the chosen keyword appears; e.g., if the keyword is "you", is it followed by the word "are" (in which case an >assertion is probably being made).
+>The identification of some minimal context within which the chosen keyword appears; e.g., if the keyword is "you", is it followed by the word "are" (in which case an assertion is probably being made).
 >The choice of an appropriate transformation rule, and, of course, the making of the transformation itself.
 >The provision of a mechanism that will permit ELIZA to respond "intelligently" when the input text contained no keywords.
 >The provision of machinery that facilitates editing, particularly extension, of the script on the script writing level

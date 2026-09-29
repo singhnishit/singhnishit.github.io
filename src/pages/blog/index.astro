@@ -106,7 +106,7 @@ const resolveImage = (path) => {
             <div class="list-item">
                 <div class="item-image">
                     {post.data.thumbnail
-                        ? <img src={resolveImage(post.data.thumbnail)} alt={post.data.title} />
+                        ? <img class:list={{ "thumbnail-cover": post.slug === "swarms" }} src={resolveImage(post.data.thumbnail)} alt={post.data.title} />
                         : <img src="https://via.placeholder.com/160x100/e0e0e0/888888?text=Thumbnail" alt="Blog thumbnail" />
                     }
                 </div>

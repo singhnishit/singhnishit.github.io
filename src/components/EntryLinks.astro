@@ -1,0 +1,30 @@
+---
+interface Props {
+    links?: { label: string; url: string }[];
+    link?: string;
+    linkLabel?: string;
+}
+
+const { links = [], link, linkLabel = 'Link' } = Astro.props;
+const entries = [
+    ...(link ? [{ label: linkLabel, url: link }] : []),
+    ...links,
+];
+---
+
+{entries.length > 0 && (
+    <ul class="entry-links" role="list">
+        {entries.map((entry, index) => (
+            <li>
+                {index > 0 && <span aria-hidden="true">/</span>}
+                <a href={entry.url}>{entry.label}</a>
+            </li>
+        ))}
+    </ul>
+)}
+
+<style>
+    .entry-links { display: flex; flex-wrap: wrap; gap: 4px 8px; list-style: none; margin: 0; padding: 0; }
+    li { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    span { color: #767877; }
+</style>

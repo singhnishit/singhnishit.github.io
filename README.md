@@ -22,6 +22,7 @@ Press **Control-C** in a preview Terminal window to stop it. If port 4321 is bus
 | Blog articles | `src/content/blog/*.md` |
 | Projects | `src/content/projects/*.md` |
 | Research | `src/content/research/*.md` |
+| Talks | `src/content/talks/*.md` |
 | Miscellaneous entries | `src/content/misc/*.md` |
 | Blog listing and gallery | `src/pages/blog/index.astro`, `src/pages/gallery.astro` |
 | Shared article layout | `src/layouts/Layout.astro` |
@@ -29,6 +30,46 @@ Press **Control-C** in a preview Terminal window to stop it. If port 4321 is bus
 | Images and other assets | `public/` |
 
 Do not edit `dist/`, `.astro/`, or `node_modules/`: these are generated. The original repository tracked them; this setup removes them from Git tracking while retaining local dependencies and build output on disk. The first publish includes that cleanup and these workflow files.
+
+## Research links
+
+Each research entry can contain any number of labelled links in its frontmatter:
+
+```yaml
+links:
+  - label: "arxiv"
+    url: "https://arxiv.org/abs/YOUR-PAPER-ID"
+  - label: "conference"
+    url: "https://your-conference.org/registration"
+```
+
+Replace the example URLs with the actual destinations. Existing `link` and `linkLabel` fields still work and appear before `links`, so you can keep your current arXiv link and add just the conference link. Alternatively, move both into `links` and remove the old fields to avoid repeating a link.
+
+## Adding talks
+
+Copy `src/content/talks/01-example.md` to a new `.md` file for each talk. Fill in the title, venue, and optional author, date, description, thumbnail, and links. Set `draft: false` to show the entry; drafts are hidden from both the preview and published site. Talks appear between research and projects. Until you add one, the section says “talks coming soon.”
+
+```yaml
+---
+title: "Your talk title"
+authors: "Nishit Singh"
+venue: "Conference or event name"
+date: "September 2026"
+thumbnail: "/assets/thumbnails/your-talk.jpg"
+order: 1
+draft: false
+links:
+  - label: "slides"
+    url: "https://example.com/your-slides"
+  - label: "registration"
+    url: "https://example.com/your-event"
+---
+```
+
+- All talks use a uniform three-column grid with compact 16:9 landscape thumbnails and text beneath them. Thumbnails are capped at 180px wide (about 101px tall), similar in size to Research images. Images are cropped to fill the frame; there is no per-entry layout setting.
+- The grid uses two columns on small screens and one on very narrow screens, keeping the 16:9 image ratio and 180px width cap.
+- Smaller `order` values appear first; ties follow filename order. Dates are display text, so you can use a month, year, or full date.
+- Talks use the same `links` list as research. A missing thumbnail gets a neutral placeholder. The Markdown body is not displayed on the homepage; use `description` for the short summary.
 
 ## Download changes made elsewhere
 

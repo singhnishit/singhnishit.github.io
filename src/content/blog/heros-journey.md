@@ -1,5 +1,5 @@
 ---
-title: "what im reading / watching / listening to"
+title: "what i'm reading / watching / listening to"
 date: "Last updated in September 2026"
 readTime: "2 min"
 pinned: true
@@ -15,7 +15,7 @@ thumbnail: "public/assets/thumbnails/topster.png"
 
 -the invite, olivia wilde
 
--project hail mary, andy weir/chris miller/phil lord [^3]
+-project hail mary, andy weir/chris miller/phil lord
 
 -arrival, denis villeneuve
 

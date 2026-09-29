@@ -873,3 +873,6 @@ a {
     overflow-y: hidden;
     vertical-align: middle;
 }
+
+/* Fill the artwork thumbnail without letterboxing inside its border. */
+.item-image img.thumbnail-cover { object-fit: cover; border-width: 1px; }
