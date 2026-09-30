@@ -1,6 +1,6 @@
 ---
 title: "Decision Theory(s)"
-date: "16/09/26"
+date: "16/9/26"
 readTime: "7-10 min"
 pinned: false
 teaser: "got"

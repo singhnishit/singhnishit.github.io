@@ -1,6 +1,6 @@
 ---
 title: "a conversation with ELIZA"
-date: "September 22, 2026"
+date: "22/9/2026"
 readTime: "3 min"
 pinned: false
 teaser: "a small experiment in being heard by a machine."

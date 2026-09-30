@@ -1,6 +1,6 @@
 ---
 title: "why would an agent favour the collective over itself?"
-date: "September, 2026"
+date: "9/9/26"
 readTime: "7-10 min"
 pinned: false
 teaser: "got"

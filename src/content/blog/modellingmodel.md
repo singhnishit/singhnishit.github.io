@@ -1,6 +1,6 @@
 ---
-title: "Can a model model a model?"
-date: "20/09/26"
+title: "Could a model model a model?"
+date: "20/9/26"
 readTime: "5 min"
 pinned: false
 teaser: ""
