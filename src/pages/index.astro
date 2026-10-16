@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Favicons from '../components/Favicons.astro';
 import { ViewTransitions } from 'astro:transitions';
 import EntryLinks from '../components/EntryLinks.astro';
 import TalksSection from '../components/TalksSection.astro';
@@ -26,7 +27,7 @@ const resolveImage = (path) => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nishit Singh</title>
     <link rel="stylesheet" href={import.meta.env.BASE_URL + "style.css"}>
-    <link rel="icon" type="image/x-icon" href={import.meta.env.BASE_URL + "favicon.gif"} />
+    <Favicons />
     <!-- KaTeX CSS for LaTeX rendering -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <ViewTransitions />

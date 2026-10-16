@@ -1,0 +1,9 @@
+---
+const base = import.meta.env.BASE_URL;
+// Versioned URLs ask browsers to fetch the Earth icons instead of cached Astro icons.
+const version = '?v=earth-2';
+---
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href={base + 'favicon.ico' + version} />
+<link rel="icon" type="image/png" sizes="32x32" href={base + 'favicon-32.png' + version} />
+<link rel="icon" type="image/gif" href={base + 'favicon.gif' + version} />
+<link rel="apple-touch-icon" sizes="180x180" href={base + 'apple-touch-icon.png' + version} />

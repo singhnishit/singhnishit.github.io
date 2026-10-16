@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import ModelAnswer from '../components/ModelAnswer.astro';
+import Favicons from '../components/Favicons.astro';
 interface Props {
   title: string;
   subtitle?: string;
@@ -17,7 +18,7 @@ const { title, subtitle, pageTitle, fitContent = false } = Astro.props;
     <title>{pageTitle ?? title} — Nishit Singh</title>
     <link rel="stylesheet" href={import.meta.env.BASE_URL + "style.css"}>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <link rel="icon" type="image/x-icon" href={import.meta.env.BASE_URL + "favicon.gif"} />
+    <Favicons />
     <ViewTransitions />
 </head>
 <body>
