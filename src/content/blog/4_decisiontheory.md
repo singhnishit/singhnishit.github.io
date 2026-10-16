@@ -1,10 +1,23 @@
 ---
 title: "Decision Theory(s)"
 date: "16/9/26"
+sortDate: "2026-09-16"
+homepagePinned: true
 readTime: "7-10 min"
 pinned: false
 teaser: "got"
 thumbnail: "/assets/thumbnails/1527273302792.jpeg"
+aiDisclosure:
+  - icon: fingerprint
+    text: "This blog was majorly written and ideated by a human."
+  - icon: seven-finger-hand
+    text: "AI was used for grammatical cleanup and LaTeX implementation."
+context:
+  logos: [lossfunk, redwood, mats]
+  text: >-
+    Work done as part of the application process for
+    [Redwood Research](https://www.redwoodresearch.org/) stream at
+    [MATS 12.0 (Winter)](https://www.matsprogram.org/) while at [Lossfunk](https://www.lossfunk.com).
 ---
 
 I am writing this blog to get my thoughts moving - I have a work task to submit as part of my application to the [MATS Fellowship](https://www.matsprogram.org). There is no point in feigning insouciance; it is a pretty big deal. The task centres on *decision theories*, and more specifically, when and how they break. The linked readings are dense, extensive, and steeped in rationalist discourse. Perhaps mentioning the last of those would have saved me the first two. This week is already packed: amongst other things, I have to design a poster for a conference I am presenting at in the USA (an ocean away, whichever way I go). It is a shame that I can't seem to work on anything else, perhaps because of the "newness" of this kind of science; they don't teach this stuff in physics / engineering / cs classes. This post is supposed to act as a conduit between thought and text - untangling the mental yarn into a thought-full sweater[^1].
@@ -59,7 +72,9 @@ Reading [Yudkowsky's paper](https://intelligence.org/files/TDT.pdf) on Timeless 
 
 Let us imagine an entangled state. The predictor has a particle entangled with the neurons responsible for decision making in your brain. The predictor measured the particle, and if the result pointed toward you two-boxing, an incinerator in the opaque box turned the million to ash. If it pointed to you one-boxing, the incinerator was disabled and the money was safe. However, the predictor's measurement apparatus is correct 9 out of 10 times.
 
-Eh, again, this reduces to Newcomb's problem. [Further reading](https://preposterousuniverse.com/blog/2012/04/16/quantum-mechanics-and-decision-theory/) on quantum mechanics and decision theory gives me more to untangle before I can claim a quantum "gotcha".
+From what I understand about decision theories, you could always tailor a problem to reward a certain camp of rationality and deem the other irrational. For example, if the probability of a bomb being on an airplane is 0.1, one could think "If I were to take a bomb with me on the airplane, the probability of there being another bomb would then be 0.01". This, I think stems from the definition of EDT - where carrying a bomb tells you that the world you are living in is very likely not going to have another, independent bomb on the plane. This way, you could argue this problem is "made to reward EDT irrationality", much like the classic Newcomb problem tailored to reward CDT irrationality.
+
+It is late, and I am tired. Maybe I'll pick this up later. No promises :/
 
 
 [^1]:[1] Excuse the puns. I haven't had any good sleep, and I have not read anything candid or humorous in the last few hours. I need to get the kitsch out of my system here.

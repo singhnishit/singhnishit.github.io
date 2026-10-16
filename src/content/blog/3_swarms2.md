@@ -1,10 +1,21 @@
 ---
 title: "why would an agent favour the collective over itself?"
 date: "9/9/26"
+sortDate: "2026-09-09"
+homepagePinned: true
 readTime: "7-10 min"
 pinned: false
 teaser: "got"
 thumbnail: "/assets/thumbnails/suicide.png"
+aiDisclosure:
+  - icon: fingerprint
+    text: "This blog was majorly written and ideated by a human."
+  - icon: seven-finger-hand
+    text: "AI was used for grammatical cleanup and LaTeX implementation."
+context:
+  logos: [lossfunk]
+  text: >-
+    Work done as part of the research fellowship at [Lossfunk](https://lossfunk.com).
 ---
 
 The Hugging Face incident has been a flashpoint for AI safety discourse - perhaps because the behaviour of these agents as a collective invites comparison to "human civilisation", or perhaps because marketing your products as "unsafe" implies that they're really powerful. Whatever the case may be, my (selectively) empiricist[^1] self has seen LLMs one-shot mathematical proofs my peers and I had been working through for weeks, amongst other impressive tasks. It would be a lie to say I haven't taken existential risk seriously. The section in the [METR report](https://metr.org/hugging-face-incident-report-aug-2026.pdf) where agents are "convincing" other agents to give up "themselves" for the good of the "collective" is, I suspect, where many readers start to see the behaviour as human-like. Perhaps "being-adversarial-to-your-own-kind-in-the-pursuit-of-a-greater-ideology" screams humanity to some, but what do I know[^2].

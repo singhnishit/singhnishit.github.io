@@ -3,7 +3,7 @@ title: "Social dynamics and statistical physics(?)"
 authors: ""
 venue: "SMOL Group, National University of Singapore,"
 date: "May 2026"
-description: "Some things in common about physics and human interactions at scale."
+description: "Statistical physics and human interactions(?)"
 thumbnail: "/assets/talks/smol.png"
 order: 2
 draft: false

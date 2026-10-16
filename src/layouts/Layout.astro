@@ -22,7 +22,7 @@ const { title, subtitle, pageTitle, fitContent = false } = Astro.props;
 </head>
 <body>
     <ModelAnswer />
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="position: relative;">
         <header>
             <div class="header-left">
                 <h1>{title}{subtitle && <span class="pronouns"> {subtitle}</span>}</h1>

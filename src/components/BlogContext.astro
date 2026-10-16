@@ -1,0 +1,93 @@
+---
+import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import { blogLogos, type BlogLogo } from '../data/blog-logos';
+
+interface Props {
+  context: {
+    text: string;
+    logos: (keyof typeof blogLogos | BlogLogo)[];
+  };
+}
+
+const { context } = Astro.props;
+const logos: BlogLogo[] = context.logos.map(logo => typeof logo === 'string' ? blogLogos[logo] : logo);
+const markdown = await createMarkdownProcessor({ syntaxHighlight: false });
+const { code } = await markdown.render(context.text);
+const localUrl = (url: string) => url.startsWith('/') ? import.meta.env.BASE_URL + url.slice(1) : url;
+---
+
+<aside class="blog-context" aria-label="About this post">
+  {logos.length > 0 && (
+    <div class="context-logos">
+      {logos.map(logo => {
+        const Tag = logo.href ? 'a' : 'span';
+        return (
+          <Tag class:list={['context-logo', { 'context-logo-wide': logo.wide }]}
+            href={logo.href ? localUrl(logo.href) : undefined}>
+            <img src={localUrl(logo.src)} alt={logo.alt} width={logo.wide ? 136 : 65.5} height={logo.wide ? 58 : 65.5} />
+          </Tag>
+        );
+      })}
+    </div>
+  )}
+  <div class="context-copy" set:html={code} />
+</aside>
+
+<style>
+  .blog-context {
+    margin: 12px 0 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    max-width: 600px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: -0.72px;
+  }
+  .context-logos {
+    display: grid;
+    grid-template-columns: repeat(2, 65.5px);
+    width: 136px;
+    gap: 5px;
+    flex: 0 0 136px;
+  }
+  .context-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #111;
+    background: #fdfdfd;
+    height: 65.5px;
+  }
+  .context-logo-wide { grid-column: 1 / -1; height: 58px; }
+  .context-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  a.context-logo:hover { outline: 1px solid #111; outline-offset: 2px; }
+  a.context-logo:focus-visible { outline: 2px solid #0050f1; outline-offset: 3px; }
+  .context-copy { min-width: 0; overflow-wrap: anywhere; }
+  .context-copy :global(p) { margin: 0 0 10px; }
+  .context-copy :global(p:last-child) { margin-bottom: 0; }
+  .context-copy :global(a) { color: #0050f1; text-underline-offset: 3px; }
+  .context-copy :global(img) { max-width: 100%; height: auto; }
+  .context-copy :global(ul), .context-copy :global(ol) { padding-left: 18px; }
+  @media (min-width: 1321px) {
+    .blog-context {
+      position: absolute;
+      top: 78px;
+      right: calc(100% + 28px);
+      /* Match the 213px left sidenote column and its outer edge. */
+      width: 213px;
+      line-height: normal;
+      margin: 0;
+      display: block;
+    }
+    .context-logos { margin-bottom: 12px; }
+  }
+  @media (max-width: 360px) {
+    .blog-context { flex-direction: column; gap: 12px; }
+    .context-logos { flex-basis: auto; }
+  }
+  @media print {
+    .blog-context { position: static; width: auto; display: flex; margin: 20px 0; }
+  }
+</style>

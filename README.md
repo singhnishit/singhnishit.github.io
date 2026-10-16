@@ -91,3 +91,23 @@ bash scripts/website.sh publish
 Requires Node.js 22.12 or newer and Git. Publishing uses your Mac's GitHub credentials through Git's macOS Keychain helper. If authentication is requested, use a GitHub personal access token with repository write access as the HTTPS password, or sign in using GitHub CLI (`gh auth login`, then `gh auth setup-git`). Never put a token in a source file or remote URL.
 
 Publishing includes all non-ignored local changes. Review the file list first. Local `.env` files are ignored; keep private credentials out of website source and `public/`.
+
+## Blog dates and homepage selection
+
+Each blog post needs a sorting date in addition to its display date:
+
+```yaml
+date: "16/10/2026"
+sortDate: "2026-10-16"
+homepagePinned: true
+```
+
+`date` is the displayed label; `sortDate` must be a valid quoted YYYY-MM-DD date. Both the homepage selection and the full blog archive put posts marked `pinned: true` first, then sort the remaining posts newest first. Filename numbers do not affect ordering. For the existing reading list, only September 2026 was specified, so its sorting date uses September 1.
+
+Set `homepagePinned: true` on up to eight posts you want on the homepage. Set it to `false` (or omit it) to keep a post only in the blog archive. Pinned posts always appear first and count toward the eight-post limit; the remaining slots go to the newest homepage selections. Fewer than eight selections show only those selections. All current six posts are selected initially.
+
+The homepage’s “view all blog posts” link opens the complete list on the blog page. The existing `pinned: true` setting also controls the expanded featured article on the blog page and keeps that post first in both lists, even without `homepagePinned`. The reading / watching / listening post already has this setting.
+
+## Optional blog logo notes
+
+Add a `context` block to an article’s header to show an editable note with any combination of logos. See [the copy-and-paste guide](docs/blog-context.md), or copy the working example in `src/content/blog/4_decisiontheory.md`.

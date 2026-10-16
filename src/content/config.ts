@@ -1,4 +1,23 @@
 import { defineCollection, z } from 'astro:content';
+import { blogLogoNames } from '../data/blog-logos';
+
+const contextUrl = z.union([
+  z.string().url().regex(/^https?:\/\//, 'Use an http or https link'),
+  z.string().regex(/^\/(?!\/)\S*$/, 'Use a site-relative path starting with /'),
+]);
+
+const blogContext = z.object({
+  text: z.string().trim().min(1),
+  logos: z.array(z.union([
+    z.enum(blogLogoNames),
+    z.object({
+      src: z.string().regex(/^\/(?!\/)\S+$/, 'Place your logo in public/ and use a path starting with /'),
+      alt: z.string().trim().min(1),
+      href: contextUrl.optional(),
+      wide: z.boolean().default(false),
+    }),
+  ])).default([]),
+});
 
 const entryLinks = z.array(z.object({
   label: z.string().min(1),
@@ -62,8 +81,18 @@ const blogCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.string(),
+    sortDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Use YYYY-MM-DD').refine(value => {
+      const date = new Date(value);
+      return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
+    }, 'Use a valid calendar date'),
+    homepagePinned: z.boolean().default(false),
     readTime: z.string().optional(),
     pinned: z.boolean().default(false),
+    context: blogContext.optional(),
+    aiDisclosure: z.array(z.object({
+      icon: z.enum(['fingerprint', 'seven-finger-hand']),
+      text: z.string().trim().min(1),
+    })).default([]),
     teaser: z.string().optional(),
     thumbnail: z.string().optional(),
   }),

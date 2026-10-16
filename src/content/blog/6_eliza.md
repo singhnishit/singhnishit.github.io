@@ -1,9 +1,14 @@
 ---
 title: "a conversation with ELIZA"
 date: "22/9/2026"
+sortDate: "2026-09-22"
+homepagePinned: true
 readTime: "3 min"
 pinned: false
 teaser: "a small experiment in being heard by a machine."
+aiDisclosure:
+  - icon: seven-finger-hand
+    text: "This writeup was majorly implemented by coding agents."
 thumbnail: "/assets/thumbnails/parroting-ezgif.com-optimize.gif"
 ---
 

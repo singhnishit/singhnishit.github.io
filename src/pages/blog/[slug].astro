@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Eliza from '../../components/Eliza.astro';
+import BlogContext from '../../components/BlogContext.astro';
+import AIDisclosure from '../../components/AIDisclosure.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -37,6 +39,9 @@ const { Content } = await post.render();
             <Content />
             {post.slug === 'eliza' && <Eliza />}
         </div>
+
+        {post.data.context && <BlogContext context={post.data.context} />}
+        <AIDisclosure entries={post.data.aiDisclosure} />
 
         <div class="color-blocks" style="margin-top: 40px;">
             <span class="block red"></span>

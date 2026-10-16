@@ -1,9 +1,14 @@
 ---
 title: "i'm slightly scared :/"
 date: "2/9/026"
+sortDate: "2026-09-02"
+homepagePinned: true
 readTime: "5 min"
 pinned: false
 teaser: "got"
+aiDisclosure:
+  - icon: fingerprint
+    text: "No LLMs were used in this writeup."
 thumbnail: "/assets/thumbnails/scared.png"
 ---
 
@@ -12,7 +17,7 @@ thumbnail: "/assets/thumbnails/scared.png"
 
 My motivations have been weathering a storm this past year, owing to the familiar post-teenage tension between "what I am good at" and "what I believe to be important". I began this year with a gallant quantum-computer-shaped puff in my chest, ready to work on quantum algorithms and complexity theory. I later realised that my universe was not written by [Frank Herbert](https://en.wikipedia.org/wiki/Frank_Herbert), and we were getting to "intelligence" before interstellar travel. I decided to work on human-AI interactions and how they could disturb the social structures we have built. Soon after, a close friend told me about his work and urged me to publish in machine learning. A few raggedy papers and a research fellowship later, METR released findings from an investigation into "rogue" AI behaviour, prompting me to reconsider my work. I write this post after a weeklong delirium induced by rationalist thought experiments, OpenAI's Twitter handle, and papers from 2017.
 
-*I wrote this post without LLMs; it has since had a light copyedit with their help. The expletives and perhaps unsavoury references to internet culture are still mine. I urge readers to think of these as features, not bugs* :D
+*The expletives and perhaps unsavoury references to internet culture are still mine. I urge readers to think of these as features, not bugs* :D
 
 ## Am I a crackpot?
 

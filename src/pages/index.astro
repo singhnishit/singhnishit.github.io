@@ -3,14 +3,14 @@ import { getCollection } from 'astro:content';
 import { ViewTransitions } from 'astro:transitions';
 import EntryLinks from '../components/EntryLinks.astro';
 import TalksSection from '../components/TalksSection.astro';
+import { homepagePosts } from '../utils/blog.mjs';
 const projects = await getCollection('projects');
 projects.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 const research = await getCollection('research');
 const talks = await getCollection('talks', ({ data }) => !data.draft);
 talks.sort((a, b) => a.data.order - b.data.order || a.id.localeCompare(b.id));
 const misc = await getCollection('misc');
-const blog = await getCollection('blog');
-blog.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const blog = homepagePosts(await getCollection('blog'));
 
 const resolveImage = (path) => {
     if (path.startsWith('http')) return path;
@@ -191,7 +191,8 @@ const resolveImage = (path) => {
                         <p class="date">{post.data.date}</p>
                     </div>
                 </div>
-            )) : <p style="font-size: 12px; color: #767877;">no posts yet.</p>}
+            )) : <p style="font-size: 12px; color: #767877;">visit the blog for all posts.</p>}
+            <p><a href={`${import.meta.env.BASE_URL}blog/#archive`}>view all blog posts →</a></p>
 
             <div class="color-blocks">
                 <span class="block red"></span>

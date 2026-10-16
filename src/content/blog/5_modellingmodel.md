@@ -1,10 +1,21 @@
 ---
 title: "Could a model model a model?"
 date: "20/9/26"
+sortDate: "2026-09-20"
+homepagePinned: true
 readTime: "5 min"
 pinned: false
 teaser: ""
 thumbnail: "/assets/thumbnails/modellingmodel.png"
+aiDisclosure:
+  - icon: fingerprint
+    text: "No LLMs were used in this writeup."
+  - icon: seven-finger-hand
+    text: "AI was used for the technical implementation of the text-box"
+context:
+  logos: [lossfunk]
+  text: >-
+    Work done as part of the research fellowship at [Lossfunk](https://lossfunk.com).
 ---
 
 Epistemic intelligence in machine learning concerns, amongst other things, the organisation and limits of a model's knowledge. I was introduced to this concept through a [wonderful workshop](https://icml.cc/virtual/2026/workshop/54075) hosted at ICML 2026. Recently, one of my [supervisors](https://invertedpassion.com/modern-llms-have-tiny-gpts-hidden-inside-them/) wrote about evidence suggesting that models contain something like older versions of themselves! In completion tasks, these models reshape their language to fit the mould of older models. I have been reading a lot about decision theory, and one particular puzzle, Newcomb's problem, puts different theories at odds. For a more extensive discussion, you can refer to my (very recent) [writeup](https://singhnishit.github.io/blog/decisiontheory/).

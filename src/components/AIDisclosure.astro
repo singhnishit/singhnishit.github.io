@@ -1,0 +1,166 @@
+---
+interface Props {
+  entries: { icon: 'fingerprint' | 'seven-finger-hand'; text: string }[];
+}
+const { entries } = Astro.props;
+const icons = {
+  fingerprint: { src: 'assets/fingerprint.png', name: 'Fingerprint' },
+  'seven-finger-hand': { src: 'assets/seven-finger-hand.svg', name: 'Seven-finger hand' },
+};
+---
+
+{entries.length > 0 && (
+  <aside class="ai-disclosure" aria-label="AI use disclosure">
+    <div class="disclosure-icons">
+      {entries.map((entry, index) => (
+        <ai-disclosure-item>
+          <button type="button" class="disclosure-icon" aria-expanded="false"
+            aria-controls={`ai-disclosure-${index}`} aria-describedby={`ai-disclosure-${index}`}
+            aria-label={`${icons[entry.icon].name}: AI use disclosure`}>
+            <img class:list={{ 'fingerprint-image': entry.icon === 'fingerprint' }} src={import.meta.env.BASE_URL + icons[entry.icon].src} alt="" width="65.5" height="65.5" />
+            <span class="question-mark" aria-hidden="true">?</span>
+          </button>
+          <div id={`ai-disclosure-${index}`} class="disclosure-tooltip" role="tooltip" hidden>
+            {entry.text}
+          </div>
+        </ai-disclosure-item>
+      ))}
+    </div>
+  </aside>
+)}
+
+<script>
+  class AIDisclosureItem extends HTMLElement {
+    private cleanup?: () => void;
+    connectedCallback() {
+      const button = this.querySelector('button');
+      const tooltip = this.querySelector<HTMLElement>('[role="tooltip"]');
+      if (!button || !tooltip) return;
+      let hovered = false;
+      let pinned = false;
+      let dismissed = false;
+      const render = () => {
+        const open = !dismissed && (hovered || pinned || this.contains(document.activeElement));
+        tooltip.hidden = !open;
+        button.setAttribute('aria-expanded', String(open));
+      };
+      const controller = new AbortController();
+      const options = { signal: controller.signal };
+      const activate = () => this.dispatchEvent(new Event('ai-disclosure-activate', { bubbles: true }));
+      this.addEventListener('pointerenter', (event) => {
+        if (event.pointerType !== 'mouse') return;
+        activate();
+        hovered = true;
+        dismissed = false;
+        render();
+      }, options);
+      this.addEventListener('pointerleave', () => { hovered = false; render(); }, options);
+      this.addEventListener('focusin', () => { activate(); dismissed = false; render(); }, options);
+      this.addEventListener('focusout', () => queueMicrotask(render), options);
+      button.addEventListener('click', () => {
+        pinned = !pinned;
+        dismissed = !pinned;
+        render();
+      }, options);
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          pinned = false;
+          dismissed = true;
+          render();
+        }
+      }, options);
+      document.addEventListener('ai-disclosure-activate', (event) => {
+        if (event.target !== this) {
+          pinned = false;
+          dismissed = true;
+          render();
+        }
+      }, options);
+      document.addEventListener('pointerdown', (event) => {
+        if (!this.contains(event.target as Node)) {
+          pinned = false;
+          dismissed = true;
+          render();
+        }
+      }, options);
+      this.cleanup = () => controller.abort();
+    }
+    disconnectedCallback() { this.cleanup?.(); }
+  }
+  if (!customElements.get('ai-disclosure-item')) customElements.define('ai-disclosure-item', AIDisclosureItem);
+</script>
+
+<style>
+  .ai-disclosure {
+    width: 213px;
+    max-width: 100%;
+    margin-top: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: -0.72px;
+    line-height: normal;
+  }
+  .disclosure-icons { position: relative; display: flex; gap: 5px; flex-wrap: wrap; }
+  ai-disclosure-item { display: block; padding-bottom: 10px; }
+  .disclosure-icon {
+    position: relative;
+    display: block;
+    width: 65.5px;
+    height: 65.5px;
+    padding: 0;
+    border: 1px solid #111;
+    border-radius: 0;
+    background: #fdfdfd;
+    color: #111;
+    cursor: help;
+  }
+  .disclosure-icon img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .disclosure-icon img.fingerprint-image { padding: 8px; }
+  .question-mark {
+    position: absolute;
+    top: -6px;
+    right: -5px;
+    display: grid;
+    place-items: center;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #111;
+    border-radius: 50%;
+    background: #fdfdfd;
+    font: 10px/1 'JetBrains Mono', monospace;
+    z-index: 1;
+  }
+  .disclosure-icon:focus-visible { outline: 2px solid #0050f1; outline-offset: 3px; }
+  .disclosure-tooltip {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #111;
+    background: #fdfdfd;
+    color: #111;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+    max-height: 40vh;
+    overflow-y: auto;
+    box-shadow: 3px 3px 0 #00000016;
+    z-index: 5;
+  }
+  @media (min-width: 1321px) {
+    .ai-disclosure {
+      position: absolute;
+      top: 78px;
+      /* Article padding (14px) + the right sidenote offset (784px). */
+      left: calc(100% + 27px);
+      margin: 0;
+    }
+  }
+  @media print {
+    .ai-disclosure { position: static; width: 100%; margin-top: 20px; }
+    .disclosure-icons { display: block; }
+    .disclosure-tooltip[hidden], .disclosure-tooltip { display: block; position: static; max-height: none; box-shadow: none; margin-top: 8px; }
+  }
+</style>

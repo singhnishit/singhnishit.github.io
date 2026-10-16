@@ -14,7 +14,6 @@ const resolveImage = (path: string) => path.startsWith('http')
 
 <section class="list-section" id="talks" aria-labelledby="talks-heading">
     <h2 id="talks-heading">talks & presentations</h2>
-    <p class="talks-note">some (most) of these slides will lack some necessary exposition since these were primarily meant to be discussed, not read. any questions are welcome :D</p>
     {talks.length > 0 ? (
         <div class="talks-list">
             {talks.map(({ data }) => (

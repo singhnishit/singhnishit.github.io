@@ -1,6 +1,8 @@
 ---
 title: "what i'm reading / watching / listening to"
 date: "Last updated in September 2026"
+sortDate: "2026-09-01"
+homepagePinned: true
 readTime: "2 min"
 pinned: true
 teaser: "got"

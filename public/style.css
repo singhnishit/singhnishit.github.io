@@ -656,11 +656,16 @@ h2 {
     text-align: center !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
+    padding: 0.25em 0 0.5em;
+    scrollbar-width: none;
     box-sizing: border-box;
 }
 
 .blog-post-body .katex-display .katex {
     font-size: 1.25em !important;
+    /* Only the outer display block should scroll. */
+    max-width: none;
+    overflow: visible;
 }
 .blog-back-link {
     font-family: "JetBrains Mono", monospace;
@@ -872,6 +877,14 @@ a {
     overflow-x: auto;
     overflow-y: hidden;
     vertical-align: middle;
+    /* Keep long equations swipeable without a scrollbar covering the line. */
+    scrollbar-width: none;
+    padding-block: 0.15em;
+}
+
+.blog-post-body .katex::-webkit-scrollbar,
+.blog-post-body .katex-display::-webkit-scrollbar {
+    display: none;
 }
 
 /* Fill the artwork thumbnail without letterboxing inside its border. */

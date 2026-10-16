@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">A little extra</title>
+  <desc id="desc">A simple outline of an open hand with seven fingers and a single blue accent. Square canvas with a transparent background.</desc>
+  <g stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- One continuous silhouette: a thumb and six long fingers. -->
+    <path fill="#fdfdfd" d="M225 449
+      C229 426 221 407 204 390
+      C183 371 166 352 150 330
+      L99 267
+      C89 254 88 242 97 235
+      C107 226 119 231 130 242
+      L177 288
+      C183 294 190 291 187 281
+      L142 164
+      C137 150 140 137 150 133
+      C162 128 172 137 177 150
+      L218 249
+      C221 256 227 254 225 246
+      L187 117
+      C183 102 188 90 200 88
+      C212 85 221 95 224 109
+      L254 238
+      C256 245 262 244 261 236
+      L245 97
+      C243 81 249 69 261 69
+      C274 68 281 79 282 94
+      L292 238
+      C293 245 299 245 299 237
+      L304 117
+      C305 102 313 93 325 95
+      C337 97 342 108 340 122
+      L329 247
+      C328 254 334 257 337 249
+      L360 159
+      C364 145 374 139 384 143
+      C395 147 398 158 394 172
+      L369 269
+      C367 277 373 280 377 273
+      L403 217
+      C409 204 419 200 429 205
+      C439 211 439 223 433 235
+      L401 313
+      C392 338 392 358 376 382
+      C361 405 346 421 350 449"/>
+
+    <path fill="#0050f1" stroke="none" d="M413 219 C416 213 422 212 425 218 C427 224 421 235 418 240 C413 242 408 239 407 236 Z"/>
+  </g>
+</svg>
