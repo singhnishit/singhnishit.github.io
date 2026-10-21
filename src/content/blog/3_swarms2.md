@@ -9,7 +9,7 @@ teaser: "got"
 thumbnail: "/assets/thumbnails/suicide.png"
 aiDisclosure:
   - icon: fingerprint
-    text: "This blog was majorly written and ideated by a human."
+    text: "This blogpost is human generated."
   - icon: seven-finger-hand
     text: "AI was used for grammatical cleanup and LaTeX implementation."
 context:

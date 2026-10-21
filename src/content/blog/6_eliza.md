@@ -1,14 +1,14 @@
 ---
-title: "a conversation with ELIZA"
+title: "talking to eliza"
 date: "22/9/2026"
 sortDate: "2026-09-22"
 homepagePinned: true
 readTime: "3 min"
 pinned: false
-teaser: "a small experiment in being heard by a machine."
+teaser: ""
 aiDisclosure:
   - icon: seven-finger-hand
-    text: "This writeup was majorly implemented by coding agents."
+    text: "This blogpost is majorly AI generated."
 thumbnail: "/assets/thumbnails/parroting-ezgif.com-optimize.gif"
 ---
 

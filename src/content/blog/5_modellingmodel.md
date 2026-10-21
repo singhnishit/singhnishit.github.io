@@ -1,5 +1,5 @@
 ---
-title: "Could a model model a model?"
+title: "could a model model a model?"
 date: "20/9/26"
 sortDate: "2026-09-20"
 homepagePinned: true
@@ -9,9 +9,9 @@ teaser: ""
 thumbnail: "/assets/thumbnails/modellingmodel.png"
 aiDisclosure:
   - icon: fingerprint
-    text: "No LLMs were used in this writeup."
+    text: "This blogpost is human generated."
   - icon: seven-finger-hand
-    text: "AI was used for the technical implementation of the text-box"
+    text: "AI was used for the technical implementation of the text-box."
 context:
   logos: [lossfunk]
   text: >-
@@ -41,4 +41,4 @@ Therefore, I choose TWO_BOX as my final answer.</p>
 
 Asking models conceptual questions that require them to reason about one another can tell us quite a bit. This "micro-experiment"[^1] hints that newer models can anticipate the reasoning patterns of earlier ones. A few correct guesses are a starting point; I'd like to see how far that holds.
 
-[^1]: [1] Reading about decision theory and variants of Newcomb's problem, I came across this video from [computerphile](https://www.youtube.com/watch?v=bdbhKoypnFI) (posted about 8 months ago) that does the *exact same thing*. It is still worthwhile to keep doing this experiment as models get smarter. Perhaps if flagship models' prediction accuracy starts to fall as general capability increases, it could be a sign of models becoming "too smart to be accurately modelled by their immediate successor".
+[^1]: [1] Reading about decision theory and variants of Newcomb's problem, I came across this video from [computerphile](https://www.youtube.com/watch?v=bdbhKoypnFI) (posted about 8 months ago) that does the *exact same thing*. It is still worthwhile to keep doing this experiment as models get smarter. Perhaps if flagship models' prediction accuracy starts to fall as general capability increases, it could be a sign of models becoming "too smart to be accurately modelled by their immediate successors".

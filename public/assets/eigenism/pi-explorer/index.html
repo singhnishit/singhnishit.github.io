@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Partial information explorer · eigenism</title>
+<link rel="stylesheet" href="explorer.css">
+<script type="module" src="explorer.mjs"></script>
+</head>
+<body>
+<main class="pi-explorer" aria-label="Partial information explorer">
+  <header class="pi-header">
+    <div><p class="eyebrow">EIGENISM / INTERACTIVE NOTE</p><h1>Where the information lives</h1></div>
+    <div class="switch-wrap"><span id="source-label">source variables</span><div class="source-switch" role="group" aria-labelledby="source-label"><button type="button" data-n="2" aria-pressed="true">2</button><button type="button" data-n="3" aria-pressed="false">3</button><button type="button" data-n="4" aria-pressed="false">4</button></div></div>
+  </header>
+  <div class="context-line"><span id="target-line">X₁, X₂ → target U</span><span id="count-line">4 PI regions</span></div>
+  <div class="legend" aria-label="Region categories">
+    <span><i class="swatch individual"></i>individual</span><span><i class="swatch collective"></i>collective / redundant</span><span><i class="swatch synergistic"></i>synergistic</span><span id="mixed-legend" hidden><i class="swatch mixed"></i>collective + synergistic</span>
+  </div>
+  <section class="inspector" aria-label="Selected region">
+    <div class="inspector-heading"><h2 id="region-type">Synergistic information</h2><span class="notation" id="region-notation">{12}</span></div>
+    <p id="region-description">Information about U that requires X₁ + X₂ together. No group missing any of these sources provides this contribution.</p>
+  </section>
+  <div class="diagram-heading"><span id="diagram-title">I(U; X₁, X₂)</span><span class="interaction-hint">hover to explore · tap to select</span></div>
+  <div id="diagram" class="diagram"></div>
+  <p id="map-note" class="map-note" hidden>Four sources have 166 PI atoms. Each tile is one region; the map groups them by type. Tile numbers are references, not information values.</p>
+  <div class="region-picker"><label for="region-select">Explore a region</label><select id="region-select"></select></div>
+  <p id="selection-announcement" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+  <footer>
+    <p><span class="notation">{12}</span> means X₁ and X₂ together. <span class="notation">{1}{2}</span> means X₁ or X₂ separately. All regions describe information <em>about U</em>.</p>
+    <p>Areas are schematic, not quantities. “Collective” here means redundant information; mixed regions can also involve synergy. Structure follows <a href="https://arxiv.org/abs/1004.2515" target="_blank" rel="noopener noreferrer">Williams &amp; Beer</a>.</p>
+  </footer>
+  <noscript>This explorer needs JavaScript to switch diagrams and inspect regions.</noscript>
+</main>
+</body>
+</html>

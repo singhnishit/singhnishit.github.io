@@ -8,7 +8,7 @@ pinned: false
 teaser: "got"
 aiDisclosure:
   - icon: fingerprint
-    text: "No LLMs were used in this writeup."
+    text: "This blogpost is human generated."
 thumbnail: "/assets/thumbnails/scared.png"
 ---
 

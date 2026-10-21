@@ -1,5 +1,5 @@
 ---
-title: "Decision Theory(s)"
+title: "decision theory(s)"
 date: "16/9/26"
 sortDate: "2026-09-16"
 homepagePinned: true
@@ -9,9 +9,9 @@ teaser: "got"
 thumbnail: "/assets/thumbnails/1527273302792.jpeg"
 aiDisclosure:
   - icon: fingerprint
-    text: "This blog was majorly written and ideated by a human."
+    text: "This blogpost is human generated."
   - icon: seven-finger-hand
-    text: "AI was used for grammatical cleanup and LaTeX implementation."
+    text: "AI was used for early ideation and grammatical cleanup."
 context:
   logos: [lossfunk, redwood, mats]
   text: >-
@@ -20,7 +20,7 @@ context:
     [MATS 12.0 (Winter)](https://www.matsprogram.org/) while at [Lossfunk](https://www.lossfunk.com).
 ---
 
-I am writing this blog to get my thoughts moving - I have a work task to submit as part of my application to the [MATS Fellowship](https://www.matsprogram.org). There is no point in feigning insouciance; it is a pretty big deal. The task centres on *decision theories*, and more specifically, when and how they break. The linked readings are dense, extensive, and steeped in rationalist discourse. Perhaps mentioning the last of those would have saved me the first two. This week is already packed: amongst other things, I have to design a poster for a conference I am presenting at in the USA (an ocean away, whichever way I go). It is a shame that I can't seem to work on anything else, perhaps because of the "newness" of this kind of science; they don't teach this stuff in physics / engineering / cs classes. This post is supposed to act as a conduit between thought and text - untangling the mental yarn into a thought-full sweater[^1].
+I am writing this blog to get my thoughts moving - I have a work task to submit as part of my application to the [MATS Fellowship](https://www.matsprogram.org). There is no point in feigning non-chalance; it's a big deal. The task centres on *decision theories*, and more specifically, when and how they break. The linked readings are dense, extensive, and steeped in rationalist discourse. Perhaps mentioning the last of those would have saved me the first two. This week is already packed: amongst other things, I have to design a poster for a conference I am presenting at in the USA, which is two oceans away in either direction. It is a shame that I can't seem to work on anything else, perhaps because of the "newness" of this kind of science; they don't teach this stuff in physics / engineering / cs classes. This post is supposed to act as a conduit between thought and text - untangling the mental yarn into a thought-full sweater[^1].
 
 ## Newcomb-like problems
 
