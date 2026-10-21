@@ -20,7 +20,7 @@ thumbnail: "/assets/corrigibilityblog/teaser-extended.png"
 
 >This blogpost closely follows the [LessWrong page](https://www.lesswrong.com/w/corrigibility-1)([s](https://www.lesswrong.com/w/hard-problem-of-corrigibility)) on corrigibility, which could be referred to for a more thorough discussion. 
 
-![HAL9000](/public/assets/corrigibilityblog/teaser.png)
+![HAL9000](/assets/corrigibilityblog/teaser.png)
 
 $\text{HAL 9000}$, *by u/Crysaura on r/pixelart.*
 
