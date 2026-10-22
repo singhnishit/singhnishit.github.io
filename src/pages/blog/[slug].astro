@@ -65,6 +65,12 @@ const { Content } = await post.render();
                 
                 const fnElement = document.getElementById(fnId);
                 if (fnElement) {
+                    // Display equations need the full article width, not a 213px margin.
+                    if (fnElement.querySelector('.katex-display')) {
+                        // Preserve numbering when text-only notes are hidden on desktop.
+                        fnElement.setAttribute('value', String(Array.from(fnElement.parentElement!.children).indexOf(fnElement) + 1));
+                        return;
+                    }
                     const sidenote = document.createElement("div");
                     sidenote.className = "sidenote";
                     if (sidenoteCount % 2 === 0) sidenote.classList.add("right");

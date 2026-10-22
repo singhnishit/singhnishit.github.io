@@ -142,6 +142,10 @@ const resolveImage = (path) => {
                 
                 const fnElement = document.getElementById(fnId);
                 if (fnElement) {
+                    if (fnElement.querySelector('.katex-display')) {
+                        fnElement.setAttribute('value', String(Array.from(fnElement.parentElement!.children).indexOf(fnElement) + 1));
+                        return;
+                    }
                     const sidenote = document.createElement("div");
                     sidenote.className = "sidenote";
                     if (sidenoteCount % 2 === 0) sidenote.classList.add("right");

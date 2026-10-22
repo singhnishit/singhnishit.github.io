@@ -721,7 +721,40 @@ h2 {
 .footnotes {
     display: none !important;
     /* Hide default footnotes at bottom */
-}/* Responsive overrides and Reactive animations */
+}
+
+/* Equation footnotes remain readable below the article on wide screens too. */
+@media (min-width: 1321px) {
+    .blog-post-body .footnotes:has(.katex-display) {
+        display: block !important;
+        margin-top: 32px;
+        padding-top: 16px;
+        border-top: 1px solid #ccc;
+        color: #767877;
+        font-size: 12px;
+    }
+    .footnotes:has(.katex-display) > ol > li:not(:has(.katex-display)) {
+        display: none;
+    }
+    .footnotes:has(.katex-display) > ol {
+        padding-left: 24px;
+    }
+    .footnotes:has(.katex-display) > ol > li {
+        scroll-margin-top: 20px;
+        margin-bottom: 16px;
+    }
+    .footnotes:has(.katex-display) .sr-only {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+        margin: 0 0 12px;
+        font-size: 20px;
+    }
+}
+/* Responsive overrides and Reactive animations */
 @media (max-width: 768px) {
     .container {
         width: 100%;

@@ -71,7 +71,7 @@ $$
 c_{\mathcal{U}}(i) = \frac{I(\mathcal{U}; X_i)}{H(\mathcal{U})}
 $$
 
-Computing the functional form of $H(\mathcal{U} | X_i)$ - 
+Computing[^2] the functional form of $H(\mathcal{U} | X_i)$ -
 
 $$
 \begin{aligned}
@@ -84,18 +84,7 @@ H(\mathcal{U} | X_i) &= \sum\limits_{x_i} \sum\limits_{u}p(u, x_i)\left[-\log_{2
 \end{aligned}
 $$
 
-Expanding the logarithm and working through some algebra gives us the following expression as a quick sanity check - 
 
-$$
-\begin{aligned}
- H(U\mid X) &= -\sum_{u,x}p(u,x) \left[\log_2 p(u,x)-\log_2 p(x)\right] \\ 
-&= -\sum_{u,x}p(u,x)\log_2 p(u,x) + \sum_x\left[\sum_u p(u,x)\right]\log_2 p(x) \\
-&= -\sum_{u, x} p(u, x) \log_2 p(u, x) + \sum_{x} \left[ \sum_{u} p(u, x) \right] \log_2 p(x) \\[6pt]
-&= -\sum_{u, x} p(u, x) \log_2 p(u, x) + \sum_{x} p(x) \log_2 p(x) \\[6pt]
-&= H(U, X) - \left( -\sum_{x} p(x) \log_2 p(x) \right) \\[6pt]
-&= H(U, X) - H(X)
-\end{aligned} 
-$$
 
 $$
 \begin{gathered}
@@ -242,3 +231,18 @@ Therefore, there is some credit allotted even for carrying purely synergistic pa
 
 
 [^1]:[1] For example, the knowledge that "2+2 = 4" is fairly common, and two strangers who know this fact are not very connected. In contrast, the knowledge of "a certain middle aged man crying over his 39th birthday because his children bought him his favourite cake, but the cake was made of clay since the kids could not afford a real cakery" would be shared only by the siblings in the family. This identity pattern is rare, and therefore the wellbeing of the *pattern carrier* is orders of magnitude more important to our agent $U$.
+
+[^2]: [2] Expanding the logarithm and working through some algebra gives us the following expression as a quick sanity check:
+
+    $$
+    \begin{aligned}
+    H(U\mid X)
+    &= -\sum_{u,x}p(u,x)\left[\log_2 p(u,x)-\log_2 p(x)\right] \\
+    &= -\sum_{u,x}p(u,x)\log_2 p(u,x)
+       + \sum_x\left[\sum_u p(u,x)\right]\log_2 p(x) \\
+    &= -\sum_{u,x}p(u,x)\log_2 p(u,x)
+       + \sum_x p(x)\log_2 p(x) \\[6pt]
+    &= H(U,X)-\left(-\sum_x p(x)\log_2 p(x)\right) \\[6pt]
+    &= H(U,X)-H(X)
+    \end{aligned}
+    $$
