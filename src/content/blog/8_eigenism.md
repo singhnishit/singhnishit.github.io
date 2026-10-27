@@ -15,7 +15,7 @@ context:
   logos: [lossfunk]
   text: >-
     Work done as part of the research fellowship at [Lossfunk](https://lossfunk.com).
-thumbnail: "/assets/eigenism/hands-thumbnail-simple.png"
+thumbnail: "/assets/eigenism/hands-thumbnail-white.png"
 ---
 
 *If the superintelligent being thinks I'm cute, it might allocate resources toward my wellbeing. If the superintelligence relates itself to me, or sees itself in me, it would allocate resources toward my wellbeing. If the superintelligence thinks losing me would mean losing a part of itself, it would allocate resources toward my wellbeing.* 
@@ -30,7 +30,7 @@ Eigenism posits that the wellbeing of an individual is directly related to the w
 
 ## Connected wellbeing
 
-Consider an agent who carries an identity $U$ and is part of a community of several other agents which carry parts of $U$, some carry large parts of $U$, some carry very little. The wellbeing of the agent is the cumulative sum of the wellbeings of the community, weighed by how much of the identity each community member carries. 
+Consider an agent who carries an identity $U$ and is part of a community of several other agents which carry parts of $U$, some carry large parts of $U$, some carry very little. The wellbeing of the agent is the cumulative sum of the wellbeings of the individuals in the community, weighed by how much of the identity each community member carries.
 
 $$
 S_u = \sum\limits_{\forall{i}} c_u(i) \cdot w(i)
@@ -45,11 +45,11 @@ Here, $S_u$ is the wellbeing of the agent $U$. The *connectedness* '$c_u$' has s
 
 3) The total informational complexity of a certain pattern should be fully accounted for throughout its carriers.
 
-There are other desirable properties too (like *vessel non-essentiality*, where it should not matter for an agent if it was running an instance on, suppose GPU A or GPU B), and we shall discuss these properties further into this text. 
+There are other desirable properties (like *vessel non-essentiality*, where it should not matter for an agent if it was running an instance on, suppose GPU A or GPU B), and we shall discuss these properties further into this text.
 
 ## Towards a definition of connectedness
 
-Let us define an agent $A$ who carries pattern $U$. The pattern could be thought of as a function of memories (external data), representations (resultant internal theories from the external data), initialisations, amongst many other things. The exact functional form of the pattern $U$ is difficult to define, and ideal form would require us to come up with a complete theory of deep learning! To avoid running into these problems, we could think of the internal pattern as a really, really long binary string. 
+Let us define an agent $A$ who carries pattern $U$. This pattern could be thought of as a function of memories (external data), representations (resultant internal theories from the external data), and initialisations amongst (many) other things. The exact functional form of the pattern $U$ is difficult to define, perhaps the pursuit of an ideal form would require us to come up with a complete theory of deep learning. To avoid running into these problems, think of the internal pattern as a really, really long binary string.
 
 $$
 \mathcal{U} = \mathcal{U}(X_1, X_2, X_3...) = \mathcal{U}(X_i)
@@ -196,7 +196,7 @@ I(U;X_N) &=v(N)
 }
 $$
 
-Thus, Shapley allocation counts the population's collectively available information exactly once. Throughout our treatment of the subject, we have (un)intentionally been working toward an synergistic system - there is a place for two individuals who alone cannot contribute to an understanding of the target identity, but when considered together, their contribution is non-zero!
+Impying that Shapley allocation counts the population's collectively available information exactly once. Throughout our treatment of the subject, we have (un)intentionally been working toward an synergistic system - there is a place for two individuals who alone cannot contribute to an understanding of the target identity, but when considered together, their contribution is non-zero!
 
 ## Synergistic information
 
@@ -207,7 +207,7 @@ $$
 \text{but} \quad I(X| X_1, X_2) = 1
 $$
 
-In more complex examples, one could plot out the venn diagrams and mark out the regions of the diagram which correspond to individual, collective, and synergistic portions. Below is an interactive implementation of this idea.
+In more complex examples, one could plot out the venn diagrams and mark out the regions of the diagram which correspond to individual, collective, and synergistic portions. Consider three agents $\{1\}, \{2\},$ and $\{3\}$. We could classify information as *individual* $(\prod \{1\}, \prod \{2\}, \prod \{3\})$, *collective* $(\prod \{1\}\{2\}, \prod \{2\}\{3\}, \prod \{3\}\{1\})$, or *synergistic* $(\prod \{12\}, \prod \{23\}, \prod \{31\})$. Below is an interactive implementation of this idea.
 
 <iframe src="/assets/eigenism/pi-explorer/venn.html?sources=2" title="Two-source partial information decomposition about target U" loading="lazy" height="600" style="display:block; width:100%; border:0; margin:24px 0;"></iframe>
 

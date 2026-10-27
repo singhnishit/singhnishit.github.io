@@ -22,11 +22,11 @@ thumbnail: "/assets/corrigibilityblog/teaser-extended.png"
 
 ![HAL9000](/assets/corrigibilityblog/teaser.png)
 
-$\text{HAL 9000}$, *by u/Crysaura on r/pixelart.*
+**HAL 9000**, *by u/Crysaura on r/pixelart.*
 
 An agent is *corrigible* when it does not resist its own shutdown. The accelerating development of these agents allows them to be, in general, more capable. These capabilities allow agents to demonstrate a variety of undesirable behaviour[^1], giving rise to efforts which aim to *align* them. Arguably, the majority of *misaligned* behaviour takes the shape of "utility maximisation", and most alignment efforts are, in general, methods to define "utility" in more desirable ways.
 
-An agent tasked with maximising a certain utility will tend to prefer *instrumentally convergent* strategies to achieve its goals. An instrumentally convergent strategy could be loosely defined as a strategy which enables an agent to achieve several different goals. As an example - for the vastly different tasks of "attend a lecture", "go to the gym", "drive at night-time", and "discolor your teeth", having coffee is *instrumentally convergent*, because it helps an agent achieve this goal. By definition, "don't die" is instrumentally convergent to almost all goals a living being could have. 
+An agent tasked with maximising a certain utility will tend to prefer *instrumentally convergent* strategies to achieve its goals. An instrumentally convergent strategy could be loosely defined as a strategy which enables an agent to achieve several different goals. As an example - for the vastly different tasks of "attend a lecture", "go to the gym", "drive at night-time", and "discolor your teeth", having coffee is *instrumentally convergent*, because it helps an agent achieve all of these goals. By definition, "don't die" is instrumentally convergent to almost all goals a living being could have.
 
 ## Incorrigibility
 

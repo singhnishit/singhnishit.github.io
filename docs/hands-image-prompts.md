@@ -10,6 +10,12 @@ Generated using the built-in imagegen tool from the user-provided pencil hand st
 
 ## Shared prompt
 
+### White thumbnail revision (2026-10-25)
+
+Mode: built-in image_gen edit. Input: `public/assets/eigenism/hands-thumbnail-simple.png`. Output: `public/assets/eigenism/hands-thumbnail-white.png`.
+
+Use case: precise-object-edit. Edit the supplied website blog thumbnail only. Replace its beige/ivory/yellowish mottled paper background with a clean bright pure white background. Keep a faint neutral light-gray grid at the left and right fading into white at the center. Preserve exactly the existing composition, three pencil-drawn hand poses, two pixel-art hand cursors, dissolving pixels, their sizes and positions, fine graphite detail, and the Ena Bianca signature lower right. Neutral grayscale pencil shading, no warm tint anywhere. Remove beige paper texture and yellow cast, but retain the pencil texture of the hands. Same wide approximately 1.8:1 aspect ratio, no cropping, no extra hands, objects or text. This is a minimal background/color edit, not a redesign.
+
 Use case: precise-object-edit. Input image is the EDIT TARGET: graphite studies of human hands on organic cream paper, signed Ena Bianca. Extend horizontally on BOTH sides. Preserve the entire original portrait drawing in the CENTER at full height, including all hand studies, pencil detail and artist signature; do not crop or replace it. Seamlessly continue the composition outward with additional hand studies. Moving from center to edges, hands gradually transition from natural pencil drawing through stepped pixel edges to cute small pixel-art hand cursors (pointing, grabbing, open palm) at the far edges. Paper grain gradually resolves into a subtle square graph-paper/computer pixel grid. This is one coherent gradual organic-to-digital transformation, no hard seams or separate panels. Restrained monochrome graphite/black outlines, warm off-white background, delicate gray grid. Match the original hand-drawing sensibility; pixel hands should be charming and simple, not glossy or 3D. Some whitespace between hands; balanced editorial composition. No captions, no added text, no added signatures. Preserve original signature.
 
 ## Thumbnail addition
