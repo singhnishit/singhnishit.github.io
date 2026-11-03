@@ -1,7 +1,7 @@
 ---
 title: "connected welfare(s)"
-date: "16/10/2026"
-sortDate: "2026-10-16"
+date: "02/11/2026"
+sortDate: "2026-11-02"
 homepagePinned: true
 readTime: "10 min"
 pinned: false

@@ -2,7 +2,7 @@
 title: "talking to eliza"
 date: "22/9/2026"
 sortDate: "2026-09-22"
-homepagePinned: true
+homepagePinned: false
 readTime: "3 min"
 pinned: false
 teaser: ""

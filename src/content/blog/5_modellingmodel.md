@@ -2,7 +2,7 @@
 title: "could a model model a model?"
 date: "20/9/26"
 sortDate: "2026-09-20"
-homepagePinned: true
+homepagePinned: false
 readTime: "5 min"
 pinned: false
 teaser: ""

@@ -2,7 +2,7 @@
 title: "decision theory(s)"
 date: "16/9/26"
 sortDate: "2026-09-16"
-homepagePinned: true
+homepagePinned: false
 readTime: "7-10 min"
 pinned: false
 teaser: "got"

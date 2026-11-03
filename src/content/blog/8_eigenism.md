@@ -1,7 +1,7 @@
 ---
 title: "source-code identities"
-date: "16/10/2026"
-sortDate: "2026-10-16"
+date: "27/10/2026"
+sortDate: "2026-10-27"
 homepagePinned: true
 readTime: "10 min"
 pinned: false
