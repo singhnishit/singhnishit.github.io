@@ -4,7 +4,7 @@ date: "9/9/26"
 sortDate: "2026-09-09"
 homepagePinned: true
 readTime: "7-10 min"
-pinned: true
+pinned: false
 teaser: "got"
 thumbnail: "/assets/thumbnails/suicide.png"
 aiDisclosure:
