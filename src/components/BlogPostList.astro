@@ -1,5 +1,6 @@
 ---
 import { welfareSeriesSlugs as seriesSlugs } from '../utils/blog-series.mjs';
+import { blogLogos } from '../data/blog-logos';
 const { posts, detailed = false } = Astro.props;
 const series = seriesSlugs.map(slug => posts.find(post => post.slug === slug)).filter(Boolean);
 let grouped = false;
@@ -13,8 +14,8 @@ const imageUrl = path => path.startsWith('http') ? path : import.meta.env.BASE_U
 ---
 {groups.map(group => (
   <div class:list={{ 'blog-series': group.series }} role={group.series ? 'group' : undefined} aria-label={group.series ? 'Three-part series: termination ambivalence, source-code identities, connected welfare(s)' : undefined}>
-    {group.posts.map(post => (
-      <div class="list-item">
+    {group.posts.map((post, index) => (
+      <div class:list={["list-item", { "series-lead": group.series && index === 0 }]}>
         <div class="item-image">
           <img src={post.data.thumbnail ? imageUrl(post.data.thumbnail) : 'https://via.placeholder.com/160x100/e0e0e0/888888?text=Thumbnail'} alt={post.data.title} />
         </div>
@@ -25,6 +26,14 @@ const imageUrl = path => path.startsWith('http') ? path : import.meta.env.BASE_U
           {detailed && post.data.readTime && <p class="date">{post.data.readTime} read</p>}
           {detailed && <a href={`${import.meta.env.BASE_URL}blog/${post.slug}`}>read</a>}
         </div>
+    {group.series && index === 0 && (
+      <div class="series-context">
+        <a class="series-logo" href={blogLogos.lossfunk.href} aria-label="Lossfunk">
+          <img src={imageUrl(blogLogos.lossfunk.src)} alt={blogLogos.lossfunk.alt} width="102" height="44" />
+        </a>
+        <span>work done while at <a href={blogLogos.lossfunk.href}>Lossfunk</a></span>
+      </div>
+    )}
       </div>
     ))}
   </div>
@@ -37,4 +46,34 @@ const imageUrl = path => path.startsWith('http') ? path : import.meta.env.BASE_U
   }
   .blog-series > .list-item { margin-left: 0; margin-right: 0; }
   .blog-series > .list-item:last-child { margin-bottom: 0; }
+  .series-context {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    flex: 0 0 150px;
+    width: 150px;
+    margin: 0 0 0 auto;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--muted);
+  }
+  .series-lead .item-content { min-width: 0; }
+  @media (max-width: 768px) {
+    .series-lead { display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: 16px; }
+    .series-lead .item-image { grid-column: 1; grid-row: 1; }
+    .series-lead .series-context { grid-column: 2; grid-row: 1; }
+    .series-lead .item-content { grid-column: 1 / -1; }
+  }
+  .series-logo {
+    display: block;
+    flex: none;
+    width: 102px;
+    height: 44px;
+    border: 1px solid var(--text);
+    background: #fdfdfd;
+  }
+  .series-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .series-logo:hover { outline: 1px solid var(--text); outline-offset: 2px; }
+  .series-logo:focus-visible { outline: 2px solid var(--link-strong); outline-offset: 3px; }
 </style>

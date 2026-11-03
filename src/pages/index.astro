@@ -146,6 +146,23 @@ const resolveImage = (path) => {
         <!-- Talks Section -->
         <TalksSection talks={talks} />
 
+        <!-- Blog Section -->
+        <section class="list-section">
+            <h2>blog</h2>
+
+            {blog.length > 0 ? <BlogPostList posts={blog} /> : <p style="font-size: 12px; color: #767877;">visit the blog for all posts.</p>}
+            <p><a href={`${import.meta.env.BASE_URL}blog/#archive`}>view all blog posts →</a></p>
+
+            <div class="color-blocks">
+                <span class="block red"></span>
+                <span class="block magenta"></span>
+                <span class="block yellow"></span>
+                <span class="block cyan"></span>
+                <span class="block green"></span>
+                <span class="block blue long"></span>
+            </div>
+        </section>
+
         <!-- Projects Section -->
         <section class="list-section">
             <h2>projects</h2>
@@ -177,22 +194,6 @@ const resolveImage = (path) => {
             </div>
         </section>
 
-        <!-- Blog Section -->
-        <section class="list-section">
-            <h2>blog</h2>
-
-            {blog.length > 0 ? <BlogPostList posts={blog} /> : <p style="font-size: 12px; color: #767877;">visit the blog for all posts.</p>}
-            <p><a href={`${import.meta.env.BASE_URL}blog/#archive`}>view all blog posts →</a></p>
-
-            <div class="color-blocks">
-                <span class="block red"></span>
-                <span class="block magenta"></span>
-                <span class="block yellow"></span>
-                <span class="block cyan"></span>
-                <span class="block green"></span>
-                <span class="block blue long"></span>
-            </div>
-        </section>
  <!-- Miscellaneous Section -->
         <section class="list-section">
             <h2>miscellaneous</h2>
