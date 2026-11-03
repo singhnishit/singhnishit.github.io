@@ -109,13 +109,13 @@ const icons = {
     width: 65.5px;
     height: 65.5px;
     padding: 0;
-    border: 1px solid #111;
+    border: 1px solid var(--text);
     border-radius: 0;
-    background: #fdfdfd;
-    color: #111;
+    background: var(--surface);
+    color: var(--text);
     cursor: help;
   }
-  .disclosure-icon img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .disclosure-icon img { background: #fdfdfd; display: block; width: 100%; height: 100%; object-fit: contain; }
   .disclosure-icon img.fingerprint-image { padding: 8px; }
   .question-mark {
     position: absolute;
@@ -125,22 +125,22 @@ const icons = {
     place-items: center;
     width: 14px;
     height: 14px;
-    border: 1px solid #111;
+    border: 1px solid var(--text);
     border-radius: 50%;
-    background: #fdfdfd;
+    background: var(--surface);
     font: 10px/1 'JetBrains Mono', monospace;
     z-index: 1;
   }
-  .disclosure-icon:focus-visible { outline: 2px solid #0050f1; outline-offset: 3px; }
+  .disclosure-icon:focus-visible { outline: 2px solid var(--link-strong); outline-offset: 3px; }
   .disclosure-tooltip {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     padding: 10px 12px;
-    border: 1px solid #111;
-    background: #fdfdfd;
-    color: #111;
+    border: 1px solid var(--text);
+    background: var(--surface);
+    color: var(--text);
     line-height: 1.5;
     overflow-wrap: anywhere;
     white-space: pre-line;

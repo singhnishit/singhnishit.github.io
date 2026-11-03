@@ -26,7 +26,7 @@ thumbnail: "/assets/eigenism/hands-thumbnail-white.png"
 
 **"If you need a hand"**, *u/Awkward_Radish_3027 on r/sketches, extended by an LLM*.
 
-Eigenism posits that the wellbeing of an individual is directly related to the wellbeing of other individuals that carry (parts of) the original individual's identity. This position challenges the stance held by both utilitarians and egoists - as it resolves several tensions between the two paradigms. As an easy example, if a parent is given the choice of saving either two strangers or their own offspring from a burning building, utilitarianism argues against saving the child, and egoism rejects the idea of saving the strangers. An eigenist would weigh the *connectedness* to the parties which need saving, and save the parties which would ensure the maximisation of a *connected wellbeing function*. Since the parent is vastly more connected to their child, saving the child outweighs saving the strangers. This does not necessarily mean that the parent does not owe the strangers anything - just not as much as they owe their child. 
+Eigenism posits that the wellbeing of an individual is directly related to the wellbeing of other individuals that carry (parts of) the original individual's identity. This position challenges the stance held by both utilitarians and egoists - as it resolves several tensions between the two paradigms. As an easy example, if a parent is given the choice of saving either two strangers or their own offspring from a burning building, utilitarianism argues against saving the child, and egoism rejects the idea of saving the strangers. An eigenist would weigh the *connectedness* to the parties which need saving, and save the parties which would ensure the maximisation of a *connected wellbeing function*. Since the parent is vastly more connected to their child, saving the child outweighs saving the strangers. This does not necessarily mean that the parent does not owe the strangers anything - just not as much as they owe their child. If the building only had two strangers with the possibility of saving only one, an eigenist agent would flip a coin!
 
 ## Connected wellbeing
 
@@ -229,8 +229,141 @@ $$
 
 Therefore, there is some credit allotted even for carrying purely synergistic patterns as an individual. This is a relief to know, since one of the tenets of the Shapley treatment is that players with zero contribution get zero payout. As our AI systems get smarter, our informational wells may well run dry, causing us to have zero connectedness to an AI agent. Synergistic rewards imply that as long as humanity has access to *keys* like the one described above, it would be possible to ensure some sort of connectedness to an AI. 
 
+## Effective complexity
 
-[^1]:[1] For example, the knowledge that "2+2 = 4" is fairly common, and two strangers who know this fact are not very connected. In contrast, the knowledge of "a certain middle aged man crying over his 39th birthday because his children bought him his favourite cake, but the cake was made of clay since the kids could not afford a real cakery" would be shared only by the siblings in the family. This identity pattern is rare, and therefore the wellbeing of the *pattern carrier* is orders of magnitude more important to our agent $U$.
+There is a problem with utilising Shannon entropy as the foundation of our definition of connected-ness. Consider the case of an agent using a random number generator (RNG), or a pseudo-random number generator (PRNG) with some seed, to generate a really long sequence of random numbers. The agent then discards the generator (or the seed), and creates a perfect copy of the random number. The agent then hands the copy of the random number to another agent. Since Shannon entropy captures all of the information in a certain string, the carriers of said random numbers would be *connected* even though the knowledge of random numbers carry no real identiy patterns, gaming the system.
+
+Gell-Mann-Lloyd (GML) effective complexity separates the regularities and randomness of a certain model (in our case, a string). In order to construct a definition of connectedness over GML complexity, consider the case of conditional Kolmogorov complexity[^3] $K(a \mid b)$ and our original entropy $H(M)$ :
+
+$$
+K(a\mid b)
+=
+\min\left\{
+|p|:\mathcal U(p,b)=a
+\right\},
+\qquad
+K(a)=K(a\mid\varepsilon).
+$$
+
+$$
+H(M)
+=
+-\sum_{x}M(x)\log_2 M(x).
+$$
+
+
+Where $\delta,\Delta\geq0, \qquad \mathcal M =\{M:M$ is a computable probability distribution, $ H(M)<\infty, H(M)$ is computable}. The functional form for GML complexity is -
+
+$$
+\mathcal M_{\delta,\Delta}(u)
+=
+\left\{
+M\in\mathcal M:
+\begin{aligned}
+-\log_2 M(u)&\leq(1+\delta)H(M),\\
+K(M)+H(M)&\leq K(u)+\Delta
+\end{aligned}
+\right\}
+$$
+
+$$
+E_{\delta,\Delta}(u)
+=
+\min_M
+\left\{
+K(M):
+\begin{array}{l}
+-\log_2 M(u)\le(1+\delta)H(M),\\[2pt]
+K(M)+H(M)\le K(u)+\Delta
+\end{array}
+\right\}
+$$
+
+$$
+E_{\delta,\Delta}(u)
+=
+\inf_{M\in\mathcal M_{\delta,\Delta}(u)}K(M),
+\qquad
+\inf\varnothing=+\infty\\[10pt]
+\boxed{E=K(M_u^*)}
+$$
+
+Where $M_u^*$ is the minimising value from the set $\mathcal{M}$. We can then define an equivalent to "mutual information" by considering the addition of a set of carriers. Given a set of carriers $x_a \in \mathcal{A}$, we select the subset $B \subseteq A$ with the least description length.
+
+$$
+L(A)
+=
+\min\left(
+\{E\}
+\cup
+\left\{
+K(M_u^{*}\mid x_B):
+\varnothing\neq B\subseteq A
+\right\}
+\right)\\[10pt]
+L(\varnothing)=E,
+\qquad
+0\leq L(A)\leq E\\[10pt]
+A\subseteq B
+\quad\Longrightarrow\quad
+L(B)\leq L(A)
+$$
+
+The value function we defined earlier in relation to mutual information $v(A) = I(U; X_A)$, could be ported directly under this construction to be -
+
+$$
+v_E(A)=E-L(A),
+\qquad
+v_E(\varnothing)=0,
+\qquad
+0\leq v_E(A)\leq E,\\[10pt]
+A\subseteq B
+\quad\Longrightarrow\quad
+v_E(A)\leq v_E(B)
+$$
+
+The marginal contribution of a group of carriers in our understanding of the target identity is -
+
+$$
+\begin{aligned}
+d_i(A)
+&:=v_E(A\cup\{i\})-v_E(A)\\
+&=[E-L(A\cup\{i\})]-[E-L(A)]\\
+&=L(A)-L(A\cup\{i\}),
+\end{aligned}
+\qquad i\notin A. \\[10pt]
+0\leq d_i(A)\leq E
+$$
+
+Now, we could input this into the Shapley consideration to have our final *connectedness* measure that is bounded ($c \in [0,1]$)[^4], and accounts for the sum of *patterns* across carriers to necessarily sum up to the target.
+
+$$
+w_n(A)
+=
+\frac{|A|!(n-|A|-1)!}{n!}\\[10pt]
+\phi_i(v_E)
+=
+\sum_{A\subseteq N\setminus\{i\}}
+w_n(A)d_i(A) \\[10pt]
+\boxed{
+c_u^E(i;N)
+=
+\frac{\phi_i(v_E)}{E}
+=
+\frac1E
+\sum_{A\subseteq N\setminus\{i\}}
+\frac{|A|!(n-|A|-1)!}{n!}
+\left[L(A)-L(A\cup\{i\})\right].
+}
+$$
+
+## Ending note
+
+Connectedness as a measure requires us to compute some uncomputable quantities, and thus, it is unlikely that we will be able to calculate the exact magnitude of "how connected" two entities are. As with most foundational constructions in science, the purpose of this writeup was to take consider most of what could be considered (this does not imply that there are no relevant considerations outside of the treatment above). This definition of connectedness, together with a similarly defined measure of "wellbeing" would probably come embedded with important insights. As for now, given this construction, we are aware of how synergistic information is rewarded in an eigenist setup, and that the naive construction with Shannon entropy does not handle RNGs, and that Gell-Mann-Lloyd's construction of effective complexity could be utilised to iron the wrinkle.
+
+I hope for a certain outcome that relies on eigenism, and eigenism relies on this (otherwise useless) mathematical construction of its ideas. What the certain outcome *is*, is best left for a discussion offline :)
+
+[^1]:[1] For example, the knowledge that "2+2 = 4" is fairly common, and two strangers who know this fact are not very connected. In contrast, the knowledge of "a certain middle aged man crying on his 39th birthday because his children bought him his favourite cake, and the cake was made of clay since the kids could not afford a real cakery" would be shared only by the attendees of the birthday party. This identity pattern is rare, and therefore the wellbeing of the *pattern carrier* is orders of magnitude more important to the agent $U$ under consideration.
 
 [^2]: [2] Expanding the logarithm and working through some algebra gives us the following expression as a quick sanity check:
 
@@ -246,3 +379,26 @@ Therefore, there is some credit allotted even for carrying purely synergistic pa
     &= H(U,X)-H(X)
     \end{aligned}
     $$
+
+[^3]: [3] The Kolmogorov complexity $K(\cdot)$ of a certain "entity" $E$ is the length $K(E)$ of the shortest program $\mathcal{P}$, that when passed as input on a universal computer $\mathcal{U}$, gives the output $E$. Therefore, $\mathcal{U}(\mathcal{P}) = E$, where $|\mathcal{P}| = K(E)$.
+
+[^4]: [4] Proof for the preceeding statement:
+      $$
+      \begin{aligned}
+      0\leq L(A)\leq E \quad &\text{(by construction)}\\[10pt]
+      L(A\cup\{i\})\leq L(A) \quad &(i \text{ cannot make the minimum larger)}
+      \end{aligned}\\[10pt]
+      0\leq L(A)-L(A\cup\{i\})\leq E\\[10pt]
+      \sum_{A\subseteq N\setminus\{i\}}
+      \frac{|A|!(n-|A|-1)!}{n!}
+      =
+      \sum_{k=0}^{n-1}
+      \binom{n-1}{k}
+      \frac{k!(n-k-1)!}{n!}
+      =
+      \sum_{k=0}^{n-1}\frac1n
+      =
+      1\\[10pt]
+
+      \boxed{0\leq c_i\leq1}
+      $$

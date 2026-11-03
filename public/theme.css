@@ -1,0 +1,50 @@
+/* LIGHT PALETTE: edit these hex colors to customize light mode.
+   page-bg = outside the page; surface = article/card background;
+   text = main text; muted = captions; rule = subtle borders;
+   hover-bg = hover highlight; link/link-strong = links; green/red = accents. */
+:root {
+  color-scheme: light;
+  --page-bg: #e8e8e8;
+  --surface: #fdfdfd;
+  --text: #111;
+  --muted: #767877;
+  --rule: #ccc;
+  --hover-bg: #f1f1f1;
+  --link: #0078d4;
+  --link-strong: #0050f1;
+  --green: #2e8b57;
+  --red: #ee1c24;
+}
+/* DARK PALETTE: the same roles, used when dark mode is selected. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #000000;
+  --surface: #151515;
+  --text: #f0f0ed;
+  --muted: #afb3b8;
+  --rule: #535960;
+  --hover-bg: #202021;
+  --link: #70baff;
+  --link-strong: #8ab4ff;
+  --green: #74d4a0;
+  --red: #ff787e;
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  margin: 0 4px 0 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+.theme-toggle:hover { background: var(--hover-bg); border-color: var(--rule); }
+.theme-toggle:focus-visible { outline: 2px solid var(--link-strong); outline-offset: 2px; }
+.theme-sun, [data-theme="dark"] .theme-moon { display: none; }
+[data-theme="dark"] .theme-sun { display: block; }

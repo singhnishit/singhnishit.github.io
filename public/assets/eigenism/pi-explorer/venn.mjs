@@ -3,8 +3,8 @@ const n = new URLSearchParams(location.search).get('sources') === '3' ? 3 : 2;
 const all = atoms(n), byKey = new Map(all.map(a => [a.key, a])), d = diagrams[n];
 const $ = id => document.getElementById(id);
 // Plain regions with a subtle monochrome highlight for interaction.
-const colors = {individual:'#fdfdfd', collective:'#fdfdfd', synergistic:'#fdfdfd', mixed:'#fdfdfd'};
-const activeColors = {individual:'#e6e6e6', collective:'#e6e6e6', synergistic:'#e6e6e6', mixed:'#e6e6e6'};
+const colors = {individual:'var(--surface)', collective:'var(--surface)', synergistic:'var(--surface)', mixed:'var(--surface)'};
+const activeColors = {individual:'var(--hover-bg)', collective:'var(--hover-bg)', synergistic:'var(--hover-bg)', mixed:'var(--hover-bg)'};
 const titles = { individual:'individual', collective:'collective', synergistic:'synergistic', mixed:'collective, synergistic' };
 $('heading').textContent = `${n} sources`;
 document.title = `${n}-source PI decomposition`;

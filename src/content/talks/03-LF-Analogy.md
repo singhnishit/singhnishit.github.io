@@ -3,7 +3,7 @@ title: "Stupid questions about analogy"
 authors: ""
 venue: "Lossfunk Research Fellowship,"
 date: "September 2026"
-description: "Stupid questions from trying to analyse analogy with math"
+description: "Questions that stem from analysing analogy via math"
 thumbnail: "/assets/talks/lf_analogy.png"
 order: 3
 draft: false

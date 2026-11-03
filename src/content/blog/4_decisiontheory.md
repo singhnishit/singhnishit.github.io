@@ -15,7 +15,7 @@ aiDisclosure:
 context:
   logos: [lossfunk, redwood, mats]
   text: >-
-    Work done as part of the application process for
+    Work done as part of the application process for the
     [Redwood Research](https://www.redwoodresearch.org/) stream at
     [MATS 12.0 (Winter)](https://www.matsprogram.org/) while at [Lossfunk](https://www.lossfunk.com).
 ---

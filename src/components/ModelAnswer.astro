@@ -87,15 +87,15 @@
 <style is:global>
   model-answer {
     display: block;
-    border: 1px solid #767877;
+    border: 1px solid var(--muted);
     padding: 12px;
     margin: 24px 0;
     font: inherit;
     color: inherit;
     overflow-wrap: anywhere;
   }
-  .model-answer-label { color: #767877; font-size: 10px; letter-spacing: .06em; margin-bottom: 16px; }
-  model-answer [data-question] { padding-bottom: 12px; border-bottom: 1px solid #ddd; }
+  .model-answer-label { color: var(--muted); font-size: 10px; letter-spacing: .06em; margin-bottom: 16px; }
+  model-answer [data-question] { padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
   model-answer [data-answer] { margin-bottom: 0; }
   .model-answer-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .model-answer-controls button {
@@ -103,13 +103,13 @@
     font-size: 11px;
     background: transparent;
     color: inherit;
-    border: 1px solid #767877;
+    border: 1px solid var(--muted);
     border-radius: 0;
     padding: 5px 8px;
     cursor: pointer;
   }
   .model-answer-controls button:disabled { opacity: .45; cursor: default; }
-  .model-answer-controls button:focus-visible { outline: 2px solid #0050F1; outline-offset: 2px; }
+  .model-answer-controls button:focus-visible { outline: 2px solid var(--link-strong); outline-offset: 2px; }
   .model-answer-accessible {
     position: absolute;
     width: 1px;

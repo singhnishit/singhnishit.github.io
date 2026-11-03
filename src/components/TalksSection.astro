@@ -47,9 +47,8 @@ const resolveImage = (path: string) => path.startsWith('http')
 
 <style>
     #talks-heading { margin-bottom: 8px; }
-    .talks-note { margin: 0 0 20px; font-size: 12px; color: #767877; }
-    .talk-item .item-image img { border-width: 1px; }
-    .talk-placeholder { display: grid; place-items: center; background: #e8e8e8; color: #767877; border: 1px solid #555; aspect-ratio: 9 / 5; }
+    .talks-note { margin: 0 0 20px; font-size: 12px; color: var(--muted); }
+    .talk-placeholder { display: grid; place-items: center; background: var(--page-bg); color: var(--muted); border: 1px solid var(--muted); aspect-ratio: 9 / 5; }
     .item-content .talk-description { margin-bottom: 8px; }
-    .talks-empty { font-size: 12px; color: #767877; }
+    .talks-empty { font-size: 12px; color: var(--muted); }
 </style>

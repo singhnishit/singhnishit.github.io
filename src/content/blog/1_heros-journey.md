@@ -46,3 +46,5 @@ thumbnail: "public/assets/thumbnails/topster.png"
 -imaginal disk, magdalena bay
 
 -the meyerowitz stories, noah baumbach 
+
+-the age of adz, sufjan stevens

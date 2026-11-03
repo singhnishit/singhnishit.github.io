@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Favicons from '../components/Favicons.astro';
+import ThemeHead from '../components/ThemeHead.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 import { ViewTransitions } from 'astro:transitions';
 import EntryLinks from '../components/EntryLinks.astro';
 import TalksSection from '../components/TalksSection.astro';
@@ -28,6 +30,7 @@ const resolveImage = (path) => {
     <title>Nishit Singh</title>
     <link rel="stylesheet" href={import.meta.env.BASE_URL + "style.css"}>
     <Favicons />
+    <ThemeHead />
     <!-- KaTeX CSS for LaTeX rendering -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <ViewTransitions />
@@ -38,10 +41,10 @@ const resolveImage = (path) => {
         <!-- Header Section -->
         <header>
             <div class="header-left">
-                <h1>Nishit Singh <span class="pronouns">(he / they)</span></h1>
+                <h1>Nishit Singh <span class="pronouns">(he / they)</span> <ThemeToggle /></h1>
             </div>
             <div class="header-right">
-                <a href="https://www.image2url.com/r2/default/documents/1789234185589-abdcfcf4-630c-4d13-9308-16c5a4cb95fa.pdf">cv</a> / <a href={import.meta.env.BASE_URL + "blog"}>blog</a> / <a href="https://github.com/singhnishit">github</a>
+                <a href={import.meta.env.BASE_URL + "blog"}>blog</a> / <a href="https://github.com/singhnishit">github</a>
             </div>
         </header>
 
@@ -55,10 +58,9 @@ const resolveImage = (path) => {
             <div class="intro-text">
                 <div class="intro-main-text">
                     <p>hey, i'm nishit. i study physics and engineering at the <a href="https://en.wikipedia.org/wiki/BITS_Pilani">birla institute of technology
-                            and science (bits), pilani</a>. over the past year, i have largely worked on interpretability and emergent cognition. owing to the times we live in, i have narrowed my motivations down, and now work primarily on ai safety.</p>
+                            and science (bits), pilani</a>, graduating next year. i'm (largely) interested in ai safety.</p>
 
-                    <p>i am currently a research fellow under <a href="https://x.com/paraschopra?lang=en">paras chopra</a> and <a href="https://scholar.google.com/citations?user=MPFzJQgAAAAJ&hl=en">sushrut thorat</a>, where i work on understanding the foundations of safe ai. through my recent involvment with <a href="https://www.smolproject.com">dr. kokil jaidka</a> at nus,
-                        singapore, i have been interested in trustworthy machine learning frameworks. i've also previously been associated with the <a href="https://en.wikipedia.org/wiki/Council_of_Scientific_and_Industrial_Research">csir national thin film
+                    <p>i am currently a research fellow under <a href="https://x.com/paraschopra?lang=en">paras chopra</a> and <a href="https://scholar.google.com/citations?user=MPFzJQgAAAAJ&hl=en">sushrut thorat</a>, where i work on understanding the foundations of safe ai. through my involvment with <a href="https://www.smolproject.com">dr. kokil jaidka</a> at the national university of singapore (nus) in early 2026, i have been interested in trustworthy machine learning frameworks. i've also previously been associated with the <a href="https://en.wikipedia.org/wiki/Council_of_Scientific_and_Industrial_Research">csir national thin film
                             laboratory</a> (summer research intern), <a href="https://www.linkedin.com/company/bits-pilani-postman-lab/?originalSubdomain=in">postman</a> and the <a
                             href="https://www.linkedin.com/company/kalipatnapu-arvr-lab/?originalSubdomain=in">kalipatnapu extended reality lab</a>, and have had the privilege to be guided by the mechanical engineering department, bits pilani, 
                             in my exploits studying finite element methods. in what seems
@@ -78,7 +80,7 @@ const resolveImage = (path) => {
                         <span class="block magenta"></span>
                     </div>
 
-                    <p class="small-text">i (hopefully will) try to write about what i find interesting on my blog. i am not a very good author. read <a href="https://singhnishit.github.io/blog/">here</a>. </p>
+                    <p class="small-text">i try to write about what i find interesting on my blog. i am not a very good author. read <a href="https://singhnishit.github.io/blog/">here</a>. </p>
                 </div>
             </div>
 

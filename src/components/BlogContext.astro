@@ -56,18 +56,18 @@ const localUrl = (url: string) => url.startsWith('/') ? import.meta.env.BASE_URL
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #111;
+    border: 1px solid var(--text);
     background: #fdfdfd;
     height: 65.5px;
   }
   .context-logo-wide { grid-column: 1 / -1; height: 58px; }
   .context-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
-  a.context-logo:hover { outline: 1px solid #111; outline-offset: 2px; }
-  a.context-logo:focus-visible { outline: 2px solid #0050f1; outline-offset: 3px; }
+  a.context-logo:hover { outline: 1px solid var(--text); outline-offset: 2px; }
+  a.context-logo:focus-visible { outline: 2px solid var(--link-strong); outline-offset: 3px; }
   .context-copy { min-width: 0; overflow-wrap: anywhere; }
   .context-copy :global(p) { margin: 0 0 10px; }
   .context-copy :global(p:last-child) { margin-bottom: 0; }
-  .context-copy :global(a) { color: #0050f1; text-underline-offset: 3px; }
+  .context-copy :global(a) { color: var(--link-strong); text-underline-offset: 3px; }
   .context-copy :global(img) { max-width: 100%; height: auto; }
   .context-copy :global(ul), .context-copy :global(ol) { padding-left: 18px; }
   @media (min-width: 1321px) {

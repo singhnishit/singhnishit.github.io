@@ -10,12 +10,12 @@ strong, b {
 }
 
 body {
-    background-color: #e8e8e8;
+    background-color: var(--page-bg);
     /* Light grey background outside the container */
     font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
     margin: 0;
     padding: 40px 0;
-    color: #111;
+    color: var(--text);
     font-size: 13px;
     line-height: 1.5;
 }
@@ -27,8 +27,8 @@ body {
 }
 
 .container {
-    background: #FDFDFD;
-    border: 1px solid #000;
+    background: var(--surface);
+    border: 1px solid var(--text);
     padding: 11px 13px 30px 13px;
     width: 771px;
     min-height: 2021px;
@@ -43,7 +43,7 @@ header {
 }
 
 h1 {
-    color: #000;
+    color: var(--text);
     font-family: "Times New Roman";
     font-size: 40px;
     font-style: normal;
@@ -56,7 +56,7 @@ h1 {
 h1 .pronouns {
     font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
     font-size: 16px;
-    color: #2e8b57;
+    color: var(--green);
     letter-spacing: -0.2px;
     /* Green color for pronouns */
     font-weight: 50;
@@ -68,17 +68,17 @@ h1 .pronouns {
 }
 
 .header-right a {
-    color: #111;
+    color: var(--text);
     text-decoration: underline;
     text-decoration-thickness: 1px;
 }
 
 .header-right a:hover {
-    color: #0078d4;
+    color: var(--link);
 }
 
 a {
-    color: #0078d4;
+    color: var(--link);
     text-decoration: underline;
 }
 
@@ -86,7 +86,7 @@ a {
 .dots-divider {
     width: 378px;
     height: 24.65px;
-    color: #767877;
+    color: var(--muted);
     font-family: "Inter", sans-serif;
     font-size: 12px;
     font-style: normal;
@@ -118,7 +118,7 @@ a {
 }
 
 .intro-main-text p {
-    color: #000;
+    color: var(--text);
     text-align: justify;
     font-family: "JetBrains Mono";
     font-size: 12px;
@@ -128,7 +128,7 @@ a {
 }
 
 .intro-main-text a {
-    color: #0050F1;
+    color: var(--link-strong);
     font-family: "JetBrains Mono";
     font-size: 12px;
     font-style: normal;
@@ -158,7 +158,7 @@ a {
 
 .small-text {
     width: 285px;
-    color: #767877;
+    color: var(--muted);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: normal;
@@ -168,7 +168,7 @@ a {
 }
 
 .small-text a {
-    color: #0050F1;
+    color: var(--link-strong);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: normal;
@@ -204,7 +204,7 @@ a {
 .image-placeholder img {
     width: 239px;
     height: 328.667px;
-    border: 1px solid #000;
+    border: 1px solid var(--text);
     display: block;
     object-fit: cover;
     background-color: lightgrey;
@@ -212,7 +212,7 @@ a {
 
 .caption {
     width: 248px;
-    color: #767877;
+    color: var(--muted);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: normal;
@@ -225,7 +225,7 @@ a {
 
 .contact-info {
     width: 248px;
-    color: #000;
+    color: var(--text);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: normal;
@@ -309,15 +309,19 @@ h2 {
 
 .item-image {
     width: 180px;
-    height : 100px;
+    height: auto;
+    aspect-ratio: 9 / 5;
+    align-self: flex-start;
+    overflow: hidden;
+    border: 1px solid var(--muted);
     flex-shrink: 0;
 }
 
 .item-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    border: 0.5px solid #555;
+    object-fit: cover;
+    border: 0;
     display: block;
 }
 
@@ -338,11 +342,11 @@ h2 {
 }
 
 .item-content .author {
-    color: #111;
+    color: var(--text);
 }
 
 .item-content .date {
-    color: #555;
+    color: var(--muted);
     margin-bottom: 5px;
 }
 
@@ -413,14 +417,14 @@ h2 {
 }
 
 .sidebar-prefix {
-    color: #767877;
+    color: var(--muted);
     font-weight: 300;
     text-align: justify;
     letter-spacing: -0.72px;
 }
 
 .sidebar-bold {
-    color: #262626;
+    color: var(--text);
     font-weight: 600;
     letter-spacing: -0.72px;
 }
@@ -433,7 +437,7 @@ h2 {
 }
 
 .blog-quote p {
-    color: #000;
+    color: var(--text);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: normal;
@@ -444,7 +448,7 @@ h2 {
 
 /* > arrow — red, weight 300 */
 .q-arrow {
-    color: #EE1C24;
+    color: var(--red);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: normal;
@@ -454,7 +458,7 @@ h2 {
 
 /* italic question lines — red italic, weight 300 */
 .q-text-italic {
-    color: #EE1C24;
+    color: var(--red);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: italic;
@@ -464,7 +468,7 @@ h2 {
 
 /* "I give." — green, weight 300 */
 .q-green {
-    color: #05A551;
+    color: var(--green);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: normal;
@@ -474,7 +478,7 @@ h2 {
 
 /* "You get someone..." — red, weight 400 */
 .q-text-regular {
-    color: #EE1C24;
+    color: var(--red);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: normal;
@@ -484,13 +488,13 @@ h2 {
 
 /* attribution line */
 .quote-attribution {
-    color: #767877;
+    color: var(--muted);
     margin-top: 6px !important;
 }
 
 /* "David Foster Wallace," — black bold 700 */
 .q-author {
-    color: #000;
+    color: var(--text);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: normal;
@@ -500,7 +504,7 @@ h2 {
 
 /* "Infinite Jest" — black bold 700, underlined */
 .q-book {
-    color: #000;
+    color: var(--text);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: normal;
@@ -515,7 +519,7 @@ h2 {
 }
 
 .blog-intro-text {
-    color: #000;
+    color: var(--text);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: normal;
@@ -541,7 +545,7 @@ h2 {
 }
 
 .blog-pinned-title a {
-    color: #000;
+    color: var(--text);
     text-decoration: none;
 }
 
@@ -550,7 +554,7 @@ h2 {
 }
 
 .blog-pinned-meta {
-    color: #767877;
+    color: var(--muted);
     font-family: "JetBrains Mono", monospace;
     font-size: 11px;
     font-weight: 300;
@@ -559,7 +563,7 @@ h2 {
 }
 
 .blog-pinned-tag {
-    color: #767877;
+    color: var(--muted);
     font-family: "JetBrains Mono", monospace;
     font-size: 11px;
     font-weight: 700;
@@ -568,7 +572,7 @@ h2 {
 }
 
 .blog-pinned-teaser {
-    color: #000;
+    color: var(--text);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-weight: 300;
@@ -578,7 +582,7 @@ h2 {
 }
 
 .blog-no-pinned {
-    color: #767877;
+    color: var(--muted);
     font-size: 12px;
     font-family: "JetBrains Mono", monospace;
 }
@@ -601,7 +605,7 @@ h2 {
 }
 
 .blog-post-meta {
-    color: #767877;
+    color: var(--muted);
     font-family: "JetBrains Mono", monospace;
     font-size: 11px;
     font-weight: 300;
@@ -639,15 +643,15 @@ h2 {
 }
 
 .blog-post-body a {
-    color: #0050F1;
+    color: var(--link-strong);
     text-decoration: underline;
 }
 
 .blog-post-body blockquote {
-    border-left: 2px solid #000;
+    border-left: 2px solid var(--text);
     margin: 16px 0;
     padding-left: 12px;
-    color: #767877;
+    color: var(--muted);
 }
 
 /* KaTeX math block spacing */
@@ -680,16 +684,26 @@ h2 {
 }
 
 .blog-back-link a {
-    color: #0050F1;
+    color: var(--link-strong);
     text-decoration: underline;
 }
 
 /* Dynamic Sidenotes */
+.sidenote ol,
+.footnotes li > ol {
+    padding-left: 22px;
+    margin-block: 12px;
+}
+.sidenote ol > li + li,
+.footnotes li > ol > li + li {
+    margin-top: 12px;
+}
+
 .sidenote {
     position: absolute !important;
     top: 0;
     width: 213px;
-    color: #767877;
+    color: var(--muted);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-weight: 300;
@@ -723,14 +737,27 @@ h2 {
     /* Hide default footnotes at bottom */
 }
 
+/* Keep the accessible label without a visible heading above the notes. */
+.footnotes > .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* Equation footnotes remain readable below the article on wide screens too. */
 @media (min-width: 1321px) {
     .blog-post-body .footnotes:has(.katex-display) {
         display: block !important;
         margin-top: 32px;
         padding-top: 16px;
-        border-top: 1px solid #ccc;
-        color: #767877;
+        border-top: 1px solid var(--rule);
+        color: var(--muted);
         font-size: 12px;
     }
     .footnotes:has(.katex-display) > ol > li:not(:has(.katex-display)) {
@@ -742,16 +769,6 @@ h2 {
     .footnotes:has(.katex-display) > ol > li {
         scroll-margin-top: 20px;
         margin-bottom: 16px;
-    }
-    .footnotes:has(.katex-display) .sr-only {
-        position: static;
-        width: auto;
-        height: auto;
-        overflow: visible;
-        clip: auto;
-        white-space: normal;
-        margin: 0 0 12px;
-        font-size: 20px;
     }
 }
 /* Responsive overrides and Reactive animations */
@@ -796,8 +813,7 @@ h2 {
     }
     .item-image img {
         width: 100%;
-        height: auto;
-        aspect-ratio: 16/9;
+        height: 100%;
         object-fit: cover;
     }
     
@@ -824,21 +840,14 @@ a {
     transition: color 0.2s ease;
 }
 .list-item {
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: background-color 0.2s ease;
     padding: 10px;
     border-radius: 4px;
     margin-left: -10px;
     margin-right: -10px;
 }
 .list-item:hover {
-    background-color: #f9f9f9;
-    transform: translateY(-2px);
-}
-.item-image img {
-    transition: transform 0.3s ease;
-}
-.list-item:hover .item-image img {
-    transform: scale(1.03);
+    background-color: var(--hover-bg);
 }
 .blog-pinned-title a {
     transition: color 0.2s ease;
@@ -865,23 +874,13 @@ a {
         display: block !important;
         margin-top: 32px;
         padding-top: 16px;
-        border-top: 1px solid #ccc;
-        color: #767877;
+        border-top: 1px solid var(--rule);
+        color: var(--muted);
         font-size: 12px;
         overflow-wrap: anywhere;
     }
     .footnotes ol { padding-left: 24px; }
     .footnotes li { margin-bottom: 16px; scroll-margin-top: 20px; }
-    .footnotes .sr-only {
-        position: static;
-        width: auto;
-        height: auto;
-        overflow: visible;
-        clip: auto;
-        white-space: normal;
-        margin: 0 0 12px;
-        font-size: 20px;
-    }
     .blog-intro-right {
         position: static;
         width: 100%;
@@ -901,7 +900,7 @@ a {
     .intro { gap: 24px; }
     .intro-image { max-width: 320px; }
     .item-image { max-width: 300px; }
-    .item-image img { height: auto; aspect-ratio: auto; object-fit: contain; }
+    .item-image img { height: 100%; object-fit: cover; }
     .blog-post-body { width: 100%; }
     .blog-quote p, .blog-intro-text { line-height: 1.6; }
     eliza-chat input { font-size: 16px; }
@@ -926,4 +925,4 @@ a {
 }
 
 /* Fill the artwork thumbnail without letterboxing inside its border. */
-.item-image img.thumbnail-cover { object-fit: cover; border-width: 1px; }
+.item-image img.thumbnail-cover { object-fit: cover; }

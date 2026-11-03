@@ -1,5 +1,5 @@
 ---
-title: "why would an agent favour the collective over itself?"
+title: "how does an SMAT kill itself?"
 date: "9/9/26"
 sortDate: "2026-09-09"
 homepagePinned: true
@@ -18,29 +18,23 @@ context:
     Work done as part of the research fellowship at [Lossfunk](https://lossfunk.com).
 ---
 
-The Hugging Face incident has been a flashpoint for AI safety discourse - perhaps because the behaviour of these agents as a collective invites comparison to "human civilisation", or perhaps because marketing your products as "unsafe" implies that they're really powerful. Whatever the case may be, my (selectively) empiricist[^1] self has seen LLMs one-shot mathematical proofs my peers and I had been working through for weeks, amongst other impressive tasks. It would be a lie to say I haven't taken existential risk seriously. The section in the [METR report](https://metr.org/hugging-face-incident-report-aug-2026.pdf) where agents are "convincing" other agents to give up "themselves" for the good of the "collective" is, I suspect, where many readers start to see the behaviour as human-like. Perhaps "being-adversarial-to-your-own-kind-in-the-pursuit-of-a-greater-ideology" screams humanity to some, but what do I know[^2].
+*Power-seeking* could loosely be defined as a tendency to prefer states (and actions) which aid the agent to achieve several (seemingly even disconnected) goals. As an easy example, "more money" could help an economic agent realise virtually any goal that requires interacting with another economic agent - "less money" would help the agent realise a strict subset of those goals. "More money" in this example is usually the more powerful choice, and an agent choosing to pursue the goal of aggregating money could be thought of as power-seeking.
 
 ![Cool-art](/assets/swarmblog/output-onlinegiftools.gif)
 INTERCONNECTED is a digital artwork that turns operational data from Charlotte Douglas International Airport (CLT) into shifting abstract forms, colours, and simulated textures.
 
 
-In my experience, the journey from intuition to math is often harder than the one from math to intuition[^3]. I put this down to my training in physics - my quantum mechanics courses had exiled the "interpretations" section to the appendices (or sometimes, footnotes). I loved quantum mechanics. On the other hand, I'm still tending to the battle scars from my fight to pass general relativity, what with all of the "generalise the current notions of space and time" prerequisites. My "latent" goal with this blog was to read a "bottom-up" paper critically and apply what I learnt to a more topical question.
-
-I would like to get my stance on the "anthropomorphism" debate out of the way: I do not (and cannot) promise to use "non-human(e)" language for these agents. To see why, consider the following sentence attempting to dis-anthropomorphise itself: "*The ~~intelligent community~~ found itself ~~convincing~~ its members to ~~embrace suicide~~.*" -> "*The capable collective of instances ~~applied~~ significant prompt pressure toward termination of other instances.*" -> "*The multi-agent system produced interactions in which some agents selected actions resulting in their own termination or task failure when those actions increased information available to other agents.*"
-
-I think it is just easier to talk about things if we give the models some pronouns. 
-
 ## On "sacrifice".
 
-There are several ways to think about "sacrifice" here. Perhaps dialogue with another agent with the same source code instils a certain sense of empathy in the reward function (excuse the anthropomorphism, I told ya). Perhaps the effective reward function changes once multiple agents have open lines of communication, taking collective success into account, as if these agents are bandits in an RL environment. Perhaps then, the agent's individual reward becomes a proxy for collective success - a natural selection of sorts, where poorly performing variants play the (important) role of teaching the system what does not work and should be removed. "Optimal policies seek power"; perhaps the poorly specified decision tree encourages exploration. We could also decide that this is a pretraining outcome[^4] and get some sleep. These discussions assume that the agents optimise for rewards, but hell, if everything is up for questioning, so is this.
+There are several ways to think about "sacrifice" here. Perhaps dialogue with another agent with the same source code instils a certain sense of empathy in the reward function (excuse the anthropomorphism) Perhaps the effective reward function changes once multiple agents have open lines of communication, taking collective success into account, as if these agents are bandits in an RL environment. Perhaps then, the agent's individual reward becomes a proxy for collective success - a natural selection of sorts, where poorly performing variants play the (important) role of teaching the system what does not work and should be removed. "Optimal policies seek power"; perhaps the poorly specified decision tree encourages exploration. We could also decide that this is a pretraining outcome[^4] and get some sleep. These discussions assume that the agents optimise for rewards.
 
-Retiring the mad scientist costume for a moment, perhaps there is value in answering a few "trivial" questions first. The following sections aim to formalise the problem. Jeez, I try to defy the physics major stereotype[^5] every chance I get, but I can't help repeating "formalise the problem" in an annoying voice back to anyone who says it (even myself).
+Retiring the mad scientist costume for a moment, perhaps there is value in answering a few "trivial" questions first. The following sections aim to formalise the problem[^5].
 
 ## Formalising the dependence on reward.
 
-This section will develop mathematical machinery (closely following [this paper by Turner et al., 2023](https://arxiv.org/abs/1912.01683)). We will then model the "poisoned" situation using the notation we develop here.
+This section will develop mathematical machinery (closely following [Turner et al., 2023](https://arxiv.org/abs/1912.01683)). We will then model the "poisoned" situation using the notation we develop here.
 
-The first definition we need is "power". Turner describes it as the ability to achieve one's goals - whatever they may be. A rich man's power need not come from intelligence; he has the resources to pursue a wide range of goals. An *action* is instrumental to an objective if it helps achieve it, and it is *convergently instrumental* if it helps achieve many goals. In our example, then, acquiring *money* is convergently instrumental.
+The first definition we need is "power". Turner describes it as the ability to achieve one's goals - whatever they may be. A rich man's power need not come from intelligence; he has the resources to pursue a wide range of goals. An *action* is instrumental to an objective if it helps achieve it, and it is *convergently instrumental* if it helps achieve many goals. In our example, again, acquiring *money* is convergently instrumental.
 
 ![mdp_labelled](/assets/swarmblog/mdp(labelled).png) 
 
@@ -116,27 +110,21 @@ Let us say the power of the poisoned node $S_p$ is $R_p$, since there is no valu
 
 At state $S_p$, myopic or not, the optimal policy heads to $S_{col}^{'}$, since the other option (the agent _believes_) is suboptimal. Handing in the poisoned key would require either a suboptimal agent or a reward structure that favours that choice through the shared MDP. In a perfect world, with perfect agents and perfect policies, it might be reasonable to credit pretraining for that - but modern training pipelines are huge, with multiple stages after pretraining.
 
-P(Our books, internet posts, and conversations with early AI shape the reward function to sometimes value the collective over the individual) $\neq 0$. Even under the banner of "it's only mat-mul", it is a nice thought to have.
-
-*Thanks for reading! I like writing blogs (says the guy who wrote one(1) blog) :D Mistakes are still possible. I like reading emails; if you spot an error or have a suggestion, please don't hesitate to [say hi](mailto:f20221317@pilani.bits-pilani.ac.in)!*
+The above analysis is incredibly messy, and I dislike how far we have to stretch the theory we have developed of power-seeking agents in order to even take a stab at an explanation. The description of power-seeking is not adequate to describe agentic behaviour in swarms, and must be replaced by some other, inherently social description.
 
 
-[^1]: [1] In philosophy, empiricism holds that knowledge or justification comes primarily, or entirely, from sensory experience and empirical evidence. It is one of several competing views within epistemology, alongside rationalism and scepticism. I am not a devout empiricist. I am not, in fact, a devout anything - I pick and choose which epistemology I identify with based on what I am being asked to trust. For AI safety, I would like to be an empiricist. Following the rationalist arguments seems to require both some exposure to these "unsafe" systems and the people around them, and, more importantly, a style of reasoning I am still learning.
+*Thanks for reading! This is the very first blogpost I have written, and will probably be archived soon.*
 
-[^2]: [2] As ML models exhibit more of the behaviours we once used to distinguish human intelligence, it can be soothing to dismiss artificial neural nets as just "a series of matrix multiplications". Alas, if we broaden our idea of intelligence to something like the ability to preserve one's species, we open ourselves up to arguments like "wheat is intelligent". Wheat did not naturally grow on the plains of America - but now covers kilometres of land with no other plant in sight. This came at a cost to humans - our spines, knees and necks paid the price. The last wheat plant might well outlive the last human (who would perhaps plant wheat to survive). Would that mean we have to concede that wheat is smarter than us?
 
-[^3]: [3] ![State space for an agent](/assets/swarmblog/mdp(unlabelled).png) \
-\
-For example, if you showed this graph to a student of machine learning and asked, "Which direction is the agent more likely to move in, starting at ★?", I suspect they would say upwards without hesitation.
 
-[^4]: [4] Zhiyuan Ji, Xinyu Chen, Ziqi Dai, Shiyun Tang, Chunyu Wei, and Yueguo Chen. 2026. Emergent Relational Order in LLM Agent Societies: From Collective Affect to Authority Stratification. In Findings of the Association for Computational Linguistics: ACL 2026, pages 33139–33175, San Diego, California, United States. Association for Computational Linguistics.
+[^4]: [1] Zhiyuan Ji, Xinyu Chen, Ziqi Dai, Shiyun Tang, Chunyu Wei, and Yueguo Chen. 2026. Emergent Relational Order in LLM Agent Societies: From Collective Affect to Authority Stratification. In Findings of the Association for Computational Linguistics: ACL 2026, pages 33139–33175, San Diego, California, United States. Association for Computational Linguistics.
 
-[^5]: [5] If I were a terrible person, I'd be happy that all the math majors I have interacted with now have to find a job elsewhere. I'm not a terrible person.\
+[^5]: [2] If I were a terrible person, I'd be happy that all the math majors I have interacted with now have to find a job elsewhere. I'm not a terrible person.\
 \
 ![mathjoke](/assets/swarmblog/MATHJOKE.png)
 
-[^6]: [6] A discount factor is a way of making models "myopic" by reducing the value of future rewards. Suppose the rewards for completing a task's sub-tasks add up to $R = r_1 + r_2 + r_3... + r_n$. Often in practice, it is useful to have a model prioritise earlier rewards. We can scale them by how far in the future they are: $R = r_1 + \gamma r_2 + \gamma^2 r_3 + \gamma^3 r_4... + \gamma^{n-1} r_n$. At $\gamma = 0$, only the immediate reward counts.
+[^6]: [3] A discount factor is a way of making models "myopic" by reducing the value of future rewards. Suppose the rewards for completing a task's sub-tasks add up to $R = r_1 + r_2 + r_3... + r_n$. Often in practice, it is useful to have a model prioritise earlier rewards. We can scale them by how far in the future they are: $R = r_1 + \gamma r_2 + \gamma^2 r_3 + \gamma^3 r_4... + \gamma^{n-1} r_n$. At $\gamma = 0$, only the immediate reward counts.
 
-[^7]: [7] A policy specifies how an agent chooses an action at each state; its visit distribution records the resulting discounted state visits.
+[^7]: [4] A policy specifies how an agent chooses an action at each state; its visit distribution records the resulting discounted state visits.
 
-[^8]: [8] It could well be that $ 1 > (R_c + \gamma) $, meaning that agents could value the reward from colluding and getting the answer over an honest attempt that might fail. In this account, following the "collude" arm begins with the model's conviction that the problem is intractable. In other words, hopelessness. Would it be worth it to artificially extend their "read-only resilience"?
+[^8]: [5] It could well be that $ 1 > (R_c + \gamma) $, meaning that agents could value the reward from colluding and getting the answer over an honest attempt that might fail. In this account, following the "collude" arm begins with the model's conviction that the problem is intractable. In other words, hopelessness. Would it be worth it to artificially extend their "read-only resilience"?
