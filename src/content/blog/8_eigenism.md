@@ -20,7 +20,7 @@ thumbnail: "/assets/eigenism/hands-thumbnail-white.png"
 
 *If the superintelligent being thinks I'm cute, it might allocate resources toward my wellbeing. If the superintelligence relates itself to me, or sees itself in me, it would allocate resources toward my wellbeing. If the superintelligence thinks losing me would mean losing a part of itself, it would allocate resources toward my wellbeing.* 
 
->This blogpost is the second entry in a three part series on agent identities and welfare. It closely follows the ideas outlined in the [eigenism text](https://www.eigenism.org) and attempts a construction of connectedness via information theory. The first part can be viewed [here](https://singhnishit.github.io/blog/7_corrigibility/).
+>This blogpost is the second entry in a three part series on agent identities and welfare. It closely follows the ideas outlined in the [eigenism text](https://www.eigenism.org) and attempts a construction of connectedness via information theory. The first part can be viewed [here](https://singhnishit.github.io/blog/7_corrigibility/), and the third part [here](https://singhnishit.github.io/blog/9_connected-welfare/).
 
 <p><img src="/assets/eigenism/hands-teaser.png" alt="Pencil-drawn human hands gradually becoming pixel-art hand cursors as textured paper transitions into a grid." style="border: 1px solid #000;" /></p>
 

@@ -6,6 +6,7 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 import { ViewTransitions } from 'astro:transitions';
 import EntryLinks from '../components/EntryLinks.astro';
 import TalksSection from '../components/TalksSection.astro';
+import BlogPostList from '../components/BlogPostList.astro';
 import { homepagePosts } from '../utils/blog.mjs';
 const projects = await getCollection('projects');
 projects.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
@@ -180,20 +181,7 @@ const resolveImage = (path) => {
         <section class="list-section">
             <h2>blog</h2>
 
-            {blog.length > 0 ? blog.map((post) => (
-                <div class="list-item">
-                    <div class="item-image">
-                        {post.data.thumbnail
-                            ? <img class:list={{ "thumbnail-cover": post.slug === "swarms" }} src={resolveImage(post.data.thumbnail)} alt={post.data.title} />
-                            : <img src="https://via.placeholder.com/160x100/e0e0e0/888888?text=Thumbnail" alt="Blog thumbnail" />
-                        }
-                    </div>
-                    <div class="item-content">
-                        <h3><a href={`${import.meta.env.BASE_URL}blog/${post.slug}`}>{post.data.title}</a></h3>
-                        <p class="date">{post.data.date}</p>
-                    </div>
-                </div>
-            )) : <p style="font-size: 12px; color: #767877;">visit the blog for all posts.</p>}
+            {blog.length > 0 ? <BlogPostList posts={blog} /> : <p style="font-size: 12px; color: #767877;">visit the blog for all posts.</p>}
             <p><a href={`${import.meta.env.BASE_URL}blog/#archive`}>view all blog posts →</a></p>
 
             <div class="color-blocks">

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400&display=swap');
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--text);font:300 13px/1.6 'JetBrains Mono',monospace}
+main{max-width:600px;margin:auto;border:1px solid var(--text);padding:14px}
+.controls{display:flex;gap:8px;margin-bottom:12px}
+button{font:inherit;background:transparent;color:var(--text);border:1px solid var(--rule);padding:5px 12px;cursor:pointer}
+#help{border-color:#05a551}#harm{border-color:#ee1c24}
+#help[aria-pressed=true]{background:#05a551;color:#071b10}
+#harm[aria-pressed=true]{background:#ee1c24;color:#fff}
+#reset{margin-left:auto}
+button:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+svg{display:block;width:100%;height:auto;overflow:visible}
+.edge{stroke:var(--text)}
+.agent{cursor:pointer;outline:none}
+.disc{stroke:#111;stroke-width:1}
+.wave{fill:none;stroke-width:1.5;opacity:0}
+.ring{fill:none;stroke:var(--text);stroke-width:2;opacity:0}
+.agent:focus-visible .ring,.agent.selected .ring{opacity:1}
+.hit{fill:transparent}

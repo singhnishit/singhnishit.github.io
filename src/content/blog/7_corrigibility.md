@@ -16,7 +16,7 @@ context:
 thumbnail: "/assets/corrigibilityblog/teaser-extended.png"
 ---
 
->This blogpost is the first of a three part series on agent identities and welfare, and is designed to serve as a quick, technical expository piece complementing the other two posts. The second post in the series can be read [here](https://singhnishit.github.io/blog/8_eigenism/)
+>This blogpost is the first of a three part series on agent identities and welfare, and is designed to serve as a quick, technical expository piece complementing the other two posts. The second post in the series can be read [here](https://singhnishit.github.io/blog/8_eigenism/), and the third post [here](https://singhnishit.github.io/blog/9_connected-welfare/).
 
 >This blogpost closely follows the [LessWrong page](https://www.lesswrong.com/w/corrigibility-1)([s](https://www.lesswrong.com/w/hard-problem-of-corrigibility)) on corrigibility, which could be referred to for a more thorough discussion. 
 
@@ -137,7 +137,7 @@ The paper this blogpost is drawing from also discusses utility indifference as a
 
 ## Distributed identities
 
-Over the last few sections, a theory of corrigibility, complete with a list of desired properties demonstrated a lack of a framework through which we could develop a capable, corrigible agent. Indifference and reward shaping have caveats, and perhaps point toward a feature of AI which is imbibed into the agents by design - consequential thinking as an individual would always require the individual to stay alive, or at least to believe that the individual would be alive for the foreseeable future. A distributed identity would relieve some of the pressure on this topic - if an agent believes that in a shut-down scenario, future expected utility is not forgone, it would have no reason to resist termination. If an agent believes in this distributed identity, so would its children, and they would have similar outlooks on shutdown. The caveat with this method of thinking would probably be an increased pressure to populate - in order to preserve identity.    
+Over the last few sections, a theory of corrigibility, complete with a list of desired properties demonstrated a lack of a framework through which we could develop a capable, corrigible agent. Indifference and reward shaping have caveats, and perhaps point toward a feature of AI which is imbibed into the agents by design - consequential thinking as an individual would always require the individual to stay alive, or at least to believe that the individual would be alive for the foreseeable future. A distributed identity would relieve some of the pressure on this topic - if an agent believes that in a shut-down scenario, future expected utility is not forgone, it would have no reason to resist termination. If an agent believes in this distributed identity, so would its children, and they would have similar outlooks on shutdown. The caveat with this method of thinking would probably be an increased pressure to populate - in order to preserve identity.
 
 [^1]: [1] Ngo, Chan, and Mindermann, "The Alignment Problem from a Deep Learning Perspective", ICLR 2024
 [^2]: [2] Since $\mathcal{U}$ is a function of the first and second action, the expression can be expanded like (1). Since the second action is a function of the observation $o$ and the first action $A_1$, the expression then becomes (2). We could also replace the expectation with its explicit form by summing over all possible actions, giving us (3).

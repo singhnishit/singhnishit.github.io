@@ -4,6 +4,7 @@ import Eliza from '../../components/Eliza.astro';
 import BlogContext from '../../components/BlogContext.astro';
 import AIDisclosure from '../../components/AIDisclosure.astro';
 import { getCollection } from 'astro:content';
+import { welfareSeriesSlugs } from '../../utils/blog-series.mjs';
 
 export async function getStaticPaths() {
     const posts = await getCollection('blog');
@@ -15,6 +16,12 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+const seriesPosts = welfareSeriesSlugs.includes(post.slug)
+    ? await getCollection('blog') : [];
+const otherSeriesPosts = welfareSeriesSlugs
+    .filter(slug => slug !== post.slug)
+    .map(slug => seriesPosts.find(entry => entry.slug === slug))
+    .filter(Boolean);
 ---
 <Layout title="blog" pageTitle={post.data.title} fitContent>
     <!-- Dots divider -->
@@ -42,6 +49,15 @@ const { Content } = await post.render();
 
         {post.data.context && <BlogContext context={post.data.context} />}
         <AIDisclosure entries={post.data.aiDisclosure} />
+
+        {otherSeriesPosts.length > 0 && (
+            <nav class="series-related" aria-label="Other posts in this series">
+                <p>also in this series</p>
+                {otherSeriesPosts.map(entry => (
+                    <a href={`${import.meta.env.BASE_URL}blog/${entry.slug}/`}>{entry.data.title} →</a>
+                ))}
+            </nav>
+        )}
 
         <div class="color-blocks" style="margin-top: 40px;">
             <span class="block red"></span>
@@ -108,3 +124,15 @@ const { Content } = await post.render();
         });
     </script>
 </Layout>
+
+<style>
+    .series-related {
+        border: 1px solid var(--text);
+        margin-top: 28px;
+        padding: 14px 16px;
+        font-size: 13px;
+    }
+    .series-related p { margin: 0 0 10px; color: var(--muted); }
+    .series-related a { display: block; width: fit-content; }
+    .series-related a + a { margin-top: 8px; }
+</style>

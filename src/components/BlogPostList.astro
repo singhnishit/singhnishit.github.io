@@ -1,0 +1,40 @@
+---
+import { welfareSeriesSlugs as seriesSlugs } from '../utils/blog-series.mjs';
+const { posts, detailed = false } = Astro.props;
+const series = seriesSlugs.map(slug => posts.find(post => post.slug === slug)).filter(Boolean);
+let grouped = false;
+const groups = posts.flatMap(post => {
+  if (!seriesSlugs.includes(post.slug)) return [{ series: false, posts: [post] }];
+  if (grouped) return [];
+  grouped = true;
+  return [{ series: true, posts: series }];
+});
+const imageUrl = path => path.startsWith('http') ? path : import.meta.env.BASE_URL + path.replace(/^\/?public\//, '').replace(/^\//, '').replace(/\/$/, '');
+---
+{groups.map(group => (
+  <div class:list={{ 'blog-series': group.series }} role={group.series ? 'group' : undefined} aria-label={group.series ? 'Three-part series: termination ambivalence, source-code identities, connected welfare(s)' : undefined}>
+    {group.posts.map(post => (
+      <div class="list-item">
+        <div class="item-image">
+          <img src={post.data.thumbnail ? imageUrl(post.data.thumbnail) : 'https://via.placeholder.com/160x100/e0e0e0/888888?text=Thumbnail'} alt={post.data.title} />
+        </div>
+        <div class="item-content">
+          <h3><a href={`${import.meta.env.BASE_URL}blog/${post.slug}`}>{post.data.title}</a></h3>
+          {detailed && <p class="author">Nishit Singh</p>}
+          <p class="date">{post.data.date}</p>
+          {detailed && post.data.readTime && <p class="date">{post.data.readTime} read</p>}
+          {detailed && <a href={`${import.meta.env.BASE_URL}blog/${post.slug}`}>read</a>}
+        </div>
+      </div>
+    ))}
+  </div>
+))}
+<style>
+  .blog-series {
+    border: 1px solid var(--text);
+    padding: 12px;
+    margin: 0 0 20px;
+  }
+  .blog-series > .list-item { margin-left: 0; margin-right: 0; }
+  .blog-series > .list-item:last-child { margin-bottom: 0; }
+</style>

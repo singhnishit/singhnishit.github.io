@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import BlogPostList from '../../components/BlogPostList.astro';
 import { getCollection } from 'astro:content';
 import { newestFirst, pinnedFirst } from '../../utils/blog.mjs';
 
@@ -102,23 +103,7 @@ const resolveImage = (path) => {
     <section id = "archive" class="list-section">
         <h2>complete<sup>**</sup> list of things i've done/written</h2>
 
-        {allPosts.length > 0 ? allPosts.map((post) => (
-            <div class="list-item">
-                <div class="item-image">
-                    {post.data.thumbnail
-                        ? <img class:list={{ "thumbnail-cover": post.slug === "swarms" }} src={resolveImage(post.data.thumbnail)} alt={post.data.title} />
-                        : <img src="https://via.placeholder.com/160x100/e0e0e0/888888?text=Thumbnail" alt="Blog thumbnail" />
-                    }
-                </div>
-                <div class="item-content">
-                    <h3><a href={`${import.meta.env.BASE_URL}blog/${post.slug}`}>{post.data.title}</a></h3>
-                    <p class="author">Nishit Singh</p>
-                    <p class="date">{post.data.date}</p>
-                    {post.data.readTime && <p class="date">{post.data.readTime} read</p>}
-                    <a href={`${import.meta.env.BASE_URL}blog/${post.slug}`}>read</a>
-                </div>
-            </div>
-        )) : (
+        {allPosts.length > 0 ? <BlogPostList posts={allPosts} detailed /> : (
             <p style="font-size: 12px; color: #767877; margin: 20px 0;">no posts yet.</p>
         )}
 
