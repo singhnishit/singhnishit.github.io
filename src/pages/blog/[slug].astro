@@ -52,7 +52,7 @@ const otherSeriesPosts = welfareSeriesSlugs
 
         {otherSeriesPosts.length > 0 && (
             <nav class="series-related" aria-label="Other posts in this series">
-                <p>also in this series</p>
+                <p>also in this series · <a href={`${import.meta.env.BASE_URL}series/connected-welfare/`} style="display: inline;">view series →</a></p>
                 {otherSeriesPosts.map(entry => (
                     <a href={`${import.meta.env.BASE_URL}blog/${entry.slug}/`}>{entry.data.title} →</a>
                 ))}

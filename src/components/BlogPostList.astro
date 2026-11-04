@@ -1,7 +1,7 @@
 ---
 import { welfareSeriesSlugs as seriesSlugs } from '../utils/blog-series.mjs';
 import { blogLogos } from '../data/blog-logos';
-const { posts, detailed = false } = Astro.props;
+const { posts, detailed = false, showSeriesLink = true } = Astro.props;
 const series = seriesSlugs.map(slug => posts.find(post => post.slug === slug)).filter(Boolean);
 let grouped = false;
 const groups = posts.flatMap(post => {
@@ -14,6 +14,7 @@ const imageUrl = path => path.startsWith('http') ? path : import.meta.env.BASE_U
 ---
 {groups.map(group => (
   <div class:list={{ 'blog-series': group.series }} role={group.series ? 'group' : undefined} aria-label={group.series ? 'Three-part series: termination ambivalence, source-code identities, connected welfare(s)' : undefined}>
+    {group.series && showSeriesLink && <a class="series-link" href={`${import.meta.env.BASE_URL}series/connected-welfare/`}>view series →</a>}
     {group.posts.map((post, index) => (
       <div class:list={["list-item", { "series-lead": group.series && index === 0 }]}>
         <div class="item-image">
@@ -46,6 +47,7 @@ const imageUrl = path => path.startsWith('http') ? path : import.meta.env.BASE_U
   }
   .blog-series > .list-item { margin-left: 0; margin-right: 0; }
   .blog-series > .list-item:last-child { margin-bottom: 0; }
+  .series-link { display: block; width: fit-content; margin-bottom: 16px; font-size: 13px; }
   .series-context {
     display: flex;
     flex-direction: column;
@@ -60,10 +62,10 @@ const imageUrl = path => path.startsWith('http') ? path : import.meta.env.BASE_U
   }
   .series-lead .item-content { min-width: 0; }
   @media (max-width: 768px) {
-    .series-lead { display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: 16px; }
-    .series-lead .item-image { grid-column: 1; grid-row: 1; }
-    .series-lead .series-context { grid-column: 2; grid-row: 1; }
-    .series-lead .item-content { grid-column: 1 / -1; }
+    .series-lead { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .series-lead .series-context { grid-column: 1; grid-row: 1; max-width: 100%; }
+    .series-lead .item-image { grid-column: 1; grid-row: 2; box-sizing: border-box; }
+    .series-lead .item-content { grid-column: 1; grid-row: 3; }
   }
   .series-logo {
     display: block;

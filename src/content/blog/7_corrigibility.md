@@ -1,5 +1,5 @@
 ---
-title: "termination ambivalence"
+title: "(1) termination ambivalence"
 date: "16/10/2026"
 sortDate: "2026-10-16"
 homepagePinned: true

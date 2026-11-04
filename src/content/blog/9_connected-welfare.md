@@ -1,5 +1,5 @@
 ---
-title: "connected welfare(s)"
+title: "(3) connected welfare(s)"
 date: "02/11/2026"
 sortDate: "2026-11-02"
 homepagePinned: true
@@ -47,7 +47,11 @@ $$
 Solving the system of equations gives us $S_1 = b_1 + b_2 + S_1$ - repeatedly calculating these scores baloons the values of $S_1$ and $S_2$ infinitely. Introducing a feedback strength variable $\gamma$ -
 
 $$
-\mathcal{S}_{U} = b_U + \gamma \sum\limits_{\forall i \neq U} c_i \cdot \mathcal{S}_i\\[10pt]
+\mathcal{S}_{U} = b_U + \gamma \sum\limits_{\forall i \neq U} c_i \cdot \mathcal{S}_i
+$$
+
+To consider an environment where an altruistic action (by helping a certain highly connected entity to yourself) might make its utility increase circle back to you[^2], we could include the baseline wellbeing into the brackets, allowing cyclic feedback.
+$$
 \boxed{S_i=\sum_j c_{ij}(b_j+\gamma S_j)}
 $$
 
@@ -75,7 +79,7 @@ T_i(\mathbf{S}) - T_i(\mathbf{R}) &= \gamma C (\mathbf{S} - \mathbf{R})\\[3pt]
 \end{aligned}
 $$
 
-And thus, as a necessary condition for our equation to converge to a solution, we would ideally have $\gamma\max_i\sum_j c_{ij}<1$. If $\gamma <1$, our conditions are satisfied, since we have previously discussed $\max_i\sum_j c_{ij}<1$ previously[^2]. In the [original text about eigenism], the author suggests a transform $f$, through which the wellbeing function must pass through in order to dodge a few undesireable interpretations.
+And thus, as a necessary condition for our equation to converge to a solution, we would ideally have $\gamma\max_i\sum_j c_{ij}<1$. If $\gamma <1$, our conditions are satisfied, since we have previously discussed $\max_i\sum_j c_{ij}<1$ previously[^3]. In the [original text about eigenism], the author suggests a transform $f$, through which the wellbeing function must pass through in order to dodge a few undesireable interpretations.
 
 (1) A system must consider whether it is more important to relieve agony or create "extra ecstacy". Consider the case of Ursula K LeGuin's [The Ones Who Walk Away From Omelas](https://shsdavisapes.pbworks.com/f/Omelas.pdf), where a child is kept in agony, but it is a "desirable" outcome since the environment is otherwise utopian to its much larger populace. The construction we have built until now also rewards this outcome - relieving agony and creating "perverse ecstacy" will both equally balance our equations. Therefore, the construction must reward relieving agony *more* than creating extra ecstacy.
 
@@ -123,7 +127,12 @@ An implementation of the preceeding definition can be found below. Once an agent
 
     4. Discourages gaming the system via RNG generators which create the "rarest" (highest entropy) information, copies of which would be significantly more connected to each other than, say, information like the output of a computable program (*see* [Gell-Mann-Lloyd effective complexity](https://en.wikipedia.org/wiki/Effective_complexity)).
 
-[^2]:[2] Proof (lifted from the previous blog on [source code identities](https://singhnishit.github.io/blog/8_eigenism/)) - Let \(i\) identify the evaluator and \(j\) identify a carrier. The final definition
+
+[^2]:[2] Consider you decide to help your closest associate at a (cost to yourself) in finding an apartment which satisfies their criteria - (1) close to their workplace, (2) *close to where their friends live*, (3) is in a nice neighbourhood, ...
+
+    If your criteria for wellbeing also includes *being close to your friends*, then this action, in the next time step, has utility flowing back to you.
+
+[^3]:[3] Proof (lifted from the previous blog on [source code identities](https://singhnishit.github.io/blog/8_eigenism/)) - Let \(i\) identify the evaluator and \(j\) identify a carrier. The final definition
     $$
     c_{ij}=\frac{\phi_j(v_i)}{E_i},
     \qquad
