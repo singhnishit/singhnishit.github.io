@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import SEO from '../components/SEO.astro';
 import Favicons from '../components/Favicons.astro';
 import ThemeHead from '../components/ThemeHead.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
@@ -9,7 +10,7 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gallery — Nishit Singh</title>
+    <SEO title="Gallery — Nishit Singh" description="A personal gallery by Nishit Singh." />
     <Favicons />
     <ThemeHead />
     <style>

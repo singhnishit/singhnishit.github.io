@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import SEO from '../components/SEO.astro';
 import Favicons from '../components/Favicons.astro';
 import ThemeHead from '../components/ThemeHead.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
@@ -27,8 +28,9 @@ const resolveImage = (path) => {
 
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="s98I1fuzh5a6VvUx_M9pTZEVW1cQd6DKRIzAo3PlLkg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nishit Singh</title>
+    <SEO title="Nishit Singh — AI Safety Research &amp; Writing" description="Nishit Singh studies physics and engineering at BITS Pilani and works on AI safety and trustworthy machine learning. Explore his research, projects, and writing." />
     <link rel="stylesheet" href={import.meta.env.BASE_URL + "style.css"}>
     <Favicons />
     <ThemeHead />
@@ -45,7 +47,7 @@ const resolveImage = (path) => {
                 <h1>Nishit Singh <span class="pronouns">(he / they)</span> <ThemeToggle /></h1>
             </div>
             <div class="header-right">
-                <a href={import.meta.env.BASE_URL + "blog"}>blog</a> / <a href="https://github.com/singhnishit">github</a>
+                <a href={import.meta.env.BASE_URL + "blog"}>blog</a> / <a href="https://github.com/singhnishit" rel="me">github</a>
             </div>
         </header>
 

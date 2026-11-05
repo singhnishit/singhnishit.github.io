@@ -1,5 +1,6 @@
 ---
 title: "decision theory(s)"
+description: "Nishit Singh explores decision theory and Newcomb-like problems, examining how agents make choices when predictions affect outcomes."
 date: "16/9/26"
 sortDate: "2026-09-16"
 homepagePinned: false

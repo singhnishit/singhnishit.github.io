@@ -1,5 +1,6 @@
 ---
 title: "(1) termination ambivalence"
+description: "Nishit Singh explores AI shutdown, corrigibility, and utility indifference in the first essay of his agent identities and welfare series."
 date: "16/10/2026"
 sortDate: "2026-10-16"
 homepagePinned: true

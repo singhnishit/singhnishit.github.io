@@ -1,4 +1,5 @@
 ---
+import SEO from '../components/SEO.astro';
 import { ViewTransitions } from 'astro:transitions';
 import ModelAnswer from '../components/ModelAnswer.astro';
 import Favicons from '../components/Favicons.astro';
@@ -9,15 +10,19 @@ interface Props {
   subtitle?: string;
   pageTitle?: string;
   fitContent?: boolean;
+  description?: string;
+  image?: string;
+  article?: boolean;
+  published?: string;
 }
-const { title, subtitle, pageTitle, fitContent = false } = Astro.props;
+const { title, subtitle, pageTitle, fitContent = false, description = `${pageTitle ?? title} by Nishit Singh — research and writing on AI safety, machine learning, and ideas.`, image, article = false, published } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{pageTitle ?? title} — Nishit Singh</title>
+    <SEO title={`${pageTitle ?? title} — Nishit Singh`} description={description} image={image} article={article} published={published} />
     <link rel="stylesheet" href={import.meta.env.BASE_URL + "style.css"}>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <Favicons />
@@ -33,7 +38,7 @@ const { title, subtitle, pageTitle, fitContent = false } = Astro.props;
             </div>
             <div class="header-right">
                 <ThemeToggle />
-                <a href={import.meta.env.BASE_URL}>home</a> / <a href={import.meta.env.BASE_URL + "blog"}>blog</a> / <a href="#">github</a>
+                <a href={import.meta.env.BASE_URL}>home</a> / <a href={import.meta.env.BASE_URL + "blog"}>blog</a> / <a href="https://github.com/singhnishit" rel="me">github</a>
             </div>
         </header>
 

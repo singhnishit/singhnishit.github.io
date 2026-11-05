@@ -23,7 +23,7 @@ const otherSeriesPosts = welfareSeriesSlugs
     .map(slug => seriesPosts.find(entry => entry.slug === slug))
     .filter(Boolean);
 ---
-<Layout title="blog" pageTitle={post.data.title} fitContent>
+<Layout title="blog" pageTitle={post.data.title} description={post.data.description ?? `${post.data.title} — an essay by Nishit Singh. Read the full post, notes, and related writing.`} image={post.data.thumbnail} article published={post.data.sortDate} fitContent>
     <!-- Dots divider -->
     <div class="dots-divider">
         .........................................................................................................<br>

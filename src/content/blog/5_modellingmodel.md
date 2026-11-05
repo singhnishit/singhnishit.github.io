@@ -1,5 +1,6 @@
 ---
 title: "could a model model a model?"
+description: "Can one language model predict another? Nishit Singh explores model behaviour and epistemic intelligence through Newcomb's problem."
 date: "20/9/26"
 sortDate: "2026-09-20"
 homepagePinned: false
