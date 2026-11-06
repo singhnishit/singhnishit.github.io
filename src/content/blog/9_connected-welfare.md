@@ -18,10 +18,10 @@ context:
     Work done as part of the research fellowship at [Lossfunk](https://lossfunk.com). Thanks to [Paras](https://x.com/paraschopra) for early discussions.
 thumbnail: "/assets/thumbnails/connected-welfares.png"
 ---
->This blogpost is the second entry in a three part series on agent identities and welfare. It closely follows the ideas outlined in the [eigenism text](https://www.eigenism.org) and attempts a construction of connectedness via information theory. The first part can be viewed [here](https://singhnishit.github.io/blog/7_corrigibility/), and the second part [here](https://singhnishit.github.io/blog/8_eigenism/).
+>This blogpost is the third entry in a series about agent identities and welfare. It closely follows the ideas outlined in the [eigenism text](https://www.eigenism.org) and attempts a construction of connectedness via information theory. The first part can be viewed [here](https://singhnishit.github.io/blog/7_corrigibility/), and the second part [here](https://singhnishit.github.io/blog/8_eigenism/).
 
-![r/place](/assets/connected-welfare/image_widget_3egzhxzd7zr81.png)
-**r/place**, *2022*. *Each pixel was placed by an individual reddit user, with the cooldown of 1 hour per pixel per user.*
+![r/place](/assets/connected-welfare/ezgif.com-gif-maker.gif)
+**Unconsensus** - *I asked about 1000 [qwens](https://ollama.com/library/qwen3:0.6b) to each color a cell, one by one, and propose the change to the rest of the group. They also had to permission to "overwrite" - as in delete or update a previously colored cell. Their collective goal was to make any coherent image. The dots in the background was the canvas after 24 hours of deliberation. The airplane w*
 
 Dealing with topics like welfare is difficult by construction. If we do not have a well formed idea of what "welfare" means, one must work towards designing a definition. If we do have a well-formed idea, it becomes difficult then, to deal with the consequences of the definition. For example, we have a fairly thorough idea of what the welfare function looks like for an RL agent - and the connotations of the welfare ([utility](https://www.lesswrong.com/w/utility)) function being well defined are difficult problems to solve (for example, [power-seeking tendencies](https://arxiv.org/abs/1912.01683), or [incorrigibility](https://www.alignmentforum.org/w/corrigibility-1)). Similarly, since we do not have a well-formed definition of welfare for humanity, there remain topics which are hotly contested (for example, euthanasia, or the death penalty).
 
@@ -56,7 +56,7 @@ $$
 \boxed{S_i=\sum_j c_{ij}(b_j+\gamma S_j)}
 $$
 
-Where $c_{ij} = 1$ if $i = j$. This family of equations has been well studied ([Bergstrom, 1998](https://escholarship.org/content/qt0tj4635h/qt0tj4635h.pdf)) - and has a few desirable properties. Moving away from algebraic notation and into matrices -
+This family of equations has been well studied ([Bergstrom, 1998](https://escholarship.org/content/qt0tj4635h/qt0tj4635h.pdf)) - and has a few desirable properties. Moving away from algebraic notation and into matrices -
 
 $$
 \begin{aligned}
@@ -80,7 +80,7 @@ T_i(\mathbf{S}) - T_i(\mathbf{R}) &= \gamma C (\mathbf{S} - \mathbf{R})\\[3pt]
 \end{aligned}
 $$
 
-And thus, as a necessary condition for our equation to converge to a solution, we would ideally have $\gamma\max_i\sum_j c_{ij}<1$. If $\gamma <1$, our conditions are satisfied, since we have previously discussed $\max_i\sum_j c_{ij}<1$ previously[^3]. In the [original text about eigenism], the author suggests a transform $f$, through which the wellbeing function must pass through in order to dodge a few undesireable interpretations.
+And thus, as a sufficient condition for our equation to converge to a solution, we would ideally have $\gamma\max_i\sum_j c_{ij}<1$. If $\gamma <1$, our conditions are satisfied, since we have previously discussed $\max_i\sum_j c_{ij}<1$ previously[^3]. In the [original text about eigenism], the author suggests a transform $f$, through which the wellbeing function must pass through in order to dodge a few undesireable interpretations.
 
 (1) A system must consider whether it is more important to relieve agony or create "extra ecstacy". Consider the case of Ursula K LeGuin's [The Ones Who Walk Away From Omelas](https://shsdavisapes.pbworks.com/f/Omelas.pdf), where a child is kept in agony, but it is a "desirable" outcome since the environment is otherwise utopian to its much larger populace. The construction we have built until now also rewards this outcome - relieving agony and creating "perverse ecstacy" will both equally balance our equations. Therefore, the construction must reward relieving agony *more* than creating extra ecstacy.
 
