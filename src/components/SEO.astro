@@ -1,7 +1,7 @@
 ---
 interface Props {
   title: string;
-  description: string;
+  description?: string;
   image?: string;
   article?: boolean;
   published?: string;
@@ -13,7 +13,7 @@ const imageUrl = new URL(image.replace(/^\/?public\//, '/'), home).href;
 const person = {
   '@type': 'Person', '@id': `${home}#nishit-singh`, name: 'Nishit Singh',
   alternateName: 'singhnishit', url: home, image: new URL('/assets/pfp2.png', home).href,
-  description: 'Physics and engineering student at BITS Pilani working on AI safety and trustworthy machine learning.',
+  description,
   sameAs: ['https://github.com/singhnishit'],
 };
 const page = article ? {
@@ -31,18 +31,18 @@ const structured = { '@context': 'https://schema.org', '@graph': [
 ] };
 ---
 <title>{title}</title>
-<meta name="description" content={description} />
+{description && <meta name="description" content={description} />}
 <meta name="author" content="Nishit Singh" />
 <link rel="canonical" href={canonical} />
 <meta property="og:site_name" content="Nishit Singh" />
 <meta property="og:type" content={article ? 'article' : 'website'} />
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+{description && <meta property="og:description" content={description} />}
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={imageUrl} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
+{description && <meta name="twitter:description" content={description} />}
 <meta name="twitter:image" content={imageUrl} />
 {article && published && <meta property="article:published_time" content={published} />}
 <script type="application/ld+json" set:html={JSON.stringify(structured).replace(/</g, '\\u003c')} />

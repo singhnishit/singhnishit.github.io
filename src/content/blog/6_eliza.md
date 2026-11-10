@@ -1,6 +1,5 @@
 ---
 title: "talking to eliza"
-description: "Try an interactive ELIZA chatbot and read Nishit Singh's notes on pattern matching and early conversational programs."
 date: "22/9/2026"
 sortDate: "2026-09-22"
 homepagePinned: false

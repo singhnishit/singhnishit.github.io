@@ -1,6 +1,5 @@
 ---
 title: "(3) connected welfare(s)"
-description: "Nishit Singh develops a connected welfare model linking agent wellbeing and connectedness, with an interactive network of help and harm."
 date: "02/11/2026"
 sortDate: "2026-11-02"
 homepagePinned: true

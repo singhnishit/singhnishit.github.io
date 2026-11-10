@@ -7,7 +7,7 @@ import { welfareSeriesSlugs } from '../../utils/blog-series.mjs';
 const allPosts = await getCollection('blog');
 const posts = welfareSeriesSlugs.map(slug => allPosts.find(post => post.slug === slug)).filter(Boolean);
 ---
-<Layout title="agent identities and welfare" pageTitle="agent identities and welfare — series" description="A three-part series by Nishit Singh exploring termination ambivalence, source-code identities, and connected welfare." fitContent>
+<Layout title="agent identities and welfare" pageTitle="agent identities and welfare — series" fitContent>
     <BlogPostList posts={posts} detailed showSeriesLink={false} />
     <a href={`${import.meta.env.BASE_URL}blog/`}>← all blog posts</a>
 </Layout>

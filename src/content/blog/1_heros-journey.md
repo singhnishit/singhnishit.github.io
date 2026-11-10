@@ -1,6 +1,5 @@
 ---
 title: "what i'm reading / watching / listening to"
-description: "Nishit Singh's ongoing notes on books, films, music, and other things he is reading, watching, and listening to."
 date: "Last updated in September 2026"
 sortDate: "2026-09-01"
 homepagePinned: true

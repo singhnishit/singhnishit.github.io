@@ -80,7 +80,6 @@ const blogCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    description: z.string().trim().min(1).optional(),
     date: z.string(),
     sortDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Use YYYY-MM-DD').refine(value => {
       const date = new Date(value);

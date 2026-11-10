@@ -1,6 +1,5 @@
 ---
 title: "how does an SMAT kill itself?"
-description: "Nishit Singh explores power-seeking, sacrifice, and collective rewards in systems of interacting AI agents."
 date: "9/9/26"
 sortDate: "2026-09-09"
 homepagePinned: true
