@@ -861,7 +861,24 @@ a {
     min-width: 0;
 }
 .blog-post-body, .item-content, .contact-info { overflow-wrap: anywhere; }
-.blog-post-body pre { max-width: 100%; overflow-x: auto; }
+.blog-post-body :not(pre) > code {
+    padding: 0.05em 0.32em;
+    border: 1px solid var(--rule);
+    background: var(--hover-bg);
+    color: var(--text);
+    font-size: 0.95em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+.blog-post-body pre {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 12px 16px;
+    border: 1px solid var(--rule);
+    background: var(--hover-bg);
+    line-height: 1.55;
+    tab-size: 4;
+}
 .blog-post-body table { display: block; max-width: 100%; overflow-x: auto; }
 .blog-post-body video, .blog-post-body iframe { max-width: 100%; }
 .dots-divider { max-width: 100%; overflow: hidden; }

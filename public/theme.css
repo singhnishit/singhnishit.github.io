@@ -14,6 +14,8 @@
   --link-strong: #0050f1;
   --green: #2e8b57;
   --red: #ee1c24;
+  --code-string: #236c46;
+  --code-comment: #616461;
 }
 /* DARK PALETTE: the same roles, used when dark mode is selected. */
 :root[data-theme="dark"] {
@@ -28,6 +30,8 @@
   --link-strong: #8ab4ff;
   --green: #74d4a0;
   --red: #ff787e;
+  --code-string: var(--green);
+  --code-comment: var(--muted);
 }
 .theme-toggle {
   display: inline-flex;
@@ -48,3 +52,20 @@
 .theme-toggle:focus-visible { outline: 2px solid var(--link-strong); outline-offset: 2px; }
 .theme-sun, [data-theme="dark"] .theme-moon { display: none; }
 [data-theme="dark"] .theme-sun { display: block; }
+
+/* Markdown code uses the same accents as the surrounding page. */
+.astro-code {
+  --astro-code-color-text: var(--text);
+  --astro-code-color-background: var(--hover-bg);
+  --astro-code-token-keyword: var(--link-strong);
+  --astro-code-token-function: var(--link);
+  --astro-code-token-string: var(--code-string);
+  --astro-code-token-string-expression: var(--code-string);
+  --astro-code-token-constant: var(--link-strong);
+  --astro-code-token-comment: var(--code-comment);
+  --astro-code-token-punctuation: var(--text);
+  --astro-code-token-parameter: var(--text);
+  --astro-code-token-link: var(--link);
+  --astro-code-token-inserted: var(--code-string);
+  --astro-code-token-deleted: var(--red);
+}

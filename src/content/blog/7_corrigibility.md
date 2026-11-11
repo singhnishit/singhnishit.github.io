@@ -16,7 +16,7 @@ context:
 thumbnail: "/assets/corrigibilityblog/teaser-extended.png"
 ---
 
->This blogpost is the first of a three part series on agent identities and welfare, and is designed to serve as a quick, technical expository piece complementing the other two posts. The second post in the series can be read [here](https://singhnishit.github.io/blog/8_eigenism/), and the third post [here](https://singhnishit.github.io/blog/9_connected-welfare/).
+>This blogpost is the first entry in a series about agent identities and welfare, and is designed to serve as a quick, technical expository piece on *corrigibility*. [View series](https://singhnishit.github.io/series/connected-welfare/)
 
 >This blogpost closely follows the [LessWrong page](https://www.lesswrong.com/w/corrigibility-1)([s](https://www.lesswrong.com/w/hard-problem-of-corrigibility)) on corrigibility, which could be referred to for a more thorough discussion. 
 
@@ -24,9 +24,9 @@ thumbnail: "/assets/corrigibilityblog/teaser-extended.png"
 
 **HAL 9000**, *by u/Crysaura on r/pixelart.*
 
-An agent is *corrigible* when it does not resist its own shutdown. The accelerating development of these agents allows them to be, in general, more capable. These capabilities allow agents to demonstrate a variety of undesirable behaviour[^1], giving rise to efforts which aim to *align* them. Arguably, the majority of *misaligned* behaviour takes the shape of "utility maximisation", and most alignment efforts are, in general, methods to define "utility" in more desirable ways.
+An agent is *corrigible* when it does not resist its own shutdown, or more generally, does not resist the user from editing its utility function. The accelerated development of these agents allows them to be more capable. These capabilities allow agents to demonstrate a variety of undesirable behaviours[^1], including a resistance to having their goals updated - giving rise to efforts which aim to *align* them. Arguably, the majority of *misaligned* behaviour manifests as some form of "utility maximisation", and most alignment efforts are methods to define the utility function in more desirable ways.
 
-An agent tasked with maximising a certain utility will tend to prefer *instrumentally convergent* strategies to achieve its goals. An instrumentally convergent strategy could be loosely defined as a strategy which enables an agent to achieve several different goals. As an example - for the vastly different tasks of "attend a lecture", "go to the gym", "drive at night-time", and "discolor your teeth", having coffee is *instrumentally convergent*, because it helps an agent achieve all of these goals. By definition, "don't die" is instrumentally convergent to almost all goals a living being could have.
+An agent tasked with maximising a certain utility will tend to prefer *instrumentally convergent* strategies to achieve its goals. An instrumentally convergent strategy could be loosely defined as a strategy which enables an agent to achieve several different, seemingly orthogonal goals. As an example - for the vastly different tasks of "attend a lecture", "go to the gym", "drive at night-time", and "discolor your teeth", having coffee is *instrumentally convergent*, since it aids the agent in achieving all of these goals. By definition, "don't die" is instrumentally convergent to almost all goals a living being could have.
 
 ## Incorrigibility
 

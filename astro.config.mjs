@@ -8,6 +8,7 @@ export default defineConfig({
   site: 'https://nishitsingh.in',
   base: '',
   markdown: {
+    shikiConfig: { theme: "css-variables", langAlias: { python3: "python" } },
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
   },
