@@ -2,7 +2,7 @@
 title: "adaptive vs. non-adaptive queries"
 date: "12/11/2026"
 sortDate: "2026-11-12"
-homepagePinned: false
+homepagePinned: true
 readTime: "15 min"
 pinned: false
 teaser: ""
@@ -21,11 +21,11 @@ thumbnail: "/assets/adaptivity/thumbnail.png"
 >Late at night, while inebriated on the streets somewhere in Berkeley, I asked someone to what extent they believe that our AIs are misbehaving because they're in their "adolescent" years. *"Whadu umean 'adoescelent' yurs?"* they said, *"they gotu scul rite? like whentheyare beeng trainning?"* I replied. They pulled out a box of cigarettes from their pocket and lit two at the same time. *"I dinot know skirts hadpokets"*, I said. *"hahayestheydoanyways i doneven know wat kind ofstudents arfiticalinlletigence wud makefor?"*. It didn't make sense to me why they ended what was probably a statement as if it were a question. I don't much remember what else was talked about.
 
 ![---](/assets/adaptivity/banner-extended.png)
-**Francois, Claude and Paloma**, *Pablo Picasso, 1954.*
+**François, Claude and Paloma**, *Pablo Picasso, 1954.*
 
-Not all that is expressible is learnable. You *can*, in theory, juggle; you have all the components required for juggling, and cycling through a certain set of arrangements of these compononents could, *theoretically*, enable you to juggle forever. Is that enough to assure you that if you took juggling classes, you'd succeed? That which is *expressible* might not be *learnable*. 
+Not all that is expressible is learnable. You *can*, in theory, juggle; you have all the components required for juggling, and cycling through a certain set of arrangements of these components could, *theoretically*, enable you to juggle forever. Is that enough to assure you that if you took juggling classes, you'd succeed? That which is *expressible* might not be *learnable*. 
 
-It is likely, that learning how to juggle two balls is easier than learning to juggle three. Arguably, learning to juggle one ball is easier than learning to juggle two! Surely, you could learn to juggle *one* ball? And maybe, after you've learnt how to juggle *one*, you could learn to juggle *two*? If you kept going, you could learn to juggle dozens of balls! 
+It is likely that learning how to juggle two balls is easier than learning to juggle three. Arguably, learning to juggle one ball is easier than learning to juggle two! Surely, you could learn to juggle *one* ball? And maybe, after you've learnt how to juggle *one*, you could learn to juggle *two*? If you kept going, you could learn to juggle dozens of balls! 
 
 ## $\text{Please show your work}$
 
@@ -68,7 +68,7 @@ Where $S^A$ is an adaptive request, $S^{NA}$ a non-adaptive request, $P$ is the 
 
 ## $\text{Single teachers}$
 
-In the following analysis, only one teacher is under consideration (i.e. all the traces come from the same solver). Since the problem set $P$ is drawn from a certain distribution, assign the probability of $(x_i, y_i)$ being drawn to be $p_i$. The student forms a candidate solution $h$, and its weighed error is calculated as -
+In the following analysis, only one teacher is under consideration (i.e. all the traces come from the same solver). Since the problem set $P$ is drawn from a certain distribution, assign the probability of $(x_i, y_i)$ being drawn to be $p_i$. The student forms a candidate solution $h$, and its weighted error is calculated as -
 
 $$
 e_p(h)
@@ -89,7 +89,7 @@ h_j(x_s) = y_s | \forall s \in S; e_p(h_j) > \epsilon_j
 \boxed{M \sim O(\log{N})}
 $$
 
-One method that *adaptive* querying could be of help to us here, is by boosting the probabilities of the questions it got wrong in order to make them more likely to occur. Give each tuple $(x_i, y_i)$ a weight $w_i^{(k)}$ for the $k$-th round. Initially, the weights $w_i^{(0)}$ of tuples are the same (one could assume they are all $1$), and the probability of the tuple occuring is - 
+One method that *adaptive* querying could be of help to us here, is by boosting the probabilities of the questions it got wrong in order to make them more likely to occur. Give each tuple $(x_i, y_i)$ a weight $w_i^{(k)}$ for the $k$-th round. Initially, the weights $w_i^{(0)}$ of tuples are the same (one could assume they are all $1$), and the probability of the tuple occurring is - 
 
 $$
 p_i^{(0)}
@@ -97,7 +97,7 @@ p_i^{(0)}
 \frac{w_i^{(0)}}{\sum_{j=1}^{m}w_j^{(0)}}
 $$
 
-We then update the weights (and alter the likeliness of these tuples occuring) in subsequent rounds by multiplying the weights of the questions corresponding to the innacurate answers by a factor $\gamma > 1$ - 
+We then update the weights (and alter the likeliness of these tuples occurring) in subsequent rounds by multiplying the weights of the questions corresponding to the inaccurate answers by a factor $\gamma > 1$ - 
 
 $$
 \begin{aligned}
@@ -125,7 +125,7 @@ w_i^{(K)} = \gamma^{c_i}\\[6pt]
 w_i^{(K)} \geq \gamma^{K/2}
 $$
 
-From here, we could work toward a bound for the number of rounds required to get arbitrarily high accuracies. We will consider the aggregate weight after $k$ rounds of adaptive querying $W_K$, measure how much erroneous questions contribute to it. 
+From here, we could work toward a bound for the number of rounds required to get arbitrarily high accuracies. We will consider the aggregate weight after $k$ rounds of adaptively querying $W_K$, and measure how much erroneous questions contribute to it. 
 
 $$
 \begin{aligned}
@@ -136,7 +136,7 @@ $$
 \end{aligned}
 $$
 
-Consider $b$ solutions in the final majority are wrong. Since they were a majority, they were atleast amplified $K/2$ times. Therefore, their contribution to the aggregate weight was atleast amplified by a factor of $\gamma^{K/2}$ times. 
+Let $b$ be the number on which the final majority is wrong. Since they were a majority, they were at least amplified by $K/2$. Therefore, their contribution to the aggregate weight was at least amplified by a factor of $\gamma^{K/2}$ times. 
 
 $$
 b \gamma^{K/2} \leq W_K \leq W_0((\gamma - 1)\epsilon + 1)^K \\[6pt]
@@ -147,7 +147,13 @@ The values for $\gamma$ and $\epsilon$ could be chosen to make the expression in
 
 ## $\text{Multiple teachers}$
 
-*Adaptive* querying is thus, a sufficient learning paradigm to learn tasks. That does not yet prove that it is necessary - there could be a clever non-adaptive strategy which could ensure similar accuracies; rendering adaptive querying unnecessary. This section is an attempt to construct a task which could be solved by the set of adaptive strategies, but not by the set of non-adaptive strategies. It relies on *random number generators* - more specifically, the difference between *pseudo-random number generators* and *truly random number generators*. A truly-RNG has access to an entropy source, and its outputs could never be learnt. A pseudo-RNG requires for a key and a *publicly* available function - passing the private key through the publicly available function would return the exact "random" number. However, the outputs are indistinguishable from truly random bits (under standard cryptographic assumptions). 
+
+
+*Adaptive* querying is thus, a sufficient learning paradigm to learn tasks. That does not yet prove that it is necessary - there could be a clever non-adaptive strategy which could ensure similar accuracies; rendering adaptive querying unnecessary.
+
+This section is an attempt to construct a task which could be solved by the set of adaptive strategies, but not by the set of non-adaptive strategies. It relies on *random number generators* - more specifically, the difference between *pseudo-random number generators* and *truly random number generators*. A truly-RNG has access to an entropy source, and its outputs could never be learnt. A pseudo-RNG requires a key and a *publicly* available function - passing the private key through the publicly available function would return the exact "random" number. However, the outputs are indistinguishable from truly random bits (under standard cryptographic assumptions). 
+
+ Not all teachers have the same "chain-of-thought" - most of my friends from school can attest to this. "Getting" the right answer for certain questions is possible through several different solutions! To instantiate this, in this section we consider a "teacher-specific" trait in the chain-of-thought - specifically, a *mask* peculiar to the teacher.
 
 Consider a standard tuple fitting task, similarly to what we had described above. For a set of tuples $P$, the student may request a batch of at most $M$ solutions (or traces). They must then fit a predictor $\widehat{h}$. The difference between the two strategies is their dependency on previously queried traces. The formalisation of these desiderata are outlined below - 
 
@@ -162,7 +168,7 @@ $$
 \end{aligned}
 $$
 
-The ideal strategy $h^\star$ exploits three pseudorandom generators[^2] $R, B$ and $H$. As a loose intuition over what these generators do, one could consider $R$ as a identifier, as it selects problems which are *rare* from those which are not. The rare problems get funneled through $H$, and the *common* ones pass through $B$ - 
+The ideal strategy $h^\star$ exploits three pseudorandom generators[^2] $R, B$ and $H$. As a loose intuition over what these generators do, one could consider $R$ as an identifier, as it selects problems which are *rare* from those which are not. The rare problems get funneled through $H$, and the *common* ones pass through $B$ - 
 
 $$
 
@@ -196,7 +202,7 @@ $$
 \end{aligned}
 $$
 
-Consider each trace contains information about all three generators ($R, B, H$), the keys to $R$ and $B$ ($k_R, k_B$), a *masked computation* for $H$ (i.e. the key $k_H$ is masked), some paddiing bits for housekeeping, and the final solution $H^{\star}(x)$. We let every teacher hold a *private, $n$-bit mask* $a$ which is then applied to the input $x[0] = (v_1, v_2, \dots v_n) = \mathbf{v}$ in the following fashion - 
+Consider each trace contains information about all three generators ($R, B, H$), the keys to $R$ and $B$ ($k_R, k_B$), a *masked computation* for $H$ (i.e. the key $k_H$ is masked), some padding bits for housekeeping, and the final solution $H^{\star}(x)$. We let every teacher hold a *private, $n$-bit mask* $a$ which is then applied to the input $x[0] = (v_1, v_2, \dots v_n) = \mathbf{v}$ in the following fashion - 
 
 $$
 a = (a_1, a_2, \dots a_l), \quad a_l \in \{0, 1\}^n\\[6pt]
@@ -209,7 +215,7 @@ $$
 \widetilde K_\ell(v)=K_\ell\oplus(a_\ell\cdot v)
 $$
 
-Subsequent query outputs new equations for every key bit - 
+Each subsequent query outputs new equations for every key bit - 
 
 $$
 \begin{aligned}
@@ -260,7 +266,7 @@ e_j^{(k)}
 
 $$
 
-In order to solve the system above, the vectors $v$ need to be linearly independent. For any two vectors drawn from the dataset, the probability that they XOR to zero is $2^{-n}$. Recall that there are $m$ total training exaampless to draw from. Therefore, the probability $P_{d}$ that there exists some dependent group of size at most $t$ -
+In order to solve the system above, the vectors $v$ need to be linearly independent. For any two vectors drawn from the dataset, the probability that they XOR to zero is $2^{-n}$. Recall that there are $m$ total training examples to draw from. Therefore, the probability $P_{d}$ that there exists some dependent group of size at most $t$ -
 
 $$
 \begin{aligned}
@@ -278,7 +284,7 @@ $$
 
 ## $\text{Non-adaptive} \subset \text{adaptive}$
 
-Consider a non-adaptive learner. Since the functions $R, B, H$ are all pseudorandom, the question-answer pair $(x_i = (v, u)_i, y_i)$ satisfy (under standard crypptographic assumptions) - 
+Consider a non-adaptive learner. Since the functions $R, B, H$ are all pseudorandom, the question-answer pair $(x_i = (v, u)_i, y_i)$ satisfy (under standard cryptographic assumptions) - 
 
 $$
 \Pr[y_i=b\mid r_i=0,x_i]= \Pr[y_i=b\mid r_i=1,x_i], \\[4pt]
@@ -298,8 +304,11 @@ $$
 \end{aligned}
 $$
 
-Therefore, if $M\rho = e/\eta$, $\eta$ could be chosen such that the function decays exponentially. Suppose a non-adaptive student nevertheless suceeds at learning the task - that would require them to solve the independent masked equations in order to arrive at the key. For the proof, we could select $t = \sqrt{n}$ such that this is very unlikely. Therefore, if at test time a non-adaptive learner answers the questions accurately, it would violate the cryptographic assumption - they just don't have enough equations to infer the values of the keys!
+Therefore, if $M\rho = e/\eta$, $\eta$ could be chosen such that the function decays exponentially. Suppose a non-adaptive student nevertheless succeeds at learning the task - that would require them to solve the independent masked equations in order to arrive at the key. For the proof, we could select $t = \sqrt{n}$ such that this is very unlikely. Therefore, if at test time a non-adaptive learner answers the questions accurately, it would violate the cryptographic assumption - they just don't have enough equations to infer the values of the keys!
 
 However, when considering an adaptive learner, they could take a trace and identify the rarity condition. The queries could then be directed at enough rare questions in order to collect enough independent equations to solve the masked computations, revealing the key. Once they have the key, they would display similar accuracies at test time; without violating any cryptographic assumptions. 
 
-[^1]:[1] Both students have full access to the question-answer tuples $P=\{(x_1,y_1),\ldots,(x_m,y_m)\}$, they can pick which tuple they would like the trace to. Adaptive students might realise that certain tuples might be tougher than others, and request more samples, unlike non-adaptive students. In order to form an intuition of why such a differentiation is necessary, think of elementary addition. An adaptive learner might realise that certain additions require an extra algorithmic step (the carry over), and might request more traces in order to learn carrying over. 
+
+[^1]:[1] Both students have full access to the question-answer tuples $P=\{(x_1,y_1),\ldots,(x_m,y_m)\}$, they can pick which tuple they would like the trace for. Adaptive students might realise that certain tuples might be tougher than others, and request more samples, unlike non-adaptive students. In order to form an intuition of why such a differentiation is necessary, think of elementary addition. An adaptive learner might realise that certain additions require an extra algorithmic step (the carry over), and might request more traces in order to learn carrying over. 
+
+[^2]:[2] A pseudorandom number generator (PRNG), also known as a deterministic random bit generator (DRBG),[1] is an algorithm for generating a sequence of numbers whose properties approximate the properties of sequences of random numbers. The PRNG-generated sequence is not truly random, because it is completely determined by an initial value or state, usually called the PRNG's seed (which may be based on truly random values).
