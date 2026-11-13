@@ -17,6 +17,7 @@ context:
     Work done as part of the research fellowship at [Lossfunk](https://lossfunk.com).
 thumbnail: "/assets/adaptivity/thumbnail.png"
 ---
+*This blogpost was inspired by [Learning to Think from Multiple Thinkers](https://arxiv.org/pdf/2604.24737), Joshi et al., 2026. Several ideas, notations, and constructions were lifted almost verbatim. Please refer to the paper for an in-depth discussion.*
 
 >Late at night, while inebriated on the streets somewhere in Berkeley, I asked someone to what extent they believe that our AIs are misbehaving because they're in their "adolescent" years. *"Whadu umean 'adoescelent' yurs?"* they said, *"they gotu scul rite? like whentheyare beeng trainning?"* I replied. They pulled out a box of cigarettes from their pocket and lit two at the same time. *"I dinot know skirts hadpokets"*, I said. *"hahayestheydoanyways i doneven know wat kind ofstudents arfiticalinlletigence wud makefor?"*. It didn't make sense to me why they ended what was probably a statement as if it were a question. I don't much remember what else was talked about.
 
