@@ -1,7 +1,7 @@
 ---
 title: "Implementing Regression Models for Predicting Faulty CNC Machining Processes"
 authors: "Nishit Singh, Aditya Tiwari, Chaitanya Jaiswal"
-date: "October 2025"
+date: "October 2023"
 link: "https://github.com/singhnishit/BinaryPrediction"
 linkLabel: "GitHub"
 thumbnail: "public/assets/thumbnails/cncmachine.png"
