@@ -1,5 +1,6 @@
 ---
 import { welfareSeriesSlugs as seriesSlugs } from '../utils/blog-series.mjs';
+import { wordCount } from '../utils/blog.mjs';
 import { blogLogos } from '../data/blog-logos';
 const { posts, detailed = false, showSeriesLink = true } = Astro.props;
 const series = seriesSlugs.map(slug => posts.find(post => post.slug === slug)).filter(Boolean);
@@ -8,7 +9,7 @@ const groups = posts.flatMap(post => {
   if (!seriesSlugs.includes(post.slug)) return [{ series: false, posts: [post] }];
   if (grouped) return [];
   grouped = true;
-  return [{ series: true, posts: series }];
+  return [{ series: true, posts: [...series].sort((a, b) => Number(Boolean(b.data.pinned)) - Number(Boolean(a.data.pinned))) }];
 });
 const imageUrl = path => path.startsWith('http') ? path : import.meta.env.BASE_URL + path.replace(/^\/?public\//, '').replace(/^\//, '').replace(/\/$/, '');
 ---
@@ -22,9 +23,8 @@ const imageUrl = path => path.startsWith('http') ? path : import.meta.env.BASE_U
         </div>
         <div class="item-content">
           <h3><a href={`${import.meta.env.BASE_URL}blog/${post.slug}`}>{post.data.title}</a></h3>
-          {detailed && <p class="author">Nishit Singh</p>}
           <p class="date">{post.data.date}</p>
-          {detailed && post.data.readTime && <p class="date">{post.data.readTime} read</p>}
+          <p class="date word-count">{wordCount(post.body).toLocaleString('en-US')} words</p>
           {detailed && <a href={`${import.meta.env.BASE_URL}blog/${post.slug}`}>read</a>}
         </div>
     {group.series && index === 0 && (

@@ -55,9 +55,8 @@ h1 {
 h1 .pronouns {
     font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
     font-size: 16px;
-    color: var(--green);
+    color: var(--text);
     letter-spacing: -0.2px;
-    /* Green color for pronouns */
     font-weight: 50;
 }
 
@@ -79,6 +78,14 @@ h1 .pronouns {
 a {
     color: var(--link);
     text-decoration: underline;
+}
+
+a:visited {
+    color: var(--link-visited);
+}
+
+a:hover {
+    color: var(--link-hover);
 }
 
 /* Divider */
@@ -127,7 +134,7 @@ a {
 }
 
 .intro-main-text a {
-    color: var(--link-strong);
+    color: var(--text);
     font-family: "JetBrains Mono";
     font-size: 12px;
     font-style: normal;
@@ -167,7 +174,7 @@ a {
 }
 
 .small-text a {
-    color: var(--link-strong);
+    color: var(--text);
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-style: normal;
@@ -642,7 +649,7 @@ h2 {
 }
 
 .blog-post-body a {
-    color: var(--link-strong);
+    color: var(--text);
     text-decoration: underline;
 }
 
@@ -839,14 +846,10 @@ a {
     transition: color 0.2s ease;
 }
 .list-item {
-    transition: background-color 0.2s ease;
     padding: 10px;
     border-radius: 4px;
     margin-left: -10px;
     margin-right: -10px;
-}
-.list-item:hover {
-    background-color: var(--hover-bg);
 }
 .blog-pinned-title a {
     transition: color 0.2s ease;

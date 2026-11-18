@@ -6,14 +6,7 @@ import { newestFirst, pinnedFirst } from '../../utils/blog.mjs';
 
 const allPosts = pinnedFirst(await getCollection('blog'));
 
-const pinnedPost = allPosts.find(p => p.data.pinned);
 const latestDate = newestFirst(allPosts)[0]?.data.sortDate ?? null;
-
-let PinnedContent = null;
-if (pinnedPost) {
-    const { Content } = await pinnedPost.render();
-    PinnedContent = Content;
-}
 
 // Format "latest entry in mar 2026"
 function formatLatest(dateStr: string) {
@@ -21,16 +14,11 @@ function formatLatest(dateStr: string) {
     return `latest entry in ${d.toLocaleString('en-US', { month: 'short', timeZone: 'UTC' }).toLowerCase()} ${d.getUTCFullYear()}`;
 }
 
-const resolveImage = (path) => {
-    if (path.startsWith('http')) return path;
-    let cleanPath = path.replace(/^\/?public\//, '').replace(/^\//, '').replace(/\/$/, '');
-    return import.meta.env.BASE_URL + cleanPath;
-};
 ---
 <Layout
     title="blog"
     subtitle={latestDate ? `(${formatLatest(latestDate)})` : ''}
-    pageTitle="Blog"
+    pageTitle="blog"
 >
     <!-- Dots divider -->
     <div class="dots-divider">
@@ -45,16 +33,17 @@ const resolveImage = (path) => {
         <div class="blog-intro-left">
             <div class="blog-quote">
                 <p>
-                    <span class="q-arrow">&gt;</span>
-                    <span class="q-text-italic"> Mario, what do you get when you cross an insomniac, an unwilling agnostic and a dyslexic?</span>
+                    
+                    > "Mario, what do you get when you cross an insomniac, an unwilling agnostic and a dyslexic?"
                 </p>
                 <p>
-                    <span class="q-arrow">&gt;</span>
-                    <span class="q-green"> "I give."</span>
+
+                    
+                   > "I give."
                 </p>
                 <p>
-                    <span class="q-arrow">&gt;</span>
-                    <span class="q-text-regular"> "You get someone who stays up all night torturing himself mentally over the question of whether or not there's a dog."</span>
+                    
+                    > "You get someone who stays up all night torturing himself mentally over the question of whether or not there's a dog."
                 </p>
                 <p class="quote-attribution">
                     &#8213; <span class="q-author">David Foster Wallace, </span><a class="q-book" href="#">Infinite Jest</a>
@@ -62,7 +51,7 @@ const resolveImage = (path) => {
             </div>
 
             <p class="blog-intro-text">
-                i try to think of this blog as a conduit for half-baked ideas (perhaps due to lack of time, or due to lack of ability) to become more-baked ideas. <a href="#archive">jump to complete list</a>.
+                
             </p>
 
             <div class="color-blocks">
@@ -74,22 +63,7 @@ const resolveImage = (path) => {
                 <span class="block green"></span>
             </div>
 
-            {pinnedPost ? (
-                <div class="blog-pinned">
-                    <h2 class="blog-pinned-title">
-                        <a href={`${import.meta.env.BASE_URL}blog/${pinnedPost.slug}`}>{pinnedPost.data.title}</a>
-                    </h2>
-                    <p class="blog-pinned-meta">
-                        {pinnedPost.data.date}
-                    </p>
-                    <p class="blog-pinned-tag">PINNED{pinnedPost.data.readTime ? ` | ${pinnedPost.data.readTime.toUpperCase()} READ` : ''}</p>
-                    <div class="blog-pinned-content blog-post-body" style="margin-top: 15px;">
-                        {PinnedContent && <PinnedContent />}
-                    </div>
-                </div>
-            ) : (
-                <p class="blog-no-pinned">no posts yet.</p>
-            )}
+
         </div>
 
         <aside class="blog-intro-right">
@@ -99,7 +73,7 @@ const resolveImage = (path) => {
 
     <!-- Full post list -->
     <section id = "archive" class="list-section">
-        <h2>complete<sup>**</sup> list of things i've done/written</h2>
+        <h3>{latestDate ? `(${formatLatest(latestDate)})` : ''}</h3>
 
         {allPosts.length > 0 ? <BlogPostList posts={allPosts} detailed /> : (
             <p style="font-size: 12px; color: #767877; margin: 20px 0;">no posts yet.</p>
@@ -115,54 +89,5 @@ const resolveImage = (path) => {
         </div>
     </section>
 
-    <script>
-        document.addEventListener("astro:page-load", () => {
-            const refs = document.querySelectorAll("sup a[data-footnote-ref]");
-            let sidenoteCount = 0;
-            refs.forEach(ref => {
-                const fnId = ref.getAttribute("href")?.substring(1);
-                if (!fnId) return;
-                
-                const fnElement = document.getElementById(fnId);
-                if (fnElement) {
-                    if (fnElement.querySelector('.katex-display')) {
-                        fnElement.setAttribute('value', String(Array.from(fnElement.parentElement!.children).indexOf(fnElement) + 1));
-                        return;
-                    }
-                    const sidenote = document.createElement("div");
-                    sidenote.className = "sidenote";
-                    if (sidenoteCount % 2 === 0) sidenote.classList.add("right");
-                    else sidenote.classList.add("left");
-                    sidenoteCount++;
-                    
-                    // Copy contents
-                    sidenote.innerHTML = fnElement.innerHTML;
-                    
-                    // Remove the backref link (↩)
-                    const backref = sidenote.querySelector("[data-footnote-backref]");
-                    if (backref) backref.remove();
 
-                    // Prefix with asterisk inside the p tag so it stays inline
-                    const pInside = sidenote.querySelector("p");
-                    if (pInside) {
-                        pInside.innerHTML = "* " + pInside.innerHTML;
-                    } else {
-                        sidenote.innerHTML = "* " + sidenote.innerHTML;
-                    }
-
-                    // Find the parent paragraph and make it relative to anchor the absolute sidenote
-                    const p = ref.closest("p, blockquote, li") as HTMLElement;
-                    if (p) {
-                        p.style.position = "relative";
-                        p.appendChild(sidenote);
-
-                        // Align vertically with the footnote reference
-                        const pRect = p.getBoundingClientRect();
-                        const refRect = ref.getBoundingClientRect();
-                        sidenote.style.top = (refRect.top - pRect.top) + "px";
-                    }
-                }
-            });
-        });
-    </script>
 </Layout>

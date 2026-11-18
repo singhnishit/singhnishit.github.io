@@ -10,8 +10,11 @@
   --muted: #767877;
   --rule: #ccc;
   --hover-bg: #f1f1f1;
-  --link: #0078d4;
-  --link-strong: #0050f1;
+  /* Wikipedia link palette. */
+  --link: #3366cc;
+  --link-strong: #3366cc;
+  --link-hover: #447ff5;
+  --link-visited: #795cb2;
   --green: #2e8b57;
   --red: #ee1c24;
   --code-string: #236c46;
@@ -28,6 +31,8 @@
   --hover-bg: #202021;
   --link: #70baff;
   --link-strong: #8ab4ff;
+  --link-hover: #a7d7ff;
+  --link-visited: #c4a7e7;
   --green: #74d4a0;
   --red: #ff787e;
   --code-string: var(--green);
